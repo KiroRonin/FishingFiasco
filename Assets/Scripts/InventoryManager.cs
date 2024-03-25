@@ -8,6 +8,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryMenu;
     private bool menuActivated;
     
+    //private GameObject currentSection = InventoryMenu.transform.GetChild(0).gameObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,7 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {
         /*
-        //code for activating and deactivating menu - STILL PENDING W. CONTROLS
+        //code for activating and deactivating ui - STILL PENDING W. CONTROLS
 
         if ([INSERT INPUT FOR TAB] && menuActivated){
             InventoryMenu.SetActive(false);
