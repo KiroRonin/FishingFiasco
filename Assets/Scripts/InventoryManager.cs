@@ -8,6 +8,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryMenu;
     private bool menuActivated;
     
+    
+
+    
     //private GameObject currentSection = InventoryMenu.transform.GetChild(0).gameObject;
 
 
