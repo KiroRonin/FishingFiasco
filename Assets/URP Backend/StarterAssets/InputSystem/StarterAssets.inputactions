@@ -220,54 +220,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "UI",
-            "id": "a6f6ef51-87f7-41e8-922c-e2df74656a74",
-            "actions": [
-                {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "07e76464-bedc-4826-8d9e-6855f3a2d927",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Index",
-                    "type": "Button",
-                    "id": "0c645abf-389f-41d7-a722-9a7f2130456a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "2069e320-e600-4a33-bcb0-fd781fde068c",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "201ee954-6da2-45e6-851d-826d65df6f0a",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Index",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": [

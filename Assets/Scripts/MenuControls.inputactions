@@ -1,0 +1,54 @@
+{
+    "name": "MenuControls",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "1ae80c5e-fcd2-46fb-8565-6995c5ed5033",
+            "actions": [
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "e6589b25-7455-4a50-b822-5548dc450533",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Index",
+                    "type": "Button",
+                    "id": "7808085e-2ecd-4c21-9b2c-46c1a843392a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cadd5be8-e624-4613-8301-a454bce18913",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "067d5a7a-e220-4235-aed6-b6ae9072aa39",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Index",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
