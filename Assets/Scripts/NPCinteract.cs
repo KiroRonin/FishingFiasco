@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCinteract : MonoBehaviour
 {
 
-
+    public GameObject interactMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -18,4 +18,18 @@ public class NPCinteract : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Player")){
+            interactMenu.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")){
+            interactMenu.SetActive(false);
+        }
+    }
+
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   fishName: fishy
   size: 10
   cost: 5
+  icon: {fileID: 21300000, guid: c2fa2a77e716b405c9315ca26267ea67, type: 3}

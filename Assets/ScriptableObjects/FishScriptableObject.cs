@@ -7,6 +7,6 @@ public class FishScriptableObject : ScriptableObject
     public int size = 10;
     public int cost = 5;
 
-    
+    public Sprite icon;
 
 }
