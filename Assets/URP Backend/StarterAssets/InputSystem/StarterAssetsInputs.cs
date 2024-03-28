@@ -12,6 +12,11 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool submit;
+		public bool interact;
+		public bool inventory;
+		public bool index;
+		public bool pause;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +48,28 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnSubmit(InputValue value)
+		{
+			SubmitInput(value.isPressed);
+		}
+
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
+
+		public void OnInventory(InputValue value){
+			InventoryInput(value.isPressed);
+		}
+
+		public void OnIndex(InputValue value){
+			IndexInput(value.isPressed);
+		}
+
+		public void OnPause(InputValue value){
+			PauseInput(value.isPressed);
+		}
 #endif
 
 
@@ -65,16 +92,42 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		
+
+		public void SubmitInput(bool newSubmitState)
+		{
+			submit = newSubmitState;
+		}
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
+		}
+		
+		public void InventoryInput(bool newInventoryState)
+		{
+			inventory = newInventoryState;
+		}
+
+		public void IndexInput(bool newIndexState)
+		{
+			index = newIndexState;
+		}
+
+		public void PauseInput(bool newPauseState)
+		{
+			pause = newPauseState;
 		}
 
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
+
 	}
 	
 }

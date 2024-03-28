@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading;
 using Cinemachine;
 using Microsoft.Unity.VisualStudio.Editor;
+using StarterAssets;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,21 +15,27 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private GameObject InventoryMenu;
     [SerializeField] private GameObject FishIndex;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private StarterAssetsInputs playerInput;
 
-    private bool inventoryActivated = false;
-    private bool indexActivated = false;
-    private bool pauseActivated = false;
+    private bool inventoryActivated;
+    private bool indexActivated;
+    private bool pauseActivated;
+    
+    private bool pressedOnceInv;
+    private bool pressedOnceInd;
+    private bool pressedOncePause;
 
     private GameObject starterIndex;
     private GameObject coralIndex;
     private GameObject undergroundIndex;
     private GameObject deepIndex;
+   
 
     [SerializeField] private CharacterController Player;
     [SerializeField] private CinemachineVirtualCamera Camera;
 
     
-    private MenuControls menuControls;
+    //private MenuControls menuControls;
     
     void Start()
     {
@@ -38,96 +45,120 @@ public class UIManagement : MonoBehaviour
         deepIndex = FishIndex.transform.GetChild(3).gameObject;
     }
 
-    private void Awake() {
-        menuControls = new MenuControls();
-    }
-
-    private void OnEnable() {
-        menuControls.Enable();
-
-        menuControls.UI.Inventory.performed += Inventory;
-        menuControls.UI.Index.performed += Index;
-        menuControls.UI.Pause.performed += Pause;
-    }
-
-    private void OnDisable() {
-        menuControls.Disable();
-
-        menuControls.UI.Inventory.performed -= Inventory;
-        menuControls.UI.Index.performed -= Index;
-        menuControls.UI.Pause.performed -= Pause;
-    }
 
     //INVENTORY MENU CODE
-    private void Inventory(InputAction.CallbackContext context){
-        Debug.Log("inventory open event");
-        if (inventoryActivated){
-            PlayerEnable();
+    private void OnInventory(){
+        if(playerInput.inventory && pressedOnceInv == false){
+            if (!inventoryActivated && !indexActivated && !pauseActivated){
+                PlayerDisable();
 
-            InventoryMenu.SetActive(false);
-            inventoryActivated = false;
-            Debug.Log("inventory closed");
-        }
-        else if (!inventoryActivated && !indexActivated && !pauseActivated){
-            PlayerDisable();
+                InventoryMenu.SetActive(true);
+                inventoryActivated = true;
 
-            InventoryMenu.SetActive(true);
-            inventoryActivated = true;
-            Debug.Log("inventory opened");
+            }    
+            else if(inventoryActivated){
             
+                Debug.Log("inventory open event");
+            
+                PlayerEnable();
+
+                InventoryMenu.SetActive(false);
+                inventoryActivated = false;
+
+                Debug.Log("inventory closed");
+            }
+            pressedOnceInv = true;
         }
-
-
+        else if(playerInput.inventory == false){
+            pressedOnceInv =false;
+        }
     }
     //INDEX MENU CODE
-    private void Index(InputAction.CallbackContext context){
-        Debug.Log("inventory open event");
-        if (indexActivated){
-            PlayerEnable();
+        private void OnIndex(){
+        if(playerInput.index && pressedOnceInd == false){
+            if (!indexActivated && !inventoryActivated && !pauseActivated){
+                PlayerDisable();
 
-            FishIndex.SetActive(false);
-            indexActivated = false;
-            Debug.Log("index closed");
-          
+                FishIndex.SetActive(true);
+                indexActivated = true;
 
+            }    
+            else if(indexActivated){
+            
+                Debug.Log("inventory open event");
+            
+                PlayerEnable();
+
+                FishIndex.SetActive(false);
+                indexActivated = false;
+
+                Debug.Log("inventory closed");
+            }
+            pressedOnceInd = true;
         }
-        else if (!indexActivated && !inventoryActivated && !pauseActivated){
-            PlayerDisable();
-
-            FishIndex.SetActive(true);
-            indexActivated = true;
-            Debug.Log("index opened");
-        
-
+        else if(playerInput.index == false){
+            pressedOnceInd =false;
         }
-    }
+    } 
 
     //PAUSE MENU CODE
-    private void Pause(InputAction.CallbackContext context){
-        Debug.Log("pause open event");
-        if (pauseActivated){
-            PlayerEnable();
+    private void OnPause(){
+        if(playerInput.pause && pressedOncePause == false){
+            if (!pauseActivated && !inventoryActivated && !indexActivated){
+                PlayerDisable();
 
-            PauseMenu.SetActive(false);
-            pauseActivated = false;
-            Debug.Log("pause closed");
+                PauseMenu.SetActive(true);
+                pauseActivated = true;
 
+            }    
+            else if(pauseActivated){
+            
+                Debug.Log("inventory open event");
+            
+                PlayerEnable();
 
-            Time.timeScale = 1;
+                PauseMenu.SetActive(false);
+                pauseActivated = false;
+
+                Debug.Log("inventory closed");
+            }
+            pressedOncePause = true;
         }
-        else if (!pauseActivated && !indexActivated && !inventoryActivated){
-            PlayerDisable();
-
-            PauseMenu.SetActive(true);
-            pauseActivated = true;
-            Debug.Log("pause opened");
-           
-
-            Time.timeScale = 0;
+        else if(playerInput.pause == false){
+            pressedOncePause =false;
         }
+    } 
 
+    //TEST CONDENSED CODE
+    /*
+    private void OnMenuChange(string menuType){
+        if(playerInput.menuType && pressedOnce(menuType) == false){
+            if (!pauseActivated && !inventoryActivated && !indexActivated){
+                PlayerDisable();
 
-    }
+                PauseMenu.SetActive(true);
+                pauseActivated = true;
+
+            }    
+            else if(pauseActivated){
+            
+                Debug.Log("inventory open event");
+            
+                PlayerEnable();
+
+                PauseMenu.SetActive(false);
+                pauseActivated = false;
+
+                Debug.Log("inventory closed");
+            }
+            pressedOncePause = true;
+        }
+        else if(playerInput.pause == false){
+            pressedOncePause =false;
+        }
+    } 
+    */
+
 
     //FISH INDEX MENUS
     
@@ -195,6 +226,7 @@ public class UIManagement : MonoBehaviour
     void PlayerDisable(){
         Player.enabled = false;
         Camera.enabled = false;
+        //playerInput.look.
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -202,6 +234,9 @@ public class UIManagement : MonoBehaviour
 
     void Update()
     {
-        
+        OnInventory();
+        OnIndex();
+        OnPause();
     }
+
 }

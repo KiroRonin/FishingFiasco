@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Update()
     {
-        if (starterAssetsInputs.submit)
+        if (starterAssetsInputs.submit && currentStory!=null)
         {
             ContinueStory();
             starterAssetsInputs.submit = false;
@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         player.enabled = true;
         GameObject myEventSystem = GameObject.Find("UI_EventSystem");
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
+        //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(choices[0]);
     }
 
     private void ContinueStory()
