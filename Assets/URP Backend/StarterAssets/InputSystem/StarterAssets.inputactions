@@ -40,6 +40,51 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "d1e7ef1a-f615-4fe9-9171-d2a7c4c6cf0e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "75263d83-7575-4cf4-9b62-e355f09f6601",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "a92ba161-2740-464e-a950-d52cc24d7621",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Index",
+                    "type": "Button",
+                    "id": "a09dc8b0-d4c9-46b8-9f6a-74ada5eb1e49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "f014497a-5f51-4425-b676-52cbe62bc5c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -218,47 +263,34 @@
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "179b6bd9-4195-4a16-ac8a-a68a83fc8047",
-            "actions": [
-                {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "641edc17-c839-43f3-b02f-e97742cf7bff",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
-                {
-                    "name": "Index",
-                    "type": "Button",
-                    "id": "45a254de-ccc1-4128-bc41-d0a3ac401255",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "03fccc05-5b76-4a64-8a30-08fa6e64c234",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "d981621c-1ca3-44e1-9bf1-f43576f91e69",
-                    "path": "<Keyboard>/tab",
+                    "id": "57ba8f15-a5fe-4f67-be19-c6deece23e12",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47bda00b-fa48-4bea-a910-25195df91ef0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5aa9db8-d65c-42c5-8f9d-d8750ee14293",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
@@ -267,9 +299,9 @@
                 },
                 {
                     "name": "",
-                    "id": "4ac04afb-597d-455a-8ba6-d793c061d9f4",
+                    "id": "ddd45fcf-7260-42aa-9d99-9576a4dab43f",
                     "path": "<Keyboard>/p",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Index",
@@ -278,9 +310,9 @@
                 },
                 {
                     "name": "",
-                    "id": "551d25b4-f140-4b0b-a8af-23b29ebb5cc1",
+                    "id": "3484af3e-38da-44bf-922a-4af70c1d9236",
                     "path": "<Keyboard>/escape",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
@@ -288,6 +320,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "179b6bd9-4195-4a16-ac8a-a68a83fc8047",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
