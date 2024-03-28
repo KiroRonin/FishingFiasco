@@ -130,57 +130,58 @@ public class UIManagement : MonoBehaviour
     }
 
     //FISH INDEX MENUS
-    /*
+    
     public void ChangeIndex(string objectName){
         var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>();
         foreach(UnityEngine.UI.Image item in indexChildren){
             print(item.gameObject.name);
-            if(item.gameObject.name==objectName && item.gameObject.tag == "Index"){
+            print(objectName);
+            if(item.gameObject.name==objectName && item.gameObject.tag == "Index" || item.gameObject.tag == "Button"){
                 item.gameObject.SetActive(true);
-                Debug.Log(objectName + " enabled");
+                Debug.Log(item.gameObject.name+ " enabled");
             }
-           /* else if(item.gameObject.name!=objectName && item.gameObject.tag == "Index"){
+           else if(item.gameObject.name!=objectName && item.gameObject.tag != "Button"){
                 item.gameObject.SetActive(false);
             }
 
         } 
     }
-    */
+    
     
     public void OpenStarterIndex(){
-        //ChangeIndex("FishIndexMenu_Starter");
-        starterIndex.SetActive(true);
-        coralIndex.SetActive(false);
-        undergroundIndex.SetActive(false);
-        deepIndex.SetActive(false);
+        ChangeIndex("FishIndexMenu_Starter");
+        //starterIndex.SetActive(true);
+        //coralIndex.SetActive(false);
+        //undergroundIndex.SetActive(false);
+        //deepIndex.SetActive(false);
     }
 
     public void OpenCoralIndex(){
-        //ChangeIndex("FishIndexMenu_Coral");
-        //print("helloe");
-        starterIndex.SetActive(false);
-        coralIndex.SetActive(true);
-        undergroundIndex.SetActive(false);
-        deepIndex.SetActive(false);
+        ChangeIndex("FishIndexMenu_Coral");
+        ///print("helloe");
+        //starterIndex.SetActive(false);
+        //coralIndex.SetActive(true);
+        //undergroundIndex.SetActive(false);
+        //deepIndex.SetActive(false);
     }
 
     public void OpenUndergroundIndex(){
-        //ChangeIndex("FishIndexMenu_Underground");
-        starterIndex.SetActive(false);
-        coralIndex.SetActive(false);
-        undergroundIndex.SetActive(true);
-        deepIndex.SetActive(false);
+        ChangeIndex("FishIndexMenu_Underground");
+        //starterIndex.SetActive(false);
+        //coralIndex.SetActive(false);
+        //undergroundIndex.SetActive(true);
+        //deepIndex.SetActive(false);
     }
 
     public void OpenDeepIndex(){
-        //ChangeIndex("FishIndexMenu_Deep");
-        starterIndex.SetActive(false);
-        coralIndex.SetActive(false);
-        undergroundIndex.SetActive(false);
-        deepIndex.SetActive(true);
+        ChangeIndex("FishIndexMenu_Deep");
+        //starterIndex.SetActive(false);
+        //coralIndex.SetActive(false);
+        //undergroundIndex.SetActive(false);
+        //deepIndex.SetActive(true);
 
     }
-
+    
 
 
     void PlayerEnable(){
