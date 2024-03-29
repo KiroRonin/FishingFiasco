@@ -110,17 +110,17 @@ public class UIManagement : MonoBehaviour
                 PauseMenu.SetActive(true);
                 pauseActivated = true;
 
+                Time.timeScale = 0;
+
             }    
             else if(pauseActivated){
-            
-                Debug.Log("inventory open event");
             
                 PlayerEnable();
 
                 PauseMenu.SetActive(false);
                 pauseActivated = false;
 
-                Debug.Log("inventory closed");
+                Time.timeScale = 1;
             }
             pressedOncePause = true;
         }

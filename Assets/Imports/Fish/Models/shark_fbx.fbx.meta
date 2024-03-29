@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e36d556caf1c841ddbea7e2c57a3edd0
+guid: a08dfe90e5e3844daad3e855169f7721
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: fish
-    second: {fileID: 2100000, guid: cf6ba3298b0254ba7bca69cb32ea45b0, type: 2}
+      name: sharkTexture
+    second: {fileID: 2100000, guid: 6c7facfefa2944ac69f8c2f59d9b367d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,7 +53,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -83,7 +83,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
