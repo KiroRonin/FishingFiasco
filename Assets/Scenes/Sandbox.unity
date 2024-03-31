@@ -27845,6 +27845,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7537253151379704074, guid: e5f99503ea0a64a769900585f32098e8,
+        type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8610490801428524423, guid: e5f99503ea0a64a769900585f32098e8,
         type: 3}
       propertyPath: FishIndex
