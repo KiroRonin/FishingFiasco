@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cinemachine;
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
 using UnityEditor.Rendering;
 using UnityEngine;
