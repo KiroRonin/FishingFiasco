@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cinemachine;
-//using Microsoft.Unity.VisualStudio.Editor;
+using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -162,16 +162,14 @@ public class UIManagement : MonoBehaviour
 
     //FISH INDEX MENUS
     
-    public void ChangeIndex(string objectName){
-        var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>();
+    public void ChangeIndex(string objectName, string tag){
+        var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>(true);
         foreach(UnityEngine.UI.Image item in indexChildren){
-            print(item.gameObject.name);
-            print(objectName);
-            if(item.gameObject.name==objectName && item.gameObject.tag == "Index" || item.gameObject.tag == "Button"){
+            if(item.gameObject.tag == tag){
                 item.gameObject.SetActive(true);
                 Debug.Log(item.gameObject.name+ " enabled");
             }
-           else if(item.gameObject.name!=objectName && item.gameObject.tag != "Button"){
+          else if(item.gameObject.tag!=tag && item.gameObject.tag!="Button"){
                 item.gameObject.SetActive(false);
             }
 
@@ -180,7 +178,7 @@ public class UIManagement : MonoBehaviour
     
     
     public void OpenStarterIndex(){
-        ChangeIndex("FishIndexMenu_Starter");
+        ChangeIndex("FishIndexMenu_Starter","Starter");
         //starterIndex.SetActive(true);
         //coralIndex.SetActive(false);
         //undergroundIndex.SetActive(false);
@@ -188,7 +186,8 @@ public class UIManagement : MonoBehaviour
     }
 
     public void OpenCoralIndex(){
-        ChangeIndex("FishIndexMenu_Coral");
+        ChangeIndex("FishIndexMenu_Coral", "Coral");
+        print("huh");
         ///print("helloe");
         //starterIndex.SetActive(false);
         //coralIndex.SetActive(true);
@@ -197,7 +196,7 @@ public class UIManagement : MonoBehaviour
     }
 
     public void OpenUndergroundIndex(){
-        ChangeIndex("FishIndexMenu_Underground");
+        ChangeIndex("FishIndexMenu_Underground","Underground");
         //starterIndex.SetActive(false);
         //coralIndex.SetActive(false);
         //undergroundIndex.SetActive(true);
@@ -205,7 +204,7 @@ public class UIManagement : MonoBehaviour
     }
 
     public void OpenDeepIndex(){
-        ChangeIndex("FishIndexMenu_Deep");
+        ChangeIndex("FishIndexMenu_Deep","Deep");
         //starterIndex.SetActive(false);
         //coralIndex.SetActive(false);
         //undergroundIndex.SetActive(false);
@@ -213,7 +212,6 @@ public class UIManagement : MonoBehaviour
 
     }
     
-
 
     void PlayerEnable(){
         Player.enabled = true;
@@ -240,3 +238,4 @@ public class UIManagement : MonoBehaviour
     }
 
 }
+

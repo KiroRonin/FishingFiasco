@@ -11238,7 +11238,7 @@ GameObject:
   - component: {fileID: 152418659}
   m_Layer: 5
   m_Name: FishIndexMenu_Deep
-  m_TagString: Index
+  m_TagString: Deep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12153,7 +12153,7 @@ GameObject:
   - component: {fileID: 245994897}
   m_Layer: 5
   m_Name: FishSlots
-  m_TagString: Untagged
+  m_TagString: Underground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12469,7 +12469,7 @@ GameObject:
   - component: {fileID: 313121049}
   m_Layer: 5
   m_Name: Slot (1)
-  m_TagString: Untagged
+  m_TagString: Underground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13341,7 +13341,7 @@ GameObject:
   - component: {fileID: 429077436}
   m_Layer: 5
   m_Name: Slot (1)
-  m_TagString: Untagged
+  m_TagString: Starter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13560,7 +13560,7 @@ GameObject:
   - component: {fileID: 447062377}
   m_Layer: 5
   m_Name: FishSlots
-  m_TagString: Untagged
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14163,7 +14163,7 @@ GameObject:
   - component: {fileID: 581009524}
   m_Layer: 5
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: Underground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14238,7 +14238,7 @@ GameObject:
   - component: {fileID: 593652549}
   m_Layer: 5
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: Deep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14521,7 +14521,7 @@ GameObject:
   - component: {fileID: 630707732}
   m_Layer: 5
   m_Name: Slot (1)
-  m_TagString: Untagged
+  m_TagString: Deep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15228,7 +15228,7 @@ GameObject:
   - component: {fileID: 718531468}
   m_Layer: 5
   m_Name: FishIndexMenu_Underground
-  m_TagString: Index
+  m_TagString: Underground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15999,7 +15999,7 @@ GameObject:
   - component: {fileID: 798983684}
   m_Layer: 5
   m_Name: FishIndexMenu_Coral
-  m_TagString: Index
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16428,7 +16428,7 @@ GameObject:
   - component: {fileID: 847543383}
   m_Layer: 5
   m_Name: FishSlots
-  m_TagString: Untagged
+  m_TagString: Starter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16721,7 +16721,7 @@ GameObject:
   - component: {fileID: 872026606}
   m_Layer: 0
   m_Name: Buttons
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17892,7 +17892,7 @@ GameObject:
   - component: {fileID: 1050986201}
   m_Layer: 5
   m_Name: FishIndexMenu_Starter
-  m_TagString: Index
+  m_TagString: Starter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18075,7 +18075,7 @@ GameObject:
   - component: {fileID: 1058385164}
   m_Layer: 5
   m_Name: 'Underground_Button '
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19219,7 +19219,7 @@ GameObject:
   - component: {fileID: 1173660633}
   m_Layer: 5
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: Starter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19480,7 +19480,7 @@ GameObject:
   - component: {fileID: 1192188024}
   m_Layer: 5
   m_Name: 'Coral_Button '
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20479,7 +20479,7 @@ GameObject:
   - component: {fileID: 1312600128}
   m_Layer: 5
   m_Name: Deep_Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22132,7 +22132,7 @@ GameObject:
   - component: {fileID: 1482834443}
   m_Layer: 5
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25615,7 +25615,7 @@ GameObject:
   - component: {fileID: 1846035854}
   m_Layer: 5
   m_Name: FishSlots
-  m_TagString: Untagged
+  m_TagString: Deep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26376,7 +26376,7 @@ GameObject:
   - component: {fileID: 1986981544}
   m_Layer: 5
   m_Name: Slot (1)
-  m_TagString: Untagged
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26452,7 +26452,7 @@ GameObject:
   - component: {fileID: 2006618113}
   m_Layer: 5
   m_Name: Starter_Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,6 +7,11 @@ TagManager:
   - CinemachineTarget
   - Index
   - Fish
+  - Starter
+  - Coral
+  - Deep
+  - Underground
+  - Button
   layers:
   - Default
   - TransparentFX
