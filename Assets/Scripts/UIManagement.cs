@@ -35,8 +35,6 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera Camera;
 
     
-    //private MenuControls menuControls;
-    
     void Start()
     {
         starterIndex = FishIndex.transform.GetChild(0).gameObject;
@@ -179,36 +177,19 @@ public class UIManagement : MonoBehaviour
     
     public void OpenStarterIndex(){
         ChangeIndex("FishIndexMenu_Starter","Starter");
-        //starterIndex.SetActive(true);
-        //coralIndex.SetActive(false);
-        //undergroundIndex.SetActive(false);
-        //deepIndex.SetActive(false);
     }
 
     public void OpenCoralIndex(){
         ChangeIndex("FishIndexMenu_Coral", "Coral");
         print("huh");
-        ///print("helloe");
-        //starterIndex.SetActive(false);
-        //coralIndex.SetActive(true);
-        //undergroundIndex.SetActive(false);
-        //deepIndex.SetActive(false);
     }
 
     public void OpenUndergroundIndex(){
         ChangeIndex("FishIndexMenu_Underground","Underground");
-        //starterIndex.SetActive(false);
-        //coralIndex.SetActive(false);
-        //undergroundIndex.SetActive(true);
-        //deepIndex.SetActive(false);
     }
 
     public void OpenDeepIndex(){
         ChangeIndex("FishIndexMenu_Deep","Deep");
-        //starterIndex.SetActive(false);
-        //coralIndex.SetActive(false);
-        //undergroundIndex.SetActive(false);
-        //deepIndex.SetActive(true);
 
     }
     
@@ -217,6 +198,7 @@ public class UIManagement : MonoBehaviour
         Player.enabled = true;
         Camera.enabled = true;
 
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -224,7 +206,6 @@ public class UIManagement : MonoBehaviour
     void PlayerDisable(){
         Player.enabled = false;
         Camera.enabled = false;
-        //playerInput.look.
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

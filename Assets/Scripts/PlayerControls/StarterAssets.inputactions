@@ -320,12 +320,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "UI",
-            "id": "179b6bd9-4195-4a16-ac8a-a68a83fc8047",
-            "actions": [],
-            "bindings": []
         }
     ],
     "controlSchemes": [
