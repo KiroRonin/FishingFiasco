@@ -64,9 +64,10 @@ public class FishingMiniGame : MonoBehaviour
 
     void hook()
     {
-        if (playerinputs.interact)
+        if (playerinputs.interact && )
         {
             hookPullVelocity += hookpullpower * Time.deltaTime;
+            Debug.Log("fish reeling in");
 
         }
 
