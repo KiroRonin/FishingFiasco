@@ -207,6 +207,8 @@ public class UIManagement : MonoBehaviour
         Player.enabled = false;
         Camera.enabled = false;
 
+
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
