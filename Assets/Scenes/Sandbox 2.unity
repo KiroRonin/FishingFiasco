@@ -12821,8 +12821,15 @@ MonoBehaviour:
   TPivot: {fileID: 1960115823}
   BPivot: {fileID: 375149406}
   Fish: {fileID: 1354344393}
-  timerMultiplier: 1
+  timerMultiplier: 8
   smoothmotion: 1
+  Hook: {fileID: 0}
+  hooksize: 0.1
+  hookpower: 0.5
+  hookpullpower: 0.01
+  hookGravitypower: 0.005
+  hookprogressloss: 0.1
+  playerinputs: {fileID: 1961024104}
 --- !u!1 &594081768
 GameObject:
   m_ObjectHideFlags: 0
@@ -22525,9 +22532,27 @@ MonoBehaviour:
   InventoryMenu: {fileID: 595339416}
   FishIndex: {fileID: 855036886}
   PauseMenu: {fileID: 0}
-  playerInput: {fileID: 0}
-  Player: {fileID: 0}
+  playerInput: {fileID: 1961024104}
+  Player: {fileID: 1961024107}
   Camera: {fileID: 0}
+--- !u!114 &1961024104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5420857361349278248, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492012772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961024087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &1961024107 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8616685848737228382, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492012772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1975690012
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FishingMiniGame : MonoBehaviour
 {
@@ -30,15 +31,15 @@ public class FishingMiniGame : MonoBehaviour
 
     [SerializeField] StarterAssetsInputs playerinputs;
 
-    private void OnEnable()
-    {
-        playerinputs.enabled = true;
-    }
+    //private void OnEnable()
+    //{
+    //    playerinputs.enabled = true;
+    //}
 
-    private void OnDisable()
-    {
-        playerinputs.enabled = false;   
-    }
+    //private void OnDisable()
+    //{
+    //    playerinputs.enabled = false;   
+    //}
 
 
     void Update()
@@ -64,13 +65,23 @@ public class FishingMiniGame : MonoBehaviour
 
     void hook()
     {
-        if (playerinputs.interact && )
+        if (playerinputs.interact && pressedOnceFishing == false)
         {
             hookPullVelocity += hookpullpower * Time.deltaTime;
             Debug.Log("fish reeling in");
+            pressedOnceFishing = true;
+            print("fishing true");
 
+        }
+        else if (!playerinputs.interact)
+        {
+            pressedOnceFishing = false;
+            print("fishing false");
         }
 
 
     }
+    private bool pressedOnceFishing =false;
+
+ 
 }
