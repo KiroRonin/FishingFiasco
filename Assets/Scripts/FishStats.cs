@@ -10,6 +10,9 @@ public class FishStats : MonoBehaviour
     public int grouper;
     public int shark;
 
+    public int currentFishAmount;
+    public int maxInventory = 5;
+
      public void Awake()
     {
         if(Instance == null)
@@ -39,11 +42,12 @@ public class FishStats : MonoBehaviour
         }
     }
 
-    public void setFishStats(int carp, int grouper, int shark)
+    public void setFishStats(int carp, int grouper, int shark, int currentFishAmount)
     {
         this.carp = carp;
         this.grouper = grouper;
         this.shark = shark;
+        this.currentFishAmount = currentFishAmount;
 
     }
 }

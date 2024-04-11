@@ -5,6 +5,7 @@ using System.Threading;
 using Cinemachine;
 using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private GameObject FishIndex;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private StarterAssetsInputs playerInput;
+    [SerializeField] private Camera mainCamera;
 
     private bool inventoryActivated;
     private bool indexActivated;
@@ -195,22 +197,29 @@ public class UIManagement : MonoBehaviour
     
 
     void PlayerEnable(){
-        Player.enabled = true;
-        Camera.enabled = true;
-
-
+        Vector2 screenPosition = new Vector2(0,0);
+        Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
+       
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //Player.enabled = true;
+        //Camera.enabled = true;
+
+        GetComponent<FirstPersonController>().enabled = true;
     }
 
     void PlayerDisable(){
-        Player.enabled = false;
-        Camera.enabled = false;
-
-
-
+        Vector2 screenPosition = new Vector2(0,0);
+        Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        //Player.enabled = false;
+        //Camera.enabled = false;
+
+        GetComponent<FirstPersonController>().enabled = false;
     }
 
     void Update()

@@ -6,7 +6,6 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    //public FishStats fishStats;
 
     public void Awake()
     {
@@ -30,9 +29,9 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         string json = JsonUtility.ToJson(FishStats.Instance);
-        print(FishStats.Instance.carp);
         Debug.Log("Data Saved");
         Debug.Log(json);
+
 
         using (StreamWriter writer = new StreamWriter(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json"))
         {
