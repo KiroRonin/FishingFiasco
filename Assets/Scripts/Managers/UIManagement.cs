@@ -74,7 +74,7 @@ public class UIManagement : MonoBehaviour
         }
     }
     //INDEX MENU CODE
-        private void OnIndex(){
+    private void OnIndex(){
         if(playerInput.index && pressedOnceInd == false){
             if (!indexActivated && !inventoryActivated && !pauseActivated){
                 PlayerDisable();
@@ -196,7 +196,7 @@ public class UIManagement : MonoBehaviour
     }
     
 
-    void PlayerEnable(){
+    public void PlayerEnable(){
         Vector2 screenPosition = new Vector2(0,0);
         Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
        
@@ -209,7 +209,7 @@ public class UIManagement : MonoBehaviour
         GetComponent<FirstPersonController>().enabled = true;
     }
 
-    void PlayerDisable(){
+    public void PlayerDisable(){
         Vector2 screenPosition = new Vector2(0,0);
         Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
         

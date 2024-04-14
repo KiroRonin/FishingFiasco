@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         string json = JsonUtility.ToJson(FishStats.Instance);
-        Debug.Log("Data Saved");
+        //Debug.Log("Data Saved");
         Debug.Log(json);
 
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
 
         JsonUtility.FromJsonOverwrite(json,FishStats.Instance);
-        Debug.Log("Data Loaded");
+        //Debug.Log("Data Loaded");
         Debug.Log(json);
     }
 }

@@ -25,15 +25,22 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    //ADDS FISH TO INV WHEN COLLIDING; CHANGE LATER TO ALLIGN WITH THE FISHING MINIGAME!!
     public void OnTriggerEnter(Collider other) {
         var fish = other.GetComponent<Fish>();
-        print("picked up");
+
         if (fish){
             if(inventoryCount < inventorySize){
                 inventory.AddFish(fish.fish, 1);
-                Destroy(other.gameObject);
                 inventoryCount++;
-                print(inventoryCount);
+
+                FishStats.Instance.increaseFishValue(other.gameObject.GetComponent<Fish>().fish.Id);
+                FishStats.Instance.currentFishAmount = inventoryCount;
+            
+                Destroy(other.gameObject);
+
+                GameManager.Instance.SaveData();
+                print("ADDING TO INVENTORY:" + inventoryCount + "/" + inventorySize);
             }
             
         }

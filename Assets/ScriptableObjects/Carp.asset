@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Carp
   m_EditorClassIdentifier: 
   Id: 0
-  fishName: Carp
+  fishName: Sea Carp
   size: 10
+  fishDescription: a simple carp. nothing special 'bout it. ain't even a c+....
   prefabDisplay: {fileID: 8589687734628504517, guid: b50922c67dca94adf8b3f7329128de8b,
     type: 3}

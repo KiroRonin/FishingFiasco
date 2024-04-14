@@ -8,11 +8,12 @@ public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject inventory;
 
+    public int NUMBER_OF_COLUMN;
+
     public int X_START;
     public int Y_START;
 
     public int X_SPACE_BETWEEN_ITEM;
-    public int NUMBER_OF_COLUMN;
     public int Y_SPACE_BETWEEN_ITEM;
 
     Dictionary<InventorySlot, GameObject> fishDisplayed = new Dictionary<InventorySlot, GameObject>();

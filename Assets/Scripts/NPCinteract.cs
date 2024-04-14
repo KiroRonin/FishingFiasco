@@ -11,7 +11,9 @@ public class NPCinteract : MonoBehaviour
     [SerializeField] private StarterAssetsInputs playerInput;
     [SerializeField] private FirstPersonController player;
 
-    private bool pressedOnceInteract;
+
+    private bool pressedOnceTrade;
+    private bool tradeActivated;
     
 
     // Start is called before the first frame update
@@ -23,13 +25,14 @@ public class NPCinteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Player")){
             interactMenu.SetActive(true);
             OnTrade();
+            
 
         }
     }
@@ -43,17 +46,40 @@ public class NPCinteract : MonoBehaviour
     }
 
     private void OnTrade(){
-        if (playerInput.interact && pressedOnceInteract == false){
-            print("interacted");
-            tradeMenu.SetActive(true);
+        if(playerInput.interact && pressedOnceTrade == false){
+            if (!tradeActivated){
+                PlayerDisable();
 
-            pressedOnceInteract = true;
-            player.enabled = false;
+                tradeMenu.SetActive(true);
+                tradeActivated = true;
+
+            }    
+            else if(tradeActivated){
+            
+                Debug.Log("inventory open event");
+            
+                PlayerEnable();
+
+                tradeMenu.SetActive(false);
+                tradeActivated = false;
+
+                Debug.Log("inventory closed");
+            }
+            pressedOnceTrade = true;
         }
         else if(playerInput.interact == false){
-            pressedOnceInteract = false;
+            pressedOnceTrade =false;
         }
+    } 
 
+    void PlayerDisable(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    void PlayerEnable(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }
