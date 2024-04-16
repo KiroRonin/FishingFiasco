@@ -20,6 +20,9 @@ public class FishingRod : MonoBehaviour
     private LineRenderer lineRenderer;
 
     public GameObject FishingMinigame;
+    public GameObject rope;
+    public GameObject bait;
+
     //public FishingMiniGame fishingminigamecode;
 
 
@@ -29,10 +32,13 @@ public class FishingRod : MonoBehaviour
         animator = GetComponent<Animator>();
         isEquipped = true;
         FishingMinigame.SetActive(false);
+        
     }
 
     void Update()
     {
+        rope = GameObject.Find("Rope(Clone)");
+        bait = GameObject.Find("Bait(Clone)");
         if (isEquipped)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -82,14 +88,14 @@ public class FishingRod : MonoBehaviour
         player.PlayerDisable();
         animator.SetTrigger("Cast");
 
-        // Create a delay between the animation and when the bait appears in the water
+        
         yield return new WaitForSeconds(1f);
 
         GameObject instantiatedBait = Instantiate(baitPrefab);
         instantiatedBait.transform.position = targetPosition;
         baitPosition = instantiatedBait.transform;
 
-        // Instantiate the line prefab and get the LineRenderer component
+ 
         GameObject lineInstance = Instantiate(linePrefab, start_of_rod.transform.position, Quaternion.identity);
         lineRenderer = lineInstance.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, start_of_rod.transform.position);

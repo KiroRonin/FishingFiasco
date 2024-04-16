@@ -14,7 +14,7 @@ public class FishingMiniGame : MonoBehaviour
     float fishdestination;
     float fishTimer;
 
-    [SerializeField] float timerMultiplier = 3f;
+    [SerializeField] float timerMultiplier = 1f;
 
     float fishspeed;
     [SerializeField] float smoothmotion = 1f;
@@ -22,14 +22,16 @@ public class FishingMiniGame : MonoBehaviour
     [SerializeField] Transform Hook;
     float hookpos;
     [SerializeField] float hooksize = 0.1f;
-    [SerializeField] float hookpower = 0.5f;
+    [SerializeField] float hookpower = 0.1f;
     float hookprogress;
+    float timeprogress = 1f;
     float hookPullVelocity;
     [SerializeField] float hookpullpower = 0.01f;
     [SerializeField] float hookGravitypower = 0.005f;
     [SerializeField] float hookprogressloss = 0.1f;
 
     [SerializeField] Transform progressbarcontainer;
+    [SerializeField] Transform timerbarcontainer;
 
     [SerializeField] StarterAssetsInputs playerinputs;
 
@@ -37,6 +39,7 @@ public class FishingMiniGame : MonoBehaviour
     bool pause = false;
 
     [SerializeField] float failtime = 10f;
+
 
     //private void OnEnable()
     //{
@@ -47,6 +50,11 @@ public class FishingMiniGame : MonoBehaviour
     //{
     //    playerinputs.enabled = false;   
     //}
+
+    private void Start()
+    {
+        failtime = 10f;
+    }
 
 
     void Update()
@@ -102,6 +110,13 @@ public class FishingMiniGame : MonoBehaviour
         Vector3 ls = progressbarcontainer.localScale;
         ls.x = hookprogress;
         progressbarcontainer.localScale = ls;
+
+        Vector3 tls = timerbarcontainer.localScale;
+        tls.x = timeprogress;
+        timerbarcontainer.localScale = tls;
+        
+        
+
         float min = hookpos - hooksize / 2;
         float max = hookpos + hooksize / 2;
         
@@ -113,7 +128,12 @@ public class FishingMiniGame : MonoBehaviour
         {
             hookprogress -= hookprogressloss * Time.deltaTime;
 
+            
             failtime -= Time.deltaTime;
+            timeprogress -= failtime * Time.deltaTime / 100f * 2f;
+            Debug.Log(timeprogress);
+            
+            
             if (failtime < 0f)
             {
                 Lose();
@@ -126,9 +146,10 @@ public class FishingMiniGame : MonoBehaviour
             Win();
         }
         hookprogress = Mathf.Clamp(hookprogress, 0f, 1f);
+        timeprogress = Mathf.Clamp(timeprogress, 0f, 1f);
     }
 
-    private void Win()
+    public void Win()
     {
         pause = true;
         fishingrod.isCasted = false;
@@ -137,9 +158,16 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.animator.SetBool("IsMinigame", false);
         fishingrod.FishingMinigame.SetActive(false);
         fishingrod.player.PlayerEnable();
+        failtime = 10f;
+        hookprogress = 0;
+        timeprogress = 1f;
+        Destroy(fishingrod.rope);
+        Destroy(fishingrod.bait);
+
+
     }
 
-    private void Lose()
+    public void Lose()
     {
         pause = false;
         fishingrod.isCasted = false;
@@ -147,7 +175,12 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
         fishingrod.FishingMinigame.SetActive(false);
+        Destroy(fishingrod.bait);
+        Destroy(fishingrod.rope);
         fishingrod.player.PlayerEnable();
+        failtime = 10f;
+        hookprogress = 0;
+        timeprogress = 1f;
     }
  
 }
