@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
-  m_Name: ReefShark
+  m_Name: Blindfish
   m_EditorClassIdentifier: 
-  Id: 2
-  fishName: Reef Shark
+  Id: 3
+  fishName: Blindfish
   size: 10
-  prefabDisplay: {fileID: 2377955842357947550, guid: cf5304fb006e94ca198ff20ad448e750,
+  fishDescription: 
+  prefabDisplay: {fileID: 5595847497003245000, guid: 29da8e620f8274fc3a8a4cf7a6254521,
     type: 3}

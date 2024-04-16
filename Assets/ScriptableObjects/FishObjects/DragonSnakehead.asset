@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
-  m_Name: Carp
+  m_Name: DragonSnakehead
   m_EditorClassIdentifier: 
-  Id: 0
-  fishName: Carp
+  Id: 5
+  fishName: Dragon Snakehead
   size: 10
-  prefabDisplay: {fileID: 8589687734628504517, guid: b50922c67dca94adf8b3f7329128de8b,
+  fishDescription: 
+  prefabDisplay: {fileID: 5595847497003245000, guid: d82f3da81eb8a499c90133739f3627d6,
     type: 3}

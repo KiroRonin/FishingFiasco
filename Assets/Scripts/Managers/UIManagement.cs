@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cinemachine;
+using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +17,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private GameObject FishIndex;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private StarterAssetsInputs playerInput;
+    [SerializeField] private Camera mainCamera;
 
     private bool inventoryActivated;
     private bool indexActivated;
@@ -42,6 +45,12 @@ public class UIManagement : MonoBehaviour
         deepIndex = FishIndex.transform.GetChild(3).gameObject;
     }
 
+    void Update()
+    {
+        OnInventory();
+        OnIndex();
+        OnPause();
+    }
 
     //INVENTORY MENU CODE
     private void OnInventory(){
@@ -71,13 +80,14 @@ public class UIManagement : MonoBehaviour
         }
     }
     //INDEX MENU CODE
-        private void OnIndex(){
+    private void OnIndex(){
         if(playerInput.index && pressedOnceInd == false){
             if (!indexActivated && !inventoryActivated && !pauseActivated){
                 PlayerDisable();
 
                 FishIndex.SetActive(true);
                 indexActivated = true;
+
 
             }    
             else if(indexActivated){
@@ -194,32 +204,32 @@ public class UIManagement : MonoBehaviour
     
 
     public void PlayerEnable(){
-        Player.enabled = true;
-        Camera.enabled = true;
-
-
+        Vector2 screenPosition = new Vector2(0,0);
+        Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
+       
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
 
-   
+        //Player.enabled = true;
+        //Camera.enabled = true;
+
+        GetComponent<FirstPersonController>().enabled = true;
+    }
 
     public void PlayerDisable(){
-        Player.enabled = false;
-        Camera.enabled = false;
-
-
-
+        Vector2 screenPosition = new Vector2(0,0);
+        Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        //Player.enabled = false;
+        //Camera.enabled = false;
+
+        GetComponent<FirstPersonController>().enabled = false;
     }
 
-    void Update()
-    {
-        OnInventory();
-        OnIndex();
-        OnPause();
-    }
+    
 
 }
 
