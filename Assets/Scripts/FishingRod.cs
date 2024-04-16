@@ -28,6 +28,7 @@ public class FishingRod : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         isEquipped = true;
+        FishingMinigame.SetActive(false);
     }
 
     void Update()
