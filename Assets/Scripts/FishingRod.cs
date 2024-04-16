@@ -82,14 +82,14 @@ public class FishingRod : MonoBehaviour
         player.PlayerDisable();
         animator.SetTrigger("Cast");
 
-        // Create a delay between the animation and when the bait appears in the water
+        
         yield return new WaitForSeconds(1f);
 
         GameObject instantiatedBait = Instantiate(baitPrefab);
         instantiatedBait.transform.position = targetPosition;
         baitPosition = instantiatedBait.transform;
 
-        // Instantiate the line prefab and get the LineRenderer component
+ 
         GameObject lineInstance = Instantiate(linePrefab, start_of_rod.transform.position, Quaternion.identity);
         lineRenderer = lineInstance.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, start_of_rod.transform.position);
