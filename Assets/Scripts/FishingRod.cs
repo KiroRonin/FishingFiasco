@@ -20,6 +20,9 @@ public class FishingRod : MonoBehaviour
     private LineRenderer lineRenderer;
 
     public GameObject FishingMinigame;
+    public GameObject rope;
+    public GameObject bait;
+
     //public FishingMiniGame fishingminigamecode;
 
 
@@ -29,10 +32,13 @@ public class FishingRod : MonoBehaviour
         animator = GetComponent<Animator>();
         isEquipped = true;
         FishingMinigame.SetActive(false);
+        
     }
 
     void Update()
     {
+        rope = GameObject.Find("Rope(Clone)");
+        bait = GameObject.Find("Bait(Clone)");
         if (isEquipped)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));

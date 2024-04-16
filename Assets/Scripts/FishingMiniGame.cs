@@ -40,6 +40,7 @@ public class FishingMiniGame : MonoBehaviour
 
     [SerializeField] float failtime = 10f;
 
+
     //private void OnEnable()
     //{
     //    playerinputs.enabled = true;
@@ -80,7 +81,7 @@ public class FishingMiniGame : MonoBehaviour
 
     void hook()
     {
-        if (Input.GetMouseButtonDown(2)) 
+        if (Input.GetMouseButton(2)) 
         {
             hookPullVelocity += hookpullpower * Time.deltaTime;
         }
@@ -160,6 +161,10 @@ public class FishingMiniGame : MonoBehaviour
         failtime = 10f;
         hookprogress = 0;
         timeprogress = 1f;
+        Destroy(fishingrod.rope);
+        Destroy(fishingrod.bait);
+
+
     }
 
     public void Lose()
@@ -170,6 +175,8 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
         fishingrod.FishingMinigame.SetActive(false);
+        Destroy(fishingrod.bait);
+        Destroy(fishingrod.rope);
         fishingrod.player.PlayerEnable();
         failtime = 10f;
         hookprogress = 0;
