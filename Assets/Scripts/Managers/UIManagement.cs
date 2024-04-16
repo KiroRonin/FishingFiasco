@@ -169,7 +169,7 @@ public class UIManagement : MonoBehaviour
 
     //FISH INDEX MENUS
     
-    public void ChangeIndex(string objectName, string tag){
+    public void ChangeIndex(string tag){
         var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>(true);
         foreach(UnityEngine.UI.Image item in indexChildren){
             if(item.gameObject.tag == tag){
@@ -178,6 +178,7 @@ public class UIManagement : MonoBehaviour
             }
           else if(item.gameObject.tag!=tag && item.gameObject.tag!="Button"){
                 item.gameObject.SetActive(false);
+                print(item.gameObject.name + " disabled");
             }
 
         } 
@@ -185,20 +186,23 @@ public class UIManagement : MonoBehaviour
     
     
     public void OpenStarterIndex(){
-        ChangeIndex("FishIndexMenu_Starter","Starter");
+        ChangeIndex("Starter");
+        print("island index");
     }
 
     public void OpenCoralIndex(){
-        ChangeIndex("FishIndexMenu_Coral", "Coral");
-        print("huh");
+        ChangeIndex("Coral");
+        print("coral index");
     }
 
     public void OpenUndergroundIndex(){
-        ChangeIndex("FishIndexMenu_Underground","Underground");
+        ChangeIndex("Underground");
+        print("cave index");
     }
 
     public void OpenDeepIndex(){
-        ChangeIndex("FishIndexMenu_Deep","Deep");
+        ChangeIndex("Deep");
+        print("deep index");
 
     }
     
