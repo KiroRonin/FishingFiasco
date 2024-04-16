@@ -14,16 +14,16 @@ public class DiaManager : MonoBehaviour
     public GameObject dialogueCanvas;
     public TextMeshProUGUI dialogueText;
     public GameObject characterSprite;
+    public string npcName;
     
     public bool dialoguePlaying;
     public bool playerInRange;
     private bool interactPressed;
     private bool canvasActivated;
-    
+    private bool dialogueContinue = true;
 
     private NPC currentNPC;
     private string currentKnot;
-    private List<Choice> curChoices;
 
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
@@ -50,8 +50,10 @@ public class DiaManager : MonoBehaviour
             characterSprite.GetComponent<Image>().sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
             story.ChoosePathString(currentKnot);
             dialogueText.text = loadStoryChunk();
-            curChoices = story.currentChoices;
-            print(curChoices);
+
+            npcName = collision.gameObject.name;
+            print(npcName);
+
 
             playerInRange = true;
             print(playerInRange);
@@ -69,15 +71,16 @@ public class DiaManager : MonoBehaviour
 
     void chooseStoryChoice(){
         if(starterAssetsInputs.interact && interactPressed == false && canvasActivated == true){
-            if (curChoices.Count < 1){
-                dialogueCanvas.SetActive(false);
-                print("dialouge done");
-            }
-            else if (curChoices.Count > 0){
-                story.ChooseChoiceIndex(0);
+            if (story.canContinue == true){
                 dialogueText.text = loadStoryChunk();
-                print("dialogue continue");
+                print(story.canContinue);
                 player.enabled = false;
+            }
+            else if (story.canContinue == false){
+                dialogueCanvas.SetActive(false);
+                print(story.canContinue);
+                player.enabled = true;
+                canvasActivated = false;
             }
 
             interactPressed = true;
@@ -93,7 +96,9 @@ public class DiaManager : MonoBehaviour
         string text = "";
         
         if(story.canContinue){
-            text = story.ContinueMaximally();
+            text = story.Continue();
+            //dialogueContinue = true;
+            Debug.Log("can continue story");
         }
 
         return text;
@@ -101,7 +106,7 @@ public class DiaManager : MonoBehaviour
     }
 
     void canvasState(){
-        if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false){
+        if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false){
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
         }

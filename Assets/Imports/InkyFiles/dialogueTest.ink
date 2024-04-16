@@ -1,21 +1,29 @@
 ->SandboxTest
 
 ===SandboxTest===
--*[start]
-hello this is dialogue text i am here to speak to  you and have an extremely meaningful conversation yes yes for sure thumbs up!!
--*[next1.]
+start
+
+{hello this is dialogue text i am here to speak to  you and have an extremely meaningful conversation yes yes for sure thumbs up!!|blah over. i am done talking now.->end_KNOT}
 blah blah blah. blahblahbhhbhah
--*[next2.]
+
 blah over. i am done talking now.
-->END
+
+*[next]
+->end_KNOT
 
 ===SecondTest===
--*[start]
-meowwww this is the second test for other dialogue ^_^ yaaay
--*[next1.]
+start
+
+{meowwww this is the second test for other dialogue ^_^ yaaay|ok im done yappin lol->end_KNOT}
+
 IM YAPPIN BWAHAHAHAHAH
--*[next2.]
+
 ok im done yappin lol
+*[next]
+->end_KNOT
+
+===end_KNOT===
+
 ->END
     
 
