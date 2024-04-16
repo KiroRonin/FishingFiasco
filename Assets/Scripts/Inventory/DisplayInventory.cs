@@ -16,15 +16,15 @@ public class DisplayInventory : MonoBehaviour
     public int X_SPACE_BETWEEN_ITEM;
     public int Y_SPACE_BETWEEN_ITEM;
 
+
+
     Dictionary<InventorySlot, GameObject> fishDisplayed = new Dictionary<InventorySlot, GameObject>();
     
-    // Start is called before the first frame update
     void Start()
     {
         CreateDisplay();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateDisplay();
@@ -60,5 +60,13 @@ public class DisplayInventory : MonoBehaviour
 
     public Vector3 GetPosition(int i){
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEM * (i/NUMBER_OF_COLUMN)), 0f);
+    }
+
+    public void dragInventoryItem(){
+
+    }
+
+    public void dropInventoryItem(){
+        
     }
 }

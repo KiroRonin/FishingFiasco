@@ -45,6 +45,12 @@ public class UIManagement : MonoBehaviour
         deepIndex = FishIndex.transform.GetChild(3).gameObject;
     }
 
+    void Update()
+    {
+        OnInventory();
+        OnIndex();
+        OnPause();
+    }
 
     //INVENTORY MENU CODE
     private void OnInventory(){
@@ -81,6 +87,7 @@ public class UIManagement : MonoBehaviour
 
                 FishIndex.SetActive(true);
                 indexActivated = true;
+
 
             }    
             else if(indexActivated){
@@ -222,12 +229,7 @@ public class UIManagement : MonoBehaviour
         GetComponent<FirstPersonController>().enabled = false;
     }
 
-    void Update()
-    {
-        OnInventory();
-        OnIndex();
-        OnPause();
-    }
+    
 
 }
 

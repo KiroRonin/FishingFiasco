@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     
     public InventoryObject inventory;
 
-    public int inventorySize = 5;
+    public int inventorySize;
     public int inventoryCount = 0; 
 
       public void Awake()

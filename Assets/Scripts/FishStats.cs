@@ -9,9 +9,12 @@ public class FishStats : MonoBehaviour
     public int carp;
     public int grouper;
     public int shark;
+    public int blindfish;
+    public int hyaline;
+    public int snakehead;
 
     public int currentFishAmount;
-    public int maxInventory = 5;
+    public int maxInventory;
 
      public void Awake()
     {
@@ -39,15 +42,29 @@ public class FishStats : MonoBehaviour
             case 2:
                 shark++;
                 break;
+            case 3:
+                blindfish++;
+                break;
+            case 4:
+                hyaline++;
+                break;
+            case 5:
+                snakehead++;
+                break;
         }
     }
 
-    public void setFishStats(int carp, int grouper, int shark, int currentFishAmount)
+    public void setFishStats(int carp, int grouper, int shark, int blindfish, int hyaline, int snakehead, int currentFishAmount, int maxInventory)
     {
         this.carp = carp;
         this.grouper = grouper;
         this.shark = shark;
+        this.blindfish = blindfish;
+        this.hyaline = hyaline;
+        this.snakehead = snakehead;
+
         this.currentFishAmount = currentFishAmount;
+        this.maxInventory = maxInventory;
 
     }
 }

@@ -10,6 +10,7 @@ public class interfaceManager : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject bucketImage;
+    [SerializeField] private GameObject indexImage;
 
     [SerializeField] private Sprite emptyInv;
     [SerializeField] private Sprite containedInv;
@@ -38,5 +39,10 @@ public class interfaceManager : MonoBehaviour
         if(FishStats.Instance.currentFishAmount == FishStats.Instance.maxInventory){
             bucketImage.GetComponent<UnityEngine.UI.Image>().sprite = fullInv;
         }
+    }
+
+    public void hideUI(){
+        indexImage.transform.Rotate(0f, 0f,10f, Space.Self);
+
     }
 }

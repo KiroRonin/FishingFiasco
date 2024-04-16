@@ -6,6 +6,9 @@ public class NPC : MonoBehaviour
 {
     private string n;
     private string k;
+    public bool isTrade;
+
+    public GameObject rangePop;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +21,19 @@ public class NPC : MonoBehaviour
     {
         string knot;
 
-        if(name == "NPC")
+        if(name == "BillyBass")
         {
             knot = "SandboxTest";
         }
-        else
+        else if(name == "Oarfish")
         {
+            knot = "SecondTest";
+        }
+        else{
             knot = "";
         }
+
+        //switch()
 
         k = knot;
     }
@@ -34,5 +42,18 @@ public class NPC : MonoBehaviour
     {
         return k;
     }
+
+    void OnTriggerEnter(Collider other){
+        if(other.tag == "Player"){
+            rangePop.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other){
+        if(other.tag == "Player"){
+            rangePop.SetActive(false);
+        }
+    }
 }
+
 
