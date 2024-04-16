@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5992180281767884788}
   m_Layer: 0
   m_Name: Water Tile 1x1
-  m_TagString: Untagged
+  m_TagString: Fishing Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

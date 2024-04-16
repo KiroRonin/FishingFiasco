@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cinemachine;
-using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -194,7 +193,7 @@ public class UIManagement : MonoBehaviour
     }
     
 
-    void PlayerEnable(){
+    public void PlayerEnable(){
         Player.enabled = true;
         Camera.enabled = true;
 
@@ -203,7 +202,9 @@ public class UIManagement : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void PlayerDisable(){
+   
+
+    public void PlayerDisable(){
         Player.enabled = false;
         Camera.enabled = false;
 

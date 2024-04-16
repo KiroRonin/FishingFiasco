@@ -29,7 +29,14 @@ public class FishingMiniGame : MonoBehaviour
     [SerializeField] float hookGravitypower = 0.005f;
     [SerializeField] float hookprogressloss = 0.1f;
 
+    [SerializeField] Transform progressbarcontainer;
+
     [SerializeField] StarterAssetsInputs playerinputs;
+
+    public FishingRod fishingrod;
+    bool pause = false;
+
+    [SerializeField] float failtime = 10f;
 
     //private void OnEnable()
     //{
@@ -46,6 +53,7 @@ public class FishingMiniGame : MonoBehaviour
     {
         fish();
         hook();
+        progresscheck();
     }
 
     void fish()
@@ -65,23 +73,81 @@ public class FishingMiniGame : MonoBehaviour
 
     void hook()
     {
-        if (playerinputs.interact && pressedOnceFishing == false)
+        if (Input.GetMouseButton(2)) 
         {
             hookPullVelocity += hookpullpower * Time.deltaTime;
-            Debug.Log("fish reeling in");
-            pressedOnceFishing = true;
-            print("fishing true");
+        }
+        hookPullVelocity -= hookGravitypower * Time.deltaTime;
 
-        }
-        else if (!playerinputs.interact)
+        hookpos += hookPullVelocity;
+
+        if (hookpos - hooksize / 2 <= 0f && hookPullVelocity < 0f)
         {
-            pressedOnceFishing = false;
-            print("fishing false");
+            hookPullVelocity = 0f;
         }
+
+        if (hookpos + hooksize / 2 >= 1f && hookPullVelocity > 0f)
+        {
+            hookPullVelocity = 0f;
+        }
+        hookpos = Mathf.Clamp(hookpos, hooksize / 2, 1-hooksize/2);
+        Hook.position = Vector3.Lerp(BPivot.position, TPivot.position, hookpos);
 
 
     }
     private bool pressedOnceFishing =false;
 
+    void progresscheck()
+    {
+        Vector3 ls = progressbarcontainer.localScale;
+        ls.x = hookprogress;
+        progressbarcontainer.localScale = ls;
+        float min = hookpos - hooksize / 2;
+        float max = hookpos + hooksize / 2;
+        
+        if (min < fishpos && fishpos < max)
+        {
+            hookprogress += hookpower * Time.deltaTime;
+        }
+        else
+        {
+            hookprogress -= hookprogressloss * Time.deltaTime;
+
+            failtime -= Time.deltaTime;
+            if (failtime < 0f)
+            {
+                Lose();
+            }
+            
+        }
+
+        if(hookprogress > 1)
+        {
+            Win();
+        }
+        hookprogress = Mathf.Clamp(hookprogress, 0f, 1f);
+    }
+
+    private void Win()
+    {
+        pause = true;
+        fishingrod.isCasted = false;
+        Debug.Log("YOU CAUGHT A FISH");
+        fishingrod.animator.SetBool("IsPulling", false);
+        fishingrod.animator.SetBool("IsMinigame", false);
+        fishingrod.FishingMinigame.SetActive(false);
+        fishingrod.player.PlayerEnable();
+    }
+
+    private void Lose()
+    {
+        pause = false;
+        fishingrod.isCasted = false;
+        Debug.Log("YOU LOSE");
+        fishingrod.animator.SetBool("IsPulling", false);
+        fishingrod.animator.SetBool("IsMinigame", false);
+        fishingrod.FishingMinigame.SetActive(false);
+        fishingrod.player.PlayerEnable();
+    }
  
 }
