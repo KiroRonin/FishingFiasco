@@ -5,9 +5,10 @@ public class FishObject : ScriptableObject
 {
     public int Id;
     public string fishName = "fishy";
+    public int fishCount;
     public int size = 10;
-    [TextArea(15,20)]
-    public string fishDescription;
+    //[TextArea(15,20)]
+    //public string fishDescription;
 
     public GameObject prefabDisplay;
 

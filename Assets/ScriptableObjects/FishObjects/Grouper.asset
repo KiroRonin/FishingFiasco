@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Grouper
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 5
   fishName: Grouper
+  fishCount: 0
   size: 10
   prefabDisplay: {fileID: 5595847497003245000, guid: 753ec43c834a7421c8a7aadbf4101266,
     type: 3}
