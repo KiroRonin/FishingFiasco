@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   fishName: Grouper
-  size: 10
+  probability: 10
+  fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: 753ec43c834a7421c8a7aadbf4101266,
     type: 3}

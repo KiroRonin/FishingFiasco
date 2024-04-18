@@ -41,6 +41,7 @@ public class FishingMiniGame : MonoBehaviour
     [SerializeField] float failtime = 10f;
 
 
+
     //private void OnEnable()
     //{
     //    playerinputs.enabled = true;
@@ -131,7 +132,7 @@ public class FishingMiniGame : MonoBehaviour
             
             failtime -= Time.deltaTime;
             timeprogress -= failtime * Time.deltaTime / 100f * 2f;
-            Debug.Log(timeprogress);
+            
             
             
             if (failtime < 0f)
@@ -163,6 +164,7 @@ public class FishingMiniGame : MonoBehaviour
         timeprogress = 1f;
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
+        
 
 
     }
@@ -181,6 +183,8 @@ public class FishingMiniGame : MonoBehaviour
         failtime = 10f;
         hookprogress = 0;
         timeprogress = 1f;
+        
+
     }
  
 }

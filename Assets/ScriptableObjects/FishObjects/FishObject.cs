@@ -5,11 +5,13 @@ public class FishObject : ScriptableObject
 {
     public int Id;
     public string fishName = "fishy";
-    public int size = 10;
+    public int probability;
     [TextArea(15,20)]
     public string fishDescription;
 
     public GameObject prefabDisplay;
+
+
 
 
 }
