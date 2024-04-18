@@ -15,6 +15,11 @@ public class DiaManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject characterSprite;
     public string npcName;
+
+    public GameObject tradeCanvas;
+    public TextMeshProUGUI tradeDescription;
+    public GameObject tradeSprite;
+    private bool tradeActive;
     
     public bool dialoguePlaying;
     public bool playerInRange;
@@ -22,16 +27,24 @@ public class DiaManager : MonoBehaviour
     private bool canvasActivated;
     private bool dialogueContinue = true;
 
-    private NPC currentNPC;
+    public NPC currentNPC;
     private string currentKnot;
 
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+    public static DiaManager instance;
  
 
     void Start()
     {
+        if(instance == null)
+            instance = this;
+        else{
+            Destroy(this);
+        }
         story = new Story(inkJSON.text);
+
+
     }
 
 
@@ -39,6 +52,7 @@ public class DiaManager : MonoBehaviour
     {
         canvasState();
         chooseStoryChoice();
+        tradeCanvasState();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -69,6 +83,7 @@ public class DiaManager : MonoBehaviour
         }
     }
 
+    
     void chooseStoryChoice(){
         if(starterAssetsInputs.interact && interactPressed == false && canvasActivated == true){
             if (story.canContinue == true){
@@ -84,6 +99,10 @@ public class DiaManager : MonoBehaviour
 
                 if (currentNPC.isTrade == true){
                     print("trade can activate!!");
+                    tradeCanvas.SetActive(true);
+                    tradeActive = true;
+                    player.enabled = false;
+
                 }
             }
 
@@ -111,9 +130,22 @@ public class DiaManager : MonoBehaviour
 
     void canvasState(){
         if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false){
+            print(playerInRange);
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
         }
     }
+
+    void tradeCanvasState(){
+        if (starterAssetsInputs.interact && tradeActive == true && interactPressed == false){
+            
+            tradeActive = false;
+            tradeCanvas.SetActive(false);
+            player.enabled = true;
+
+            interactPressed = true;
+        }
+    }
+
 
 }
