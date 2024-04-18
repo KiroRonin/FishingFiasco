@@ -203,13 +203,14 @@ public class UIManagement : MonoBehaviour
         // /*
         for(int i = 0; i < indexMenus.Count; i++){
             print("blahhh");
-            if(gameObject.tag == tag){
-                gameObject.SetActive(true);
-                Debug.Log(gameObject.name+ " enabled");
+            print(indexMenus[i]);
+            if(indexMenus[i].tag == tag){
+                indexMenus[i].SetActive(true);
+                Debug.Log(indexMenus[i].name+ " enabled");
             }
-          else if(gameObject.tag!=tag){
-                gameObject.SetActive(false);
-                print(gameObject.name + " disabled");
+          else if(indexMenus[i].tag!=tag){
+                indexMenus[i].SetActive(false);
+                print(indexMenus[i].name + " disabled");
             }
         } 
         // */
@@ -220,7 +221,7 @@ public class UIManagement : MonoBehaviour
         ChangeIndex("Starter");
         Debug.Log("starter clicked");
 
-        starterActive = !starterActive;
+        starterActive = true;
         coralActive = false;
         caveActive = false;
         deepActive = false;
