@@ -13,15 +13,9 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   Container:
-  - fish: {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
-    amount: 11
-  - fish: {fileID: 11400000, guid: 5daeb966b06a84b8d8f076a51af37fbd, type: 2}
-    amount: 3
-  - fish: {fileID: 11400000, guid: 187406d9264874e9fb8cf5cce98c1069, type: 2}
-    amount: 3
-  - fish: {fileID: 11400000, guid: b4597172594634b029a26af65438ea82, type: 2}
-    amount: 3
   - fish: {fileID: 11400000, guid: d85d06615e98b46c58868189fcff2f0b, type: 2}
-    amount: 4
-  - fish: {fileID: 11400000, guid: 89a8ef0d28a384166aaab2b6881fe6b4, type: 2}
+    amount: 2
+  - fish: {fileID: 11400000, guid: 187406d9264874e9fb8cf5cce98c1069, type: 2}
     amount: 1
+  - fish: {fileID: 11400000, guid: 89a8ef0d28a384166aaab2b6881fe6b4, type: 2}
+    amount: 2

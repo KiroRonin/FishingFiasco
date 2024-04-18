@@ -8,6 +8,8 @@ public class NPC : MonoBehaviour
     private string k;
     public bool isTrade;
 
+    public InventoryObject npcInventory;
+
     public GameObject rangePop;
     // Start is called before the first frame update
     void Start()

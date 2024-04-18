@@ -8,6 +8,8 @@ public class InventoryObject : ScriptableObject
 {
     public List<InventorySlot> Container = new List<InventorySlot>();
 
+
+
     public void AddFish(FishObject _fish, int _amount){
         
         for (int i = 0; i < Container.Count; i++)
@@ -27,6 +29,8 @@ public class InventoryObject : ScriptableObject
 public class InventorySlot{
     public FishObject fish;
     public int amount;
+    //public int currentNPCAmount;
+    //public int NPCFull;
 
     public InventorySlot(FishObject _fish, int _amount){
         fish = _fish;
