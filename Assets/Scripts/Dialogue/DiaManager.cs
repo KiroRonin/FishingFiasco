@@ -81,6 +81,10 @@ public class DiaManager : MonoBehaviour
                 print(story.canContinue);
                 player.enabled = true;
                 canvasActivated = false;
+
+                if (currentNPC.isTrade == true){
+                    print("trade can activate!!");
+                }
             }
 
             interactPressed = true;
@@ -111,4 +115,5 @@ public class DiaManager : MonoBehaviour
             dialogueCanvas.SetActive(true);
         }
     }
+
 }

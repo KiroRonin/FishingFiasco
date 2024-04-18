@@ -20,8 +20,13 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private Camera mainCamera;
 
     private bool inventoryActivated;
-    private bool indexActivated;
+    public bool indexActivated;
     private bool pauseActivated;
+
+    public bool starterActive;
+    public bool coralActive;
+    public bool caveActive;
+    public bool deepActive;
     
     private bool pressedOnceInv;
     private bool pressedOnceInd;
@@ -36,6 +41,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private CharacterController Player;
     [SerializeField] private CinemachineVirtualCamera Camera;
 
+    public List<GameObject> indexMenus = new List<GameObject>();
     
     void Start()
     {
@@ -43,6 +49,22 @@ public class UIManagement : MonoBehaviour
         coralIndex = FishIndex.transform.GetChild(1).gameObject;
         undergroundIndex = FishIndex.transform.GetChild(2).gameObject;
         deepIndex = FishIndex.transform.GetChild(3).gameObject;
+
+        indexMenus.Add(starterIndex);
+        indexMenus.Add(coralIndex);
+        indexMenus.Add(undergroundIndex);
+        indexMenus.Add(deepIndex);
+
+        print(starterIndex);
+        print(coralIndex);
+        print(undergroundIndex);
+        print(deepIndex);
+
+        starterActive = false;
+        coralActive = false;
+        caveActive = false;
+        deepActive = false;
+        
     }
 
     void Update()
@@ -170,8 +192,10 @@ public class UIManagement : MonoBehaviour
     //FISH INDEX MENUS
     
     public void ChangeIndex(string tag){
-        var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>(true);
-        foreach(UnityEngine.UI.Image item in indexChildren){
+        //var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>(true);
+        /*
+        foreach(GameObject item in indexMenus){
+            //print(indexChildren);
             if(item.gameObject.tag == tag){
                 item.gameObject.SetActive(true);
                 Debug.Log(item.gameObject.name+ " enabled");
@@ -182,28 +206,76 @@ public class UIManagement : MonoBehaviour
             }
 
         } 
+        */
+
+        for(int i = 0; i < indexMenus.Count; i++){
+            
+            if(gameObject.tag == tag){
+                gameObject.SetActive(true);
+                Debug.Log(gameObject.name+ " enabled");
+            }
+          else if(gameObject.tag!=tag){
+                gameObject.SetActive(false);
+                print(gameObject.name + " disabled");
+            }
+
+
+        } 
     }
     
     
     public void OpenStarterIndex(){
         ChangeIndex("Starter");
-        print("island index");
+        Debug.Log("starter clicked");
+        //if (starterIndex.activeSelf == true){
+            starterActive = !starterActive;
+            coralActive = false;
+            caveActive = false;
+            deepActive = false;
+        //}
+        
+        print(starterActive);
     }
 
     public void OpenCoralIndex(){
         ChangeIndex("Coral");
         print("coral index");
+
+        //if (coralIndex.activeSelf == true){
+            starterActive = false;
+            coralActive = true;
+            caveActive = false;
+            deepActive = false;
+        //}
+        print(coralActive);
+
     }
 
     public void OpenUndergroundIndex(){
         ChangeIndex("Underground");
         print("cave index");
+
+        //if (undergroundIndex.activeSelf == true){
+            starterActive = false;
+            coralActive = false;
+            caveActive = true;
+            deepActive = false;
+        //}
+        print(caveActive);
+        
     }
 
     public void OpenDeepIndex(){
         ChangeIndex("Deep");
         print("deep index");
 
+        //if (deepIndex.activeSelf == true){
+            starterActive = false;
+            coralActive = false;
+            caveActive = false;
+            deepActive = true;
+        //}
+        print(deepActive);
     }
     
 
