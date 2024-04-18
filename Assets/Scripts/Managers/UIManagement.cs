@@ -54,16 +54,6 @@ public class UIManagement : MonoBehaviour
         indexMenus.Add(coralIndex);
         indexMenus.Add(undergroundIndex);
         indexMenus.Add(deepIndex);
-
-        print(starterIndex);
-        print(coralIndex);
-        print(undergroundIndex);
-        print(deepIndex);
-
-        starterActive = false;
-        coralActive = false;
-        caveActive = false;
-        deepActive = false;
         
     }
 
@@ -72,6 +62,8 @@ public class UIManagement : MonoBehaviour
         OnInventory();
         OnIndex();
         OnPause();
+
+        //Debug.Log(starterActive);
     }
 
     //INVENTORY MENU CODE
@@ -195,7 +187,7 @@ public class UIManagement : MonoBehaviour
         //var indexChildren = FishIndex.GetComponentsInChildren<UnityEngine.UI.Image>(true);
         /*
         foreach(GameObject item in indexMenus){
-            //print(indexChildren);
+            print("BALHHHH");
             if(item.gameObject.tag == tag){
                 item.gameObject.SetActive(true);
                 Debug.Log(item.gameObject.name+ " enabled");
@@ -208,8 +200,9 @@ public class UIManagement : MonoBehaviour
         } 
         */
 
+        // /*
         for(int i = 0; i < indexMenus.Count; i++){
-            
+            print("blahhh");
             if(gameObject.tag == tag){
                 gameObject.SetActive(true);
                 Debug.Log(gameObject.name+ " enabled");
@@ -218,21 +211,20 @@ public class UIManagement : MonoBehaviour
                 gameObject.SetActive(false);
                 print(gameObject.name + " disabled");
             }
-
-
         } 
+        // */
     }
     
     
     public void OpenStarterIndex(){
         ChangeIndex("Starter");
         Debug.Log("starter clicked");
-        //if (starterIndex.activeSelf == true){
-            starterActive = !starterActive;
-            coralActive = false;
-            caveActive = false;
-            deepActive = false;
-        //}
+
+        starterActive = !starterActive;
+        coralActive = false;
+        caveActive = false;
+        deepActive = false;
+
         
         print(starterActive);
     }
@@ -241,12 +233,11 @@ public class UIManagement : MonoBehaviour
         ChangeIndex("Coral");
         print("coral index");
 
-        //if (coralIndex.activeSelf == true){
-            starterActive = false;
-            coralActive = true;
-            caveActive = false;
-            deepActive = false;
-        //}
+        starterActive = false;
+        coralActive = true;
+        caveActive = false;
+        deepActive = false;
+
         print(coralActive);
 
     }
@@ -255,12 +246,11 @@ public class UIManagement : MonoBehaviour
         ChangeIndex("Underground");
         print("cave index");
 
-        //if (undergroundIndex.activeSelf == true){
-            starterActive = false;
-            coralActive = false;
-            caveActive = true;
-            deepActive = false;
-        //}
+        starterActive = false;
+        coralActive = false;
+        caveActive = true;
+        deepActive = false;
+
         print(caveActive);
         
     }
@@ -269,12 +259,11 @@ public class UIManagement : MonoBehaviour
         ChangeIndex("Deep");
         print("deep index");
 
-        //if (deepIndex.activeSelf == true){
-            starterActive = false;
-            coralActive = false;
-            caveActive = false;
-            deepActive = true;
-        //}
+        starterActive = false;
+        coralActive = false;
+        caveActive = false;
+        deepActive = true;
+
         print(deepActive);
     }
     
