@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 4
   fishName: Hyaline Fish
-  size: 10
+  probability: 10
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: dea3956303239411a94860e615da8fca,
     type: 3}

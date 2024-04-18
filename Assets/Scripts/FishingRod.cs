@@ -8,37 +8,35 @@ public class FishingRod : MonoBehaviour
 {
     public bool isEquipped;
     public bool isFishingAvailable;
+    public bool isCasting = false;
     public bool isCasted;
     public bool isPulling;
     public Vector3 normalPositionOffset;
     public Transform parent;
     public Animator animator;
     public GameObject baitPrefab;
-    public GameObject linePrefab; 
-    public GameObject start_of_rod; // --- > IF USING ROPE
-    Transform baitPosition;
+    public GameObject linePrefab;
+    public Transform start_of_rod;
+    public Transform baitPosition;
     private LineRenderer lineRenderer;
-
+    private GameObject baitInstance;
     public GameObject FishingMinigame;
     public GameObject rope;
     public GameObject bait;
-
-    //public FishingMiniGame fishingminigamecode;
-
-
     public UIManagement player;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         isEquipped = true;
         FishingMinigame.SetActive(false);
-        
     }
 
     void Update()
     {
         rope = GameObject.Find("Rope(Clone)");
-        bait = GameObject.Find("Bait(Clone)");
+        baitInstance = GameObject.Find("Bait(Clone)");
+
         if (isEquipped)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -49,9 +47,9 @@ public class FishingRod : MonoBehaviour
                 if (hit.collider.CompareTag("Fishing Area"))
                 {
                     isFishingAvailable = true;
-                    if (Input.GetMouseButtonDown(0) && !isCasted && !isPulling)
+                    if (Input.GetMouseButtonDown(0) && !isCasted && !isPulling && !isCasting)
                     {
-                        StartCoroutine(CastRod(hit.point));
+                        CastLine(hit.point);
                     }
                 }
                 else
@@ -78,40 +76,54 @@ public class FishingRod : MonoBehaviour
             PullRod();
         }
 
-        //Vector3 rotatedOffset = parent.rotation * normalPositionOffset;
         transform.rotation = parent.transform.rotation;
     }
 
-    IEnumerator CastRod(Vector3 targetPosition)
+    private void CastLine(Vector3 targetPosition)
+    {
+        isCasting = true;
+        StartCoroutine(CastRod(targetPosition));
+    }
+
+    private IEnumerator CastRod(Vector3 targetPosition)
     {
         isCasted = true;
         player.PlayerDisable();
         animator.SetTrigger("Cast");
 
-        
-        yield return new WaitForSeconds(1f);
-
-        GameObject instantiatedBait = Instantiate(baitPrefab);
-        instantiatedBait.transform.position = targetPosition;
-        baitPosition = instantiatedBait.transform;
-
- 
-        GameObject lineInstance = Instantiate(linePrefab, start_of_rod.transform.position, Quaternion.identity);
+        GameObject lineInstance = Instantiate(linePrefab, start_of_rod.position, Quaternion.identity);
         lineRenderer = lineInstance.GetComponent<LineRenderer>();
-        lineRenderer.SetPosition(0, start_of_rod.transform.position);
-        lineRenderer.SetPosition(1, baitPosition.position);
+
+        baitInstance = Instantiate(baitPrefab, start_of_rod.position, Quaternion.identity);
+
+        float elapsedTime = 0f;
+        float castDuration = 1f; // Adjust this value to control the casting duration
+
+        while (elapsedTime < castDuration)
+        {
+            float t = elapsedTime / castDuration;
+            lineRenderer.SetPosition(0, start_of_rod.position);
+            lineRenderer.SetPosition(1, Vector3.Lerp(start_of_rod.position, targetPosition, t));
+            baitInstance.transform.position = Vector3.Lerp(start_of_rod.position, targetPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        lineRenderer.SetPosition(0, start_of_rod.position);
+        lineRenderer.SetPosition(1, targetPosition);
+        baitInstance.transform.position = targetPosition;
+        //baitPosition = baitInstance.transform;
 
         // ---- > Start Fish Bite Logic
+        FishingSystem.Instance.StartFishing(WaterSource.Tavern);
+
+        isCasting = false;
     }
 
-    private void PullRod()
+    public void PullRod()
     {
         animator.SetBool("IsPulling", true);
-
-
-        // Update the line prefab position
         lineRenderer.SetPosition(1, start_of_rod.transform.position);
-
         FishingMinigame.SetActive(true);
         animator.SetBool("IsMinigame", true);
     }

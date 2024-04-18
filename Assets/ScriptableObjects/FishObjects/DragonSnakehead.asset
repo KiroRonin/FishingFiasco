@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 5
   fishName: Dragon Snakehead
-  size: 10
+  probability: 5
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: d82f3da81eb8a499c90133739f3627d6,
     type: 3}
