@@ -25,6 +25,10 @@ public class FishingRod : MonoBehaviour
     public GameObject bait;
     public UIManagement player;
 
+    public Animator FOVanimator;
+
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -63,26 +67,22 @@ public class FishingRod : MonoBehaviour
             }
         }
 
-        if (isCasted || isPulling)
-        {
-            //if (lineRenderer != null)
-            //{
-            //    lineRenderer.SetPosition(1, baitPosition.position);
-            //}
-        }
-
-        if (isCasted && Input.GetMouseButtonDown(1))
-        {
-            PullRod();
-        }
+        
 
         
     }
 
     private void CastLine(Vector3 targetPosition)
     {
-        isCasting = true;
+        StartCoroutine(CastedTimer());
         StartCoroutine(CastRod(targetPosition));
+    }
+
+    IEnumerator CastedTimer()
+    {
+        isCasting = true;
+        yield return new WaitForSeconds(4f);
+        isCasting = false;
     }
 
     private IEnumerator CastRod(Vector3 targetPosition)
@@ -90,7 +90,8 @@ public class FishingRod : MonoBehaviour
         isCasted = true;
         player.PlayerDisable();
         animator.SetTrigger("Cast");
-
+        FOVanimator.SetTrigger("FOVCast");
+        
         GameObject lineInstance = Instantiate(linePrefab, start_of_rod.position, Quaternion.identity);
         lineRenderer = lineInstance.GetComponent<LineRenderer>();
 
@@ -113,10 +114,11 @@ public class FishingRod : MonoBehaviour
             lineRenderer.SetPosition(0, start_of_rod.position);
             lineRenderer.SetPosition(1, targetPosition);
             baitInstance.transform.position = targetPosition;
-            
+
             yield return null;
             
         }
+        FishingSystem.Instance.StartFishing(WaterSource.Tavern);
 
 
         //lineRenderer.SetPosition(0, start_of_rod.position);

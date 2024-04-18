@@ -9551,6 +9551,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 419254026}
+    - target: {fileID: 3838603438694572745, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: field of view
+      value: 42.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3838603438694572750, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9570,6 +9575,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -14.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316820075193000593, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316820075193000593, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5780001
       objectReference: {fileID: 0}
     - target: {fileID: 4466339966208266232, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
@@ -9700,6 +9715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468678315277511642, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 42.02
       objectReference: {fileID: 0}
     - target: {fileID: 6468678315277511643, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
@@ -13396,6 +13416,7 @@ MonoBehaviour:
   IsBiting: 0
   Id: 0
   fish: {fileID: 0}
+  fishingRod: {fileID: 59002127}
 --- !u!4 &1792965606
 Transform:
   m_ObjectHideFlags: 0

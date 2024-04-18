@@ -20,13 +20,14 @@ public class FishingSystem : MonoBehaviour
     public List<FishObject> CaveFishList;
     public List<FishObject> DeepFishList;
 
-    private FishingRod FishingRod;
+    
     public GameObject FishingMinigame;
 
     public bool IsBiting;
 
     public int Id;
     public FishObject fish;
+    public FishingRod fishingRod;
 
     
 
@@ -49,7 +50,7 @@ public class FishingSystem : MonoBehaviour
 
     IEnumerator FishingCoroutine(WaterSource watersource)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForEndOfFrame();
 
 
         fish = CalculateBite(watersource);
@@ -57,9 +58,9 @@ public class FishingSystem : MonoBehaviour
         Debug.Log(Id);
 
         Debug.Log(fish.fishName + " IS BITING");
-        FishingRod.PullRod();// NOTWORKING
-        FishingRod.animator.SetBool("IsPulling", true);
-        FishingRod.animator.SetBool("IsMinigame", true);
+        fishingRod.PullRod();
+        fishingRod.animator.SetBool("IsPulling", true);
+        fishingRod.animator.SetBool("IsMinigame", true);
         FishingMinigame.SetActive(true);
         
 

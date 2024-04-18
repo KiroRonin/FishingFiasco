@@ -44,6 +44,8 @@ public class FishingMiniGame : MonoBehaviour
     public int inventoryCount;
 
 
+    public Animator FishAnimator;
+
 
 
     //private void OnEnable()
@@ -158,7 +160,7 @@ public class FishingMiniGame : MonoBehaviour
     {
         
         fishingrod.isCasted = false;
-        Debug.Log("YOU CAUGHT A FISH");
+        Debug.Log("YOU CAUGHT A " + FishingSystem.Instance.fish.fishName);
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
         fishingrod.FishingMinigame.SetActive(false);
@@ -168,7 +170,8 @@ public class FishingMiniGame : MonoBehaviour
         timeprogress = 1f;
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
-        
+
+        FishAnimator.SetTrigger("FishCaught");
         
         inventory.AddFish(FishingSystem.Instance.fish, 1);
 
