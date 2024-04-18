@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Squid
   m_EditorClassIdentifier: 
-  Id: 14
+  Id: 11
   fishName: Squid
-  fishCount: 0
-  size: 10
+  probability: 15
+  fishDescription: 
   prefabDisplay: {fileID: 0}

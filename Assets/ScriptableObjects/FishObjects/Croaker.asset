@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
-  m_Name: Flounder
+  m_Name: Croaker
   m_EditorClassIdentifier: 
   Id: 1
-  fishName: fishy
-  fishCount: 0
-  size: 10
+  fishName: Croaker
+  probability: 40
+  fishDescription: 
   prefabDisplay: {fileID: 0}

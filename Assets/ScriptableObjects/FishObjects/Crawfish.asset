@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2
   fishName: Crawfish
-  fishCount: 0
-  size: 10
+  probability: 15
+  fishDescription: 
   prefabDisplay: {fileID: 0}

@@ -25,6 +25,9 @@ public class FishingSystem : MonoBehaviour
 
     public bool IsBiting;
 
+    public int Id;
+    public FishObject fish;
+
     
 
     private void Awake()
@@ -39,7 +42,7 @@ public class FishingSystem : MonoBehaviour
         }
     }
 
-    internal void StartFishing(WaterSource watersource)
+    public void StartFishing(WaterSource watersource)
     {
         StartCoroutine(FishingCoroutine(watersource));
     }
@@ -49,12 +52,14 @@ public class FishingSystem : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
 
-        FishObject fish = CalculateBite(watersource);
+        fish = CalculateBite(watersource);
+        Id = fish.Id;
+        Debug.Log(Id);
 
         Debug.Log(fish.fishName + " IS BITING");
-        //FishingRod.PullRod();// NOTWORKING
-        //FishingRod.animator.SetBool("IsPulling", true);
-        //FishingRod.animator.SetBool("IsMinigame", true);
+        FishingRod.PullRod();// NOTWORKING
+        FishingRod.animator.SetBool("IsPulling", true);
+        FishingRod.animator.SetBool("IsMinigame", true);
         FishingMinigame.SetActive(true);
         
 
@@ -63,7 +68,7 @@ public class FishingSystem : MonoBehaviour
 
 
 
-    private FishObject CalculateBite(WaterSource watersource)
+    public FishObject CalculateBite(WaterSource watersource)
     {
         List<FishObject> availableFish = GetAvailableFish(watersource);
 

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: ReefShark
   m_EditorClassIdentifier: 
-  Id: 7
+  Id: 5
   fishName: Reef Shark
-  fishCount: 0
-  size: 10
+  probability: 15
+  fishDescription: 
   prefabDisplay: {fileID: 2377955842357947550, guid: cf5304fb006e94ca198ff20ad448e750,
     type: 3}

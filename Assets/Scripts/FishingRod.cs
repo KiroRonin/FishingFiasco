@@ -12,12 +12,12 @@ public class FishingRod : MonoBehaviour
     public bool isCasted;
     public bool isPulling;
     public Vector3 normalPositionOffset;
-    public Transform parent;
+    
     public Animator animator;
     public GameObject baitPrefab;
     public GameObject linePrefab;
     public Transform start_of_rod;
-    public Transform baitPosition;
+    //public Transform baitPosition;
     private LineRenderer lineRenderer;
     private GameObject baitInstance;
     public GameObject FishingMinigame;
@@ -35,7 +35,7 @@ public class FishingRod : MonoBehaviour
     void Update()
     {
         rope = GameObject.Find("Rope(Clone)");
-        baitInstance = GameObject.Find("Bait(Clone)");
+        bait = GameObject.Find("Bait(Clone)");
 
         if (isEquipped)
         {
@@ -65,10 +65,10 @@ public class FishingRod : MonoBehaviour
 
         if (isCasted || isPulling)
         {
-            if (lineRenderer != null)
-            {
-                lineRenderer.SetPosition(1, baitPosition.position);
-            }
+            //if (lineRenderer != null)
+            //{
+            //    lineRenderer.SetPosition(1, baitPosition.position);
+            //}
         }
 
         if (isCasted && Input.GetMouseButtonDown(1))
@@ -76,7 +76,7 @@ public class FishingRod : MonoBehaviour
             PullRod();
         }
 
-        transform.rotation = parent.transform.rotation;
+        
     }
 
     private void CastLine(Vector3 targetPosition)
@@ -108,16 +108,26 @@ public class FishingRod : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        while (isCasting)
+        {
+            lineRenderer.SetPosition(0, start_of_rod.position);
+            lineRenderer.SetPosition(1, targetPosition);
+            baitInstance.transform.position = targetPosition;
+            
+            yield return null;
+            
+        }
 
-        lineRenderer.SetPosition(0, start_of_rod.position);
-        lineRenderer.SetPosition(1, targetPosition);
-        baitInstance.transform.position = targetPosition;
+
+        //lineRenderer.SetPosition(0, start_of_rod.position);
+        //lineRenderer.SetPosition(1, targetPosition);
+        //baitInstance.transform.position = targetPosition;
+
         //baitPosition = baitInstance.transform;
 
         // ---- > Start Fish Bite Logic
-        FishingSystem.Instance.StartFishing(WaterSource.Tavern);
 
-        isCasting = false;
+        
     }
 
     public void PullRod()

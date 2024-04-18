@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Grouper
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 4
   fishName: Grouper
   probability: 10
   fishDescription: 

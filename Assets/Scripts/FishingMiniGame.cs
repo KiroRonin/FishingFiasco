@@ -36,9 +36,13 @@ public class FishingMiniGame : MonoBehaviour
     [SerializeField] StarterAssetsInputs playerinputs;
 
     public FishingRod fishingrod;
-    bool pause = false;
+    
+    public InventoryObject inventory;
+    
 
     [SerializeField] float failtime = 10f;
+    public int inventoryCount;
+
 
 
 
@@ -152,7 +156,7 @@ public class FishingMiniGame : MonoBehaviour
 
     public void Win()
     {
-        pause = true;
+        
         fishingrod.isCasted = false;
         Debug.Log("YOU CAUGHT A FISH");
         fishingrod.animator.SetBool("IsPulling", false);
@@ -165,13 +169,23 @@ public class FishingMiniGame : MonoBehaviour
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
         
+        
+        inventory.AddFish(FishingSystem.Instance.fish, 1);
+
+        inventoryCount++;
+        FishStats.Instance.increaseFishValue(FishingSystem.Instance.Id);
+        FishStats.Instance.currentFishAmount = inventoryCount;
+        GameManager.Instance.SaveData();
+        print(FishStats.Instance.currentFishAmount);
+
+        
 
 
     }
 
     public void Lose()
     {
-        pause = false;
+        
         fishingrod.isCasted = false;
         Debug.Log("YOU LOSE");
         fishingrod.animator.SetBool("IsPulling", false);
