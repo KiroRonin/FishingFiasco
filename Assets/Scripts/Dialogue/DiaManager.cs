@@ -30,6 +30,8 @@ public class DiaManager : MonoBehaviour
     public NPC currentNPC;
     private string currentKnot;
 
+    public SellManager sellManager;
+
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
     public static DiaManager instance;
@@ -68,6 +70,7 @@ public class DiaManager : MonoBehaviour
             npcName = collision.gameObject.name;
             print(npcName);
 
+            sellManager.npcInventory = currentNPC.npcInventory;
 
             playerInRange = true;
             print(playerInRange);
