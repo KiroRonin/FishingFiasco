@@ -2827,6 +2827,7 @@ RectTransform:
   - {fileID: 2744176077009471532}
   - {fileID: 392694971716884856}
   - {fileID: 8219638888752614899}
+  - {fileID: 9210244188388434773}
   m_Father: {fileID: 6880098674567573199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3240,6 +3241,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4305423301224924419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9210244188388434773}
+  - component: {fileID: 5976627327347097666}
+  - component: {fileID: 8441009320754819034}
+  m_Layer: 5
+  m_Name: interactUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9210244188388434773
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305423301224924419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.0869, y: 2.0869, z: 2.0869}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7404777917079286237}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 45, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5976627327347097666
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305423301224924419}
+  m_CullTransparentMesh: 1
+--- !u!114 &8441009320754819034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305423301224924419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1ad2fbbbf5e04433a9ac553df1126296, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4371546235581664601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,6 +3810,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   failtime: 10
   inventoryCount: 0
+  FishAnimator: {fileID: 0}
 --- !u!1 &4791942590262750803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7665,6 +7742,8 @@ MonoBehaviour:
   tradeSprite: {fileID: 0}
   dialoguePlaying: 0
   playerInRange: 1
+  currentNPC: {fileID: 0}
+  sellManager: {fileID: 0}
   player: {fileID: 8616685848737228382}
   starterAssetsInputs: {fileID: 5420857361349278248}
 --- !u!114 &5315813455640701813
@@ -8095,6 +8174,7 @@ MonoBehaviour:
   rope: {fileID: 0}
   bait: {fileID: 0}
   player: {fileID: 0}
+  FOVanimator: {fileID: 0}
 --- !u!4 &8103241416850427437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7967012183008403265, guid: 87ecba8ee503b6b469b40789a6947ffa,

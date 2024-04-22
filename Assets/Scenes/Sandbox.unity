@@ -11018,7 +11018,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rangePop
       value: 
-      objectReference: {fileID: 4958478531678554803}
+      objectReference: {fileID: 0}
     - target: {fileID: 4684926179102274591, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: m_Name
@@ -26227,12 +26227,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1761458661}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4958478531678554803 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4669766466444871818, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1761458661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5435979158739375667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26383,7 +26377,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rangePop
       value: 
-      objectReference: {fileID: 4958478531678554803}
+      objectReference: {fileID: 0}
     - target: {fileID: 3591966157543059741, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: npcInventory

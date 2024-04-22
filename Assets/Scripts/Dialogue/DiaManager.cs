@@ -13,22 +13,27 @@ public class DiaManager : MonoBehaviour
 
     public GameObject dialogueCanvas;
     public TextMeshProUGUI dialogueText;
+    public string currentText;
     public GameObject characterSprite;
     public string npcName;
+    public GameObject interactUI;
 
     public GameObject tradeCanvas;
     public TextMeshProUGUI tradeDescription;
     public GameObject tradeSprite;
     private bool tradeActive;
+
+    public float scrollSpeed = 0.05f;
     
     public bool dialoguePlaying;
     public bool playerInRange;
     private bool interactPressed;
     private bool canvasActivated;
-    private bool dialogueContinue = true;
+    //private bool dialogueContinue = true;
 
     public NPC currentNPC;
     private string currentKnot;
+    private bool fillText;
 
     public SellManager sellManager;
 
@@ -65,7 +70,8 @@ public class DiaManager : MonoBehaviour
             currentKnot = currentNPC.GetKnot();
             characterSprite.GetComponent<Image>().sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
             story.ChoosePathString(currentKnot);
-            dialogueText.text = loadStoryChunk();
+            currentText = loadStoryChunk();
+            //dialogueText.text = loadStoryChunk();
 
             npcName = collision.gameObject.name;
             print(npcName);
@@ -74,6 +80,7 @@ public class DiaManager : MonoBehaviour
 
             playerInRange = true;
             print(playerInRange);
+            interactUI.SetActive(true);
         }
     }
 
@@ -83,30 +90,50 @@ public class DiaManager : MonoBehaviour
         {
             playerInRange = false;
             print(playerInRange);
+            interactUI.SetActive(false);
         }
     }
 
     
     void chooseStoryChoice(){
-        if(starterAssetsInputs.interact && interactPressed == false && canvasActivated == true){
+        if(starterAssetsInputs.interact && interactPressed == false && canvasActivated == true && tradeActive == false){
             if (story.canContinue == true){
-                dialogueText.text = loadStoryChunk();
-                print(story.canContinue);
-                player.enabled = false;
+                StopAllCoroutines();
+                if (fillText == false){
+                    dialogueText.text = currentText;
+                    fillText = true;
+                }
+                else{
+                    scrollText(loadStoryChunk());
+                    //dialogueText.text = loadStoryChunk();
+                    print(story.canContinue);
+                    player.enabled = false;
+                    fillText = false;
+                }
+                
             }
             else if (story.canContinue == false){
-                dialogueCanvas.SetActive(false);
-                print(story.canContinue);
-                player.enabled = true;
-                canvasActivated = false;
-
-                if (currentNPC.isTrade == true){
-                    print("trade can activate!!");
-                    tradeCanvas.SetActive(true);
-                    tradeActive = true;
-                    player.enabled = false;
-
+                StopAllCoroutines();
+                if (fillText == false){
+                    dialogueText.text = currentText;
+                    fillText = true;
                 }
+                else{
+                    dialogueCanvas.SetActive(false);
+                    print(story.canContinue);
+                    player.enabled = true;
+                    canvasActivated = false;
+                    //StopAllCoroutines();
+
+                    if (currentNPC.isTrade == true){
+                        print("trade can activate!!");
+                        tradeCanvas.SetActive(true);
+                        tradeActive = true;
+                        player.enabled = false;
+                        StopAllCoroutines();
+                    }
+                }
+
             }
 
             interactPressed = true;
@@ -116,6 +143,26 @@ public class DiaManager : MonoBehaviour
         }
         
     }
+
+    void scrollText(string text){
+        currentText = text;
+        StartCoroutine(displayText());
+    }
+
+    public IEnumerator displayText(){
+        dialogueText.text = "";
+
+        foreach(char c in currentText.ToCharArray()){
+            dialogueText.text += c;
+
+            yield return new WaitForSecondsRealtime(scrollSpeed);
+    
+        }
+        print("loop done?");
+        fillText = true;
+        yield return null;
+    }
+
 
     string loadStoryChunk(){
 
@@ -131,11 +178,14 @@ public class DiaManager : MonoBehaviour
         
     }
 
+
+
     void canvasState(){
-        if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false){
+        if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false && tradeActive == false){
             print(playerInRange);
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
+            interactUI.SetActive(false);
         }
     }
 
@@ -145,8 +195,9 @@ public class DiaManager : MonoBehaviour
             tradeActive = false;
             tradeCanvas.SetActive(false);
             player.enabled = true;
-
+            print("exit trade screen");
             interactPressed = true;
+            interactUI.SetActive(true);
         }
     }
 

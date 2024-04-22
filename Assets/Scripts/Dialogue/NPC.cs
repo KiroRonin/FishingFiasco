@@ -9,8 +9,6 @@ public class NPC : MonoBehaviour
     public bool isTrade;
 
     public InventoryObject npcInventory;
-
-    public GameObject rangePop;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,17 +43,6 @@ public class NPC : MonoBehaviour
         return k;
     }
 
-    void OnTriggerEnter(Collider other){
-        if(other.tag == "Player"){
-            rangePop.SetActive(true);
-        }
-    }
-
-    void OnTriggerExit(Collider other){
-        if(other.tag == "Player"){
-            rangePop.SetActive(false);
-        }
-    }
 }
 
 
