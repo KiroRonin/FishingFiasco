@@ -3103,6 +3103,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7642605225561489259}
+  - {fileID: 6880098674567573199}
   m_Father: {fileID: 8997996947095583982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4152009281012122808
@@ -7482,7 +7483,6 @@ Transform:
   m_Children:
   - {fileID: 4135013735270702856}
   - {fileID: 5393215578589016641}
-  - {fileID: 6880098674567573199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8616685848737228382
@@ -7735,11 +7735,14 @@ MonoBehaviour:
   inkJSON: {fileID: 4900000, guid: 8ee836fccc71f421eb78cb9a688b4d11, type: 3}
   dialogueCanvas: {fileID: 2509539226250035266}
   dialogueText: {fileID: 8457940892838550125}
+  currentText: 
   characterSprite: {fileID: 5924647480614906088}
   npcName: 
+  interactUI: {fileID: 0}
   tradeCanvas: {fileID: 0}
   tradeDescription: {fileID: 0}
   tradeSprite: {fileID: 0}
+  scrollSpeed: 0.05
   dialoguePlaying: 0
   playerInRange: 1
   currentNPC: {fileID: 0}
@@ -7915,7 +7918,7 @@ Transform:
   m_GameObject: {fileID: 9053129075449919880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.042149, y: -6.5806017, z: 28.21252}
+  m_LocalPosition: {x: -9.04215, y: -7.9556017, z: 28.21252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7926,7 +7929,7 @@ Transform:
   - {fileID: 715237897098271842}
   - {fileID: 2736262863812948539}
   - {fileID: 8468759403120390876}
-  m_Father: {fileID: 8997996947095583982}
+  m_Father: {fileID: 4135013735270702856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9196055737438259081
 GameObject:
