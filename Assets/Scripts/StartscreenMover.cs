@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SmoothLerp : MonoBehaviour
 {
-    public Transform targetObject;
+    public RectTransform targetObject;
     public Vector3 initialPosition;
     public Quaternion initialRotation;
     public Vector3 finalPosition;
