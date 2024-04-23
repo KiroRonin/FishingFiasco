@@ -45,6 +45,7 @@ public class FishingMiniGame : MonoBehaviour
 
 
     public Animator FishAnimator;
+    public Animator reelAnimator;
 
 
 
@@ -172,6 +173,7 @@ public class FishingMiniGame : MonoBehaviour
         Destroy(fishingrod.bait);
 
         FishAnimator.SetTrigger("FishCaught");
+        reelAnimator.SetTrigger("minigameOver");
         
         inventory.AddFish(FishingSystem.Instance.fish, 1);
 
@@ -193,6 +195,7 @@ public class FishingMiniGame : MonoBehaviour
         Debug.Log("YOU LOSE");
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
+        reelAnimator.SetTrigger("minigameOver");
         fishingrod.FishingMinigame.SetActive(false);
         Destroy(fishingrod.bait);
         Destroy(fishingrod.rope);
