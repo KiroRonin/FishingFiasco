@@ -5824,7 +5824,7 @@ PrefabInstance:
     - target: {fileID: 6085117965582790958, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -304
+      value: -323.7
       objectReference: {fileID: 0}
     - target: {fileID: 6226378472334199769, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -6016,6 +6016,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457940892838550125, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c73389c42eb4046258979e5009129caa,
+        type: 2}
+    - target: {fileID: 8457940892838550125, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3209038132531279556, guid: c73389c42eb4046258979e5009129caa,
+        type: 2}
+    - target: {fileID: 8457940892838550125, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8458732560034333061, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
