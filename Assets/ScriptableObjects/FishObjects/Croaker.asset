@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Croaker
   probability: 40
   fishDescription: 
-  prefabDisplay: {fileID: 0}
+  prefabDisplay: {fileID: 5595847497003245000, guid: f3ec59e0545274601a58f792411bf0bd,
+    type: 3}

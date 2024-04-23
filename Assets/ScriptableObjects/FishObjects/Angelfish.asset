@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
-  m_Name: Creature
+  m_Name: Angelfish
   m_EditorClassIdentifier: 
-  Id: 10
-  fishName: Creature
+  Id: 5
+  fishName: Angelfish
   probability: 0
   fishDescription: 
-  prefabDisplay: {fileID: 5595847497003245000, guid: 8d58a2257a1524857ad4faf5b3ec31cb,
+  prefabDisplay: {fileID: 5595847497003245000, guid: a4b81f4c556c64d0f8e72fd700155b8d,
     type: 3}

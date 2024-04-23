@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Crawfish
   probability: 15
   fishDescription: 
-  prefabDisplay: {fileID: 0}
+  prefabDisplay: {fileID: 5595847497003245000, guid: 0f0098509038b41928845f34be698e2b,
+    type: 3}

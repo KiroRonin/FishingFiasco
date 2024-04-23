@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Seapig
   probability: 45
   fishDescription: 
-  prefabDisplay: {fileID: 0}
+  prefabDisplay: {fileID: 5595847497003245000, guid: 153166ebde8924ff68da63a4bf797024,
+    type: 3}
