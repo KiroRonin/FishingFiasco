@@ -9676,6 +9676,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 911150359}
+    - target: {fileID: 5773179911536490669, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5887656478901889880, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
       propertyPath: m_Mesh
@@ -9800,11 +9805,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7731372010904305732, guid: 5e4d68b4d11ff47ae8d61e083fd2e859, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5773179911536490669, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2113561273}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e4d68b4d11ff47ae8d61e083fd2e859, type: 3}
 --- !u!114 &59002127 stripped
 MonoBehaviour:
@@ -12354,35 +12355,10 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &2113561268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5773179911536490669, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
-    type: 3}
-  m_PrefabInstance: {fileID: 59002126}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2113561273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113561268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a335422cb518c44a03d889cda68f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
-  initialPosition: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
-  finalRotation: {x: 0, y: 0, z: 0, w: 0}
-  lerpDuration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 59002126}
   - {fileID: 1025141097}
   - {fileID: 37000170}
   - {fileID: 346078455}
@@ -12391,3 +12367,4 @@ SceneRoots:
   - {fileID: 530259531}
   - {fileID: 1316203370}
   - {fileID: 1792965606}
+  - {fileID: 59002126}

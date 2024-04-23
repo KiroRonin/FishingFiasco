@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class FishingRod : MonoBehaviour
 {
     public bool isEquipped;
@@ -27,6 +28,10 @@ public class FishingRod : MonoBehaviour
 
     public Animator FOVanimator;
 
+    private string sceneName;
+
+    
+
 
 
     private void Start()
@@ -34,6 +39,8 @@ public class FishingRod : MonoBehaviour
         animator = GetComponent<Animator>();
         isEquipped = true;
         FishingMinigame.SetActive(false);
+        sceneName = SceneManager.GetActiveScene().name;
+        
     }
 
     void Update()
@@ -118,7 +125,32 @@ public class FishingRod : MonoBehaviour
             yield return null;
             
         }
-        FishingSystem.Instance.StartFishing(WaterSource.Tavern);
+
+        if (sceneName == "Tavern")
+        {
+            FishingSystem.Instance.StartFishing(WaterSource.Tavern);
+        }
+
+        if (sceneName == "CoralReef")
+        {
+            FishingSystem.Instance.StartFishing(WaterSource.Coral);
+        }
+
+        if (sceneName == "Deep")
+        {
+            FishingSystem.Instance.StartFishing(WaterSource.Deep);
+        }
+
+        if(sceneName == "Cave")
+        {
+            FishingSystem.Instance.StartFishing(WaterSource.Cave);
+        }
+
+        if (sceneName == "Sandbox 2")
+        {
+            FishingSystem.Instance.StartFishing(WaterSource.Tavern);
+        }
+
 
 
         //lineRenderer.SetPosition(0, start_of_rod.position);
@@ -129,7 +161,7 @@ public class FishingRod : MonoBehaviour
 
         // ---- > Start Fish Bite Logic
 
-        
+
     }
 
     public void PullRod()
