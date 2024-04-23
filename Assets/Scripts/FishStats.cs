@@ -14,6 +14,7 @@ public class FishStats : MonoBehaviour
         //CORAL REEF FISH
     //empty
     public int grouper;
+    public int angelfish;
     public int shark;
 
         //CAVE FISH
@@ -56,7 +57,7 @@ public class FishStats : MonoBehaviour
                 crawfish++;
                 break;
             case 3:
-                //empty++;
+                angelfish++;
                 break;
             case 4:
                 grouper++;
@@ -85,7 +86,7 @@ public class FishStats : MonoBehaviour
         }
     }
 
-    public void setFishStats(/*STARTER FISH*/int carp, int croaker, int crawfish, /*CORAL FISH*/ int grouper, int shark,/*CAVE FISH*/int blindfish, int hyaline, int snakehead,/*DEEP FISH*/int seapig, int creature, int squid,/*STATS*/ int currentFishAmount, int maxInventory)
+    public void setFishStats(/*STARTER FISH*/int carp, int croaker, int crawfish, /*CORAL FISH*/ int grouper, int angelfish, int shark,/*CAVE FISH*/int blindfish, int hyaline, int snakehead,/*DEEP FISH*/int seapig, int creature, int squid,/*STATS*/ int currentFishAmount, int maxInventory)
     {
             //STARTER ISLAND REEF FISH UPDATE
         this.carp = carp;
@@ -93,7 +94,7 @@ public class FishStats : MonoBehaviour
         this.crawfish = crawfish;
 
             //CORAL REEF FISH UPDATE
-        //empty
+        this.angelfish = angelfish;
         this.grouper = grouper;
         this.shark = shark;
 

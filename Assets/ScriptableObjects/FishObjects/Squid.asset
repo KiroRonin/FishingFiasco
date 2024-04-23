@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Squid
   probability: 15
   fishDescription: 
-  prefabDisplay: {fileID: 0}
+  prefabDisplay: {fileID: 5595847497003245000, guid: 137b5880fe4444057ad16de698fbf6c6,
+    type: 3}

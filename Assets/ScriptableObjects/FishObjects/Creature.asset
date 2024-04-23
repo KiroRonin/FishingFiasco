@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Creature
   probability: 0
   fishDescription: 
-  prefabDisplay: {fileID: 0}
+  prefabDisplay: {fileID: 5595847497003245000, guid: 8d58a2257a1524857ad4faf5b3ec31cb,
+    type: 3}
