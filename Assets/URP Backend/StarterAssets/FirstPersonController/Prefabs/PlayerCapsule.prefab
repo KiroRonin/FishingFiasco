@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 8103241416850427437}
   - component: {fileID: 1024465811658416714}
   - component: {fileID: 7133626699561386414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fishing Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
