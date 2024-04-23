@@ -69,6 +69,7 @@ public class DiaManager : MonoBehaviour
             currentNPC = collision.gameObject.GetComponent<NPC>();
             currentKnot = currentNPC.GetKnot();
             characterSprite.GetComponent<Image>().sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
+            tradeSprite.GetComponent<Image>().sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
             story.ChoosePathString(currentKnot);
             currentText = loadStoryChunk();
             //dialogueText.text = loadStoryChunk();
