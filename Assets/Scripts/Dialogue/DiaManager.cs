@@ -17,6 +17,7 @@ public class DiaManager : MonoBehaviour
     public GameObject characterSprite;
     public string npcName;
     public GameObject interactUI;
+    public GameObject crosshair;
 
     public GameObject tradeCanvas;
     public TextMeshProUGUI tradeDescription;
@@ -82,6 +83,7 @@ public class DiaManager : MonoBehaviour
             playerInRange = true;
             print(playerInRange);
             interactUI.SetActive(true);
+            crosshair.SetActive(false);
         }
     }
 
@@ -92,6 +94,7 @@ public class DiaManager : MonoBehaviour
             playerInRange = false;
             print(playerInRange);
             interactUI.SetActive(false);
+            crosshair.SetActive(true);
         }
     }
 
