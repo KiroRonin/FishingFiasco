@@ -4,9 +4,9 @@
 start
 
 {hello this is dialogue text i am here to speak to  you and have an extremely meaningful conversation yes yes for sure thumbs up!!|blah over. i am done talking now.->end_KNOT}
-blah blah blah. blahblahbhhbhah
+you have to prove yourself and stuff so you can make it to the awesome swagsome fishing competition.
 
-What can you offer?
+Go out there and fish! or whatever
 
 *[next]
 ->end_KNOT
@@ -14,11 +14,10 @@ What can you offer?
 ===SecondTest===
 start
 
-{I really love to cook! In fact I love to cook so much that I am going to task you, little youngin, with helping me fetch ingredients.|ok im done yappin lol->end_KNOT}
+{i need help with cooking and finding ingredients and stuff. i want to cook something.|please help me and get some crawfish :c->end_KNOT}
 
-Listen here young man. I'm talking directly into your ear now. I need you to do me a favor. You will do this for me.
+please help me and get some crawfish :c
 
-You're going to go into the Gamestop, and you're going to get me Speciality Fish Crawfish for the ps2. If you come back empty handed you'll be in plenty trouble mister.
 *[next]
 ->end_KNOT
 

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7331782259119076333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479227944303644758}
+  - component: {fileID: 2506245858085692474}
+  m_Layer: 0
+  m_Name: FishingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479227944303644758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331782259119076333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -245.65892, y: -32.62037, z: -131.19543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2506245858085692474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331782259119076333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ea781fbf0b2144d9f01dbb5c5c1eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TavernFishList:
+  - {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
+  - {fileID: 11400000, guid: ef5340a25db3b4555a06623dbf11a5bd, type: 2}
+  - {fileID: 11400000, guid: 668c10d30746241d6b3ea764a5930759, type: 2}
+  CoralFishList:
+  - {fileID: 11400000, guid: 89a8ef0d28a384166aaab2b6881fe6b4, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: d85d06615e98b46c58868189fcff2f0b, type: 2}
+  CaveFishList:
+  - {fileID: 11400000, guid: b4597172594634b029a26af65438ea82, type: 2}
+  - {fileID: 11400000, guid: 187406d9264874e9fb8cf5cce98c1069, type: 2}
+  - {fileID: 11400000, guid: 5daeb966b06a84b8d8f076a51af37fbd, type: 2}
+  DeepFishList:
+  - {fileID: 11400000, guid: 97eaaf9388ac54ee584ba39237f817f1, type: 2}
+  - {fileID: 11400000, guid: 96f39c601de8e4357a95821a0a520940, type: 2}
+  - {fileID: 11400000, guid: aed660de44a34435aac33affbcad835e, type: 2}
+  FishingMinigame: {fileID: 0}
+  IsBiting: 0
+  Id: 0
+  fish: {fileID: 0}
+  fishingRod: {fileID: 0}
