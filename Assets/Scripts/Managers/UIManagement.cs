@@ -41,6 +41,8 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private CharacterController Player;
     [SerializeField] private CinemachineVirtualCamera Camera;
 
+    [SerializeField] private GameObject Billy;
+
     public List<GameObject> indexMenus = new List<GameObject>();
     
     void Start()
@@ -55,6 +57,8 @@ public class UIManagement : MonoBehaviour
         indexMenus.Add(undergroundIndex);
         indexMenus.Add(deepIndex);
         
+       
+        
     }
 
     void Update()
@@ -62,6 +66,8 @@ public class UIManagement : MonoBehaviour
         OnInventory();
         OnIndex();
         OnPause();
+
+        //Player.transform.LookAt(Billy.transform.position);
 
         //Debug.Log(starterActive);
     }

@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 3607386523939729042}
   - component: {fileID: 5880735926265110999}
   - component: {fileID: -5853157454741917061}
+  - component: {fileID: 1806949326238068046}
   m_Layer: 5
   m_Name: CarpDisplay
   m_TagString: Untagged
@@ -255,4 +256,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5880735926265110999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806949326238068046}
+        m_TargetAssemblyTypeName: fishDataGather, Assembly-CSharp
+        m_MethodName: currentFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1806949326238068046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589687734628504517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1e701976fc24f6f9eba7aa1294c50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sellManager: {fileID: 2702213123216278720, guid: 60f35a7eedf8d4ef88c41c0cc70cd8ae,
+    type: 3}
+  fish: {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
