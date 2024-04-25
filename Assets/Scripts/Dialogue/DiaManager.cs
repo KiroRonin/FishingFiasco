@@ -133,7 +133,7 @@ public class DiaManager : MonoBehaviour
                         print("trade can activate!!");
                         tradeCanvas.SetActive(true);
                         tradeActive = true;
-                        player.enabled = false;
+                        playerDisable();
                         StopAllCoroutines();
                     }
                 }
@@ -198,12 +198,24 @@ public class DiaManager : MonoBehaviour
             
             tradeActive = false;
             tradeCanvas.SetActive(false);
-            player.enabled = true;
+            playerEnable();
             print("exit trade screen");
             interactPressed = true;
             interactUI.SetActive(true);
         }
     }
 
+    void playerEnable(){
+        player.enabled = true;
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void playerDisable(){
+        player.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }

@@ -27,6 +27,7 @@ public class FishingRod : MonoBehaviour
     public UIManagement player;
 
     public Animator FOVanimator;
+    public Animator reelAnimator;
 
     private string sceneName;
 
@@ -107,6 +108,7 @@ public class FishingRod : MonoBehaviour
         player.PlayerDisable();
         animator.SetTrigger("Cast");
         FOVanimator.SetTrigger("FOVCast");
+        reelAnimator.SetTrigger("Reeling");
         
         GameObject lineInstance = Instantiate(linePrefab, start_of_rod.position, Quaternion.identity);
         lineRenderer = lineInstance.GetComponent<LineRenderer>();
