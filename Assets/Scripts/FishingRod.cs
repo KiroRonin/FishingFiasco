@@ -188,6 +188,7 @@ public class FishingRod : MonoBehaviour
     {
         fishcaughtobject = FishingSystem.Instance.fish.modelprefab  ;
         FishCaught = Instantiate(fishcaughtobject, new Vector3(0, 0, 1), Quaternion.identity);
+        FishCaught.AddComponent<FishRotation>();
         Debug.Log("fishcaught instantiated");
         StartCoroutine(KillFishInstance());
        

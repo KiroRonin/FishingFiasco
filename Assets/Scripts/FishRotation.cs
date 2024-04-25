@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishRotation : MonoBehaviour
 {
-    public float rotationSpeed = 25f;
+    public float rotationSpeed = 100f;
 
     // Start is called before the first frame update
     void Start()

@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3749999
+      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3749999
+      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
@@ -1793,6 +1793,11 @@ PrefabInstance:
       objectReference: {fileID: 1738493327178968690}
     - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: reelAnimator
+      value: 
+      objectReference: {fileID: 2661399727574919359}
+    - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: start_of_rod
       value: 
       objectReference: {fileID: 1211209499580481697}
@@ -1801,6 +1806,11 @@ PrefabInstance:
       propertyPath: FishingMinigame
       value: 
       objectReference: {fileID: 722928889364314785}
+    - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: fishcaughtanimator
+      value: 
+      objectReference: {fileID: 6741761595582003837}
     - target: {fileID: 7283199216745110584, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_VersionIndex
@@ -2633,6 +2643,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6741761595582003837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1590790662137321153, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5448251495054912700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7588494450183630078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2509539226250035266, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
