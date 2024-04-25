@@ -1,6 +1,7 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,6 +46,9 @@ public class FishingMiniGame : MonoBehaviour
 
 
     public Animator FishAnimator;
+
+    
+    
 
 
 
@@ -151,6 +155,7 @@ public class FishingMiniGame : MonoBehaviour
         if(hookprogress > 1)
         {
             Win();
+            fishingrod.Winfish();
         }
         hookprogress = Mathf.Clamp(hookprogress, 0f, 1f);
         timeprogress = Mathf.Clamp(timeprogress, 0f, 1f);
@@ -160,6 +165,7 @@ public class FishingMiniGame : MonoBehaviour
     {
         
         fishingrod.isCasted = false;
+        fishingrod.wonminigame = true;
         Debug.Log("YOU CAUGHT A " + FishingSystem.Instance.fish.fishName);
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
@@ -171,7 +177,7 @@ public class FishingMiniGame : MonoBehaviour
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
 
-        FishAnimator.SetTrigger("FishCaught");
+        FishAnimator.SetTrigger("FishCaught");   
         
         inventory.AddFish(FishingSystem.Instance.fish, 1);
 
@@ -185,6 +191,8 @@ public class FishingMiniGame : MonoBehaviour
 
 
     }
+
+    
 
     public void Lose()
     {

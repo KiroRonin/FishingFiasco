@@ -30,7 +30,15 @@ public class FishingRod : MonoBehaviour
 
     private string sceneName;
 
-    
+    private GameObject fishcaughtobject;
+
+    public GameObject fishcaughtanimator;
+
+    private GameObject FishCaught;
+
+    public bool wonminigame = false;
+
+
 
 
 
@@ -76,7 +84,8 @@ public class FishingRod : MonoBehaviour
 
         
 
-        
+
+
     }
 
     private void CastLine(Vector3 targetPosition)
@@ -160,7 +169,8 @@ public class FishingRod : MonoBehaviour
         //baitPosition = baitInstance.transform;
 
         // ---- > Start Fish Bite Logic
-
+        
+        
 
     }
 
@@ -170,5 +180,22 @@ public class FishingRod : MonoBehaviour
         lineRenderer.SetPosition(1, start_of_rod.transform.position);
         FishingMinigame.SetActive(true);
         animator.SetBool("IsMinigame", true);
+    }
+
+    public void Winfish()
+    {
+        fishcaughtobject = FishingSystem.Instance.fish.modelprefab  ;
+        FishCaught = Instantiate(fishcaughtobject, new Vector3(0, 0, 1), Quaternion.identity);
+        Debug.Log("fishcaught instantiated");
+        StartCoroutine(KillFishInstance());
+       
+
+    }
+
+    IEnumerator KillFishInstance()
+    {
+        FishCaught.transform.SetParent(fishcaughtanimator.transform, false);
+        yield return new WaitForSeconds(3f);
+        Destroy(FishCaught);
     }
 }

@@ -10,7 +10,7 @@ public class FishObject : ScriptableObject
     public string fishDescription;
 
     public GameObject prefabDisplay;
-
+    public GameObject modelprefab;
 
 
 

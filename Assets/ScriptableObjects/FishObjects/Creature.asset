@@ -18,3 +18,5 @@ MonoBehaviour:
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: 8d58a2257a1524857ad4faf5b3ec31cb,
     type: 3}
+  modelprefab: {fileID: 919132149155446097, guid: f451c48a319184372910160008569716,
+    type: 3}
