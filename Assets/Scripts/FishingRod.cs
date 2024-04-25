@@ -172,6 +172,5 @@ public class FishingRod : MonoBehaviour
         lineRenderer.SetPosition(1, start_of_rod.transform.position);
         FishingMinigame.SetActive(true);
         animator.SetBool("IsMinigame", true);
-        reelAnimator.SetBool("isMinigame", true);
     }
 }
