@@ -78,7 +78,7 @@ public class DiaManager : MonoBehaviour
             npcName = collision.gameObject.name;
             print(npcName);
 
-            sellManager.npcInventory = currentNPC.npcInventory;
+            //sellManager.npcInventory = currentNPC.npcInventory;
 
             playerInRange = true;
             print(playerInRange);

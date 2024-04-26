@@ -49,8 +49,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef5340a25db3b4555a06623dbf11a5bd, type: 2}
   - {fileID: 11400000, guid: 668c10d30746241d6b3ea764a5930759, type: 2}
   CoralFishList:
+  - {fileID: 11400000, guid: b77f1f4477dc34269815a5f671071202, type: 2}
   - {fileID: 11400000, guid: 89a8ef0d28a384166aaab2b6881fe6b4, type: 2}
-  - {fileID: 0}
   - {fileID: 11400000, guid: d85d06615e98b46c58868189fcff2f0b, type: 2}
   CaveFishList:
   - {fileID: 11400000, guid: b4597172594634b029a26af65438ea82, type: 2}

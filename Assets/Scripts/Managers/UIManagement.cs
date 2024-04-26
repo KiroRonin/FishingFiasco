@@ -41,7 +41,6 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private CharacterController Player;
     [SerializeField] private CinemachineVirtualCamera Camera;
 
-    [SerializeField] private GameObject Billy;
 
     public List<GameObject> indexMenus = new List<GameObject>();
     
@@ -67,7 +66,6 @@ public class UIManagement : MonoBehaviour
         OnIndex();
         OnPause();
 
-        //Player.transform.LookAt(Billy.transform.position);
 
         //Debug.Log(starterActive);
     }

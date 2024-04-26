@@ -9,31 +9,16 @@ public class NPC : MonoBehaviour
     public bool isTrade;
 
     public InventoryObject npcInventory;
-    // Start is called before the first frame update
     void Start()
     {
         n = gameObject.name;
         SetKnot(n);
     }
 
-    // Update is called once per frame
     public void SetKnot(string name)
     {
         string knot;
-
-        if(name == "BillyBass")
-        {
-            knot = "SandboxTest";
-        }
-        else if(name == "Oarfish")
-        {
-            knot = "SecondTest";
-        }
-        else{
-            knot = "";
-        }
-
-        //switch()
+        knot = name;
 
         k = knot;
     }
