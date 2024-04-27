@@ -59,6 +59,42 @@ stinger rayed
 
 *[next]->end_KNOT
 
+===CAVEFISH1===
+start
+
+text
+
+text
+
+*[next]->end_KNOT
+
+===CAVEFISH2===
+start
+
+text
+
+text
+
+*[next]->end_KNOT
+
+===DEEPISH1===
+start
+
+text
+
+text
+
+*[next]->end_KNOT
+
+===DEEPFISH2===
+start
+
+text
+
+text
+
+*[next]->end_KNOT
+
 ===end_KNOT===
 
 ->END

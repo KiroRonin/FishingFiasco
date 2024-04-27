@@ -18,5 +18,5 @@ MonoBehaviour:
   fishDescription: a simple carp. nothing special 'bout it. ain't even a c+....
   prefabDisplay: {fileID: 8589687734628504517, guid: b50922c67dca94adf8b3f7329128de8b,
     type: 3}
-  modelprefab: {fileID: 919132149155446097, guid: e36d556caf1c841ddbea7e2c57a3edd0,
+  modelprefab: {fileID: 919132149155446097, guid: f2489f474c19d4d45a37433c493b792a,
     type: 3}
