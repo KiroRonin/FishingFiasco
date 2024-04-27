@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class DiaManager : MonoBehaviour
 {
     public TextAsset inkJSON;
-    private Story story;
+    public Story story;
 
     public GameObject dialogueCanvas;
     public TextMeshProUGUI dialogueText;
@@ -28,13 +28,13 @@ public class DiaManager : MonoBehaviour
     
     public bool dialoguePlaying;
     public bool playerInRange;
-    private bool interactPressed;
-    private bool canvasActivated;
+    public bool interactPressed;
+    public bool canvasActivated;
     //private bool dialogueContinue = true;
 
     public NPC currentNPC;
-    private string currentKnot;
-    private bool fillText;
+    public string currentKnot;
+    public bool fillText;
 
     public SellManager sellManager;
 
@@ -168,7 +168,7 @@ public class DiaManager : MonoBehaviour
     }
 
 
-    string loadStoryChunk(){
+    public string loadStoryChunk(){
 
         string text = "";
         

@@ -1,8 +1,10 @@
 
 ===BillyTutorial===
-start
+wait!!
 
-wait. you probably dont know how to fish, right? follow me.
+you probably dont know how to fish, right? follow me.
+
+lets go.
 
 *[next]->end_KNOT
 
@@ -44,6 +46,16 @@ right. we, umm... yeah, ever since the storm, we've just been trying to build ev
 _name_ is right up on the plateau if you need to speak with them. they kinda scare me, but theyre... nice. just a bit intense.
 
 anyway, if you could help out with finding fish for me for some reason, that would really help us out.
+
+*[next]->end_KNOT
+
+
+===Stingray===
+start
+
+i am stingray i am stingray
+
+stinger rayed
 
 *[next]->end_KNOT
 
