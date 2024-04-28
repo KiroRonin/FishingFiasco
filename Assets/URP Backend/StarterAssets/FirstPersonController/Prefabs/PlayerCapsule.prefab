@@ -39587,6 +39587,7 @@ GameObject:
   - component: {fileID: 9210244188388434773}
   - component: {fileID: 5976627327347097666}
   - component: {fileID: 8441009320754819034}
+  - component: {fileID: 7349409234190084073}
   m_Layer: 5
   m_Name: interactUI
   m_TagString: Untagged
@@ -39651,6 +39652,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7349409234190084073
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305423301224924419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19a476bd714a94ad9af1357dad53ce05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4347140857997796959
 GameObject:
   m_ObjectHideFlags: 0
