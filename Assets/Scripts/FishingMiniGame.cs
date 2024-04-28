@@ -114,7 +114,7 @@ public class FishingMiniGame : MonoBehaviour
 
 
     }
-    private bool pressedOnceFishing =false;
+    //private bool pressedOnceFishing =false;
 
     void progresscheck()
     {
@@ -170,7 +170,7 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.animator.SetBool("IsPulling", false);
         fishingrod.animator.SetBool("IsMinigame", false);
         fishingrod.FishingMinigame.SetActive(false);
-        fishingrod.player.PlayerEnable();
+        fishingrod.playerUI.PlayerEnable();
         failtime = 10f;
         hookprogress = 0;
         timeprogress = 1f;
@@ -204,7 +204,7 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.FishingMinigame.SetActive(false);
         Destroy(fishingrod.bait);
         Destroy(fishingrod.rope);
-        fishingrod.player.PlayerEnable();
+        fishingrod.playerUI.PlayerEnable();
         failtime = 10f;
         hookprogress = 0;
         timeprogress = 1f;
