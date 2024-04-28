@@ -47,6 +47,8 @@ public class FishingRod : MonoBehaviour
 
     public float downrange;
 
+    
+
 
 
 
@@ -78,7 +80,6 @@ public class FishingRod : MonoBehaviour
             {
                 //Debug.Log("ONFISHINGDOCK");
                 OnFishingDock = false;
-                
             }
 
 
@@ -96,6 +97,8 @@ public class FishingRod : MonoBehaviour
         if (OnFishingDock == true)
         {
             Debug.Log("ONFISHINGDOCK");
+            playerUI.fishingyesUI.SetActive(true);
+            playerUI.fishingnoUI.SetActive(false);
             if (isEquipped && playerFPC.Grounded)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -111,16 +114,25 @@ public class FishingRod : MonoBehaviour
                         CastLine(hit.point);
                     }
                 }
+
                 else
                 {
                     isFishingAvailable = false;
+                    
                 }
             }
             else
             {
                 isFishingAvailable = false;
+                
             }
         }
+        }
+
+        if (OnFishingDock == false) {
+            playerUI.fishingyesUI.SetActive(false);
+            playerUI.fishingnoUI.SetActive(true);
+            isFishingAvailable = false;
         }
 
         

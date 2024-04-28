@@ -36,6 +36,10 @@ public class UIManagement : MonoBehaviour
     private GameObject coralIndex;
     private GameObject undergroundIndex;
     private GameObject deepIndex;
+    public GameObject fishingyesUI;
+    public GameObject fishingnoUI;
+    public GameObject crosshairfishUI;
+    public FishingRod fishingrod;
    
 
     [SerializeField] private CharacterController Player;
@@ -65,6 +69,15 @@ public class UIManagement : MonoBehaviour
         OnInventory();
         OnIndex();
         OnPause();
+        if(fishingrod.isFishingAvailable == true )
+        {
+            crosshairfishUI.SetActive(true);
+        }
+
+        if (fishingrod.isFishingAvailable == false)
+        {
+            crosshairfishUI.SetActive(false);
+        }
 
 
         //Debug.Log(starterActive);
