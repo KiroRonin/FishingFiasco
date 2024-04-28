@@ -1,12 +1,14 @@
+using StarterAssets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class FishingRod : MonoBehaviour
 {
+    public FirstPersonController playerFPC;
     public bool isEquipped;
     public bool isFishingAvailable;
     public bool isCasting = false;
@@ -24,7 +26,9 @@ public class FishingRod : MonoBehaviour
     public GameObject FishingMinigame;
     public GameObject rope;
     public GameObject bait;
-    public UIManagement player;
+    public UIManagement playerUI;
+
+    public GameObject playercollidor;
 
     public Animator FOVanimator;
     public Animator reelAnimator;
@@ -39,6 +43,11 @@ public class FishingRod : MonoBehaviour
 
     public bool wonminigame = false;
 
+    public bool OnFishingDock=false;
+
+    public float downrange;
+
+
 
 
 
@@ -49,15 +58,45 @@ public class FishingRod : MonoBehaviour
         isEquipped = true;
         FishingMinigame.SetActive(false);
         sceneName = SceneManager.GetActiveScene().name;
-        
+        //isEquipped = false;
     }
 
-    void Update()
+    public void OnFishingDockArea()
     {
+        Collider[] colliders = Physics.OverlapSphere(playercollidor.transform.position, downrange);
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("FishDock"))
+            {
+                //Debug.Log("ONFISHINGDOCK");
+                OnFishingDock = true;
+                break;
+            }
+
+            if (!collider.CompareTag("FishDock"))
+            {
+                //Debug.Log("ONFISHINGDOCK");
+                OnFishingDock = false;
+                
+            }
+
+
+        }
+        
+    }
+    public void Update()
+    {
+        OnFishingDockArea();
+
+
         rope = GameObject.Find("Rope(Clone)");
         bait = GameObject.Find("Bait(Clone)");
 
-        if (isEquipped)
+        if (OnFishingDock == true)
+        {
+            Debug.Log("ONFISHINGDOCK");
+            if (isEquipped && playerFPC.Grounded)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
@@ -82,10 +121,9 @@ public class FishingRod : MonoBehaviour
                 isFishingAvailable = false;
             }
         }
+        }
 
         
-
-
 
     }
 
@@ -105,7 +143,7 @@ public class FishingRod : MonoBehaviour
     private IEnumerator CastRod(Vector3 targetPosition)
     {
         isCasted = true;
-        player.PlayerDisable();
+        playerUI.PlayerDisable();
         animator.SetTrigger("Cast");
         FOVanimator.SetTrigger("FOVCast");
         reelAnimator.SetTrigger("Reeling");
@@ -201,4 +239,6 @@ public class FishingRod : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Destroy(FishCaught);
     }
+
+
 }
