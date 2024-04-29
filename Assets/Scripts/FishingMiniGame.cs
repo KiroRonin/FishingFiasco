@@ -188,6 +188,7 @@ public class FishingMiniGame : MonoBehaviour
         FishStats.Instance.currentFishAmount = inventoryCount;
         GameManager.Instance.SaveData();
         print(FishStats.Instance.currentFishAmount);
+        fishingrod.playerFPC.enabled = true;
 
         
 
@@ -211,6 +212,7 @@ public class FishingMiniGame : MonoBehaviour
         hookprogress = 0;
         timeprogress = 1f;
         FishingReel.SetTrigger("minigameover");
+        fishingrod.playerFPC.enabled = true;
 
 
     }
