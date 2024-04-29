@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Reef.unity
     guid: 21e0c4d280f864d85afb2ac7c7226817
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: b61442d18fab14296b0e9e20febb7a1d
   m_configObjects: {}
