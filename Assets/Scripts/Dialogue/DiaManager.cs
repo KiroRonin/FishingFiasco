@@ -22,7 +22,7 @@ public class DiaManager : MonoBehaviour
     public GameObject tradeCanvas;
     public TextMeshProUGUI tradeDescription;
     public GameObject tradeSprite;
-    private bool tradeActive;
+    public bool tradeActive;
 
     public float scrollSpeed = 0.05f;
     
