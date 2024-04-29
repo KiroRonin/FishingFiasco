@@ -24,28 +24,29 @@ public class TeachMinigame : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (colliderEnter == true && DiaManager.instance.canvasActivated == true)
+        if (colliderEnter)
         {
-            rotateBilly();
-            Player.enabled = false;
-            
-        }
+            if (DiaManager.instance.canvasActivated)
+            {
+                rotateBilly();
+                Player.enabled = false;
+                
+            }
+            else
+            {
+                Player.enabled = true;
 
-        if (colliderEnter == true && DiaManager.instance.canvasActivated == false)
-        {
-            Player.enabled = true;
+                PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
+                PlayerObject.transform.position = fishTutorialPosition.transform.position;
 
-            PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
-            print("current pos: " + PlayerObject.transform.position);
-            PlayerObject.transform.position = fishTutorialPosition.transform.position;
-            //PlayerObject.transform.position = new Vector3(-36.55f, -1.85f, 35.28f);
-            print("player teleported from " + fishTutorialPosition.transform.position + "to " + PlayerObject.transform.position);
-            
-            Destroy(tutorialCollider.gameObject);
-            colliderEnter = false;
-            
+                Debug.Log("Player teleported from " + PlayerObject.transform.position + " to " + fishTutorialPosition.transform.position);
+
+                Destroy(tutorialCollider);
+                colliderEnter = false;
+                
+            }
         }
     }
 
