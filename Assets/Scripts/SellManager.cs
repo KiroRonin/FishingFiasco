@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SellManager : MonoBehaviour
 {
@@ -13,26 +11,35 @@ public class SellManager : MonoBehaviour
 
     public GameObject currentButton;
 
+    public itemslot itemslot;
+
+    public int fishID;
+
     // Update is called once per frame
     void Update()
     {
+        clickCurrentFish();
         //npcInventory = DiaManager.instance.currentNPC.npcInventory; 
-        Debug.Log("current fish id: "+ currentFish.Id);
+        Debug.Log("current fish id: "+ fishID);
         print(currentFishID);
     }
 
     void tradeFish(){
         
+
     }
 
     public void clickCurrentFish()
     {
         //currentFishID = GetComponent<fishDataGather>().sendFishId();
-        currentButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        currentButton = EventSystem.current.currentSelectedGameObject;
         print(currentButton);
+
         currentFish = currentButton.GetComponent<fishDataGather>().sendFishId();
         print(currentFish);
+
         currentFishID = currentFish.Id;
         print(currentFishID);
+        fishID = currentFishID;
     }
 }
