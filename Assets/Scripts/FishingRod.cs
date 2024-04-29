@@ -67,6 +67,7 @@ public class FishingRod : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(playercollidor.transform.position, downrange);
 
+        
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("FishDock"))
@@ -88,6 +89,7 @@ public class FishingRod : MonoBehaviour
     }
     public void Update()
     {
+        
         OnFishingDockArea();
 
 
@@ -96,7 +98,7 @@ public class FishingRod : MonoBehaviour
 
         if (OnFishingDock == true)
         {
-            Debug.Log("ONFISHINGDOCK");
+            
             playerUI.fishingyesUI.SetActive(true);
             playerUI.fishingnoUI.SetActive(false);
             if (isEquipped && playerFPC.Grounded)

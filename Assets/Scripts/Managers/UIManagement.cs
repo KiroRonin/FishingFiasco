@@ -79,8 +79,19 @@ public class UIManagement : MonoBehaviour
         if (fishingrod.isFishingAvailable == false)
         {
             crosshairfishUI.SetActive(false);
-            crosshairnrml.SetActive(true);
+            if (DiaManager.instance.diaActivated == true)
+            {
+                crosshairnrml.SetActive(false);
+            }
+
+            else if (DiaManager.instance.diaActivated == false)
+            {
+                crosshairnrml.SetActive(true);
+            }
+            
         }
+
+        
 
 
         //Debug.Log(starterActive);

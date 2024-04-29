@@ -30,6 +30,7 @@ public class DiaManager : MonoBehaviour
     public bool playerInRange;
     public bool interactPressed;
     public bool canvasActivated;
+    public bool diaActivated;
     //private bool dialogueContinue = true;
 
     public NPC currentNPC;
@@ -83,7 +84,8 @@ public class DiaManager : MonoBehaviour
             playerInRange = true;
             print(playerInRange);
             interactUI.SetActive(true);
-            crosshair.SetActive(false);
+            diaActivated = true;
+            
         }
     }
 
@@ -94,7 +96,8 @@ public class DiaManager : MonoBehaviour
             playerInRange = false;
             print(playerInRange);
             interactUI.SetActive(false);
-            crosshair.SetActive(true);
+            
+            diaActivated= false;
         }
     }
 
