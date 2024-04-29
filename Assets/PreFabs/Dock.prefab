@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenBarrelapples
       objectReference: {fileID: 0}
+    - target: {fileID: 1539925934300960, guid: f4da4db0c72ddbc4999b7e689e2143fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4151156413368310, guid: f4da4db0c72ddbc4999b7e689e2143fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.59
