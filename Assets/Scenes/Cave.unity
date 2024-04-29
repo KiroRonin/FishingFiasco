@@ -3760,8 +3760,8 @@ Transform:
   m_GameObject: {fileID: 102978431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 141.00919, y: 20.289322, z: -97.91454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 111.09, y: 11.5, z: -69.349}
+  m_LocalScale: {x: 0.50503, y: 0.50503, z: 0.50503}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1053223201}
@@ -27128,7 +27128,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.30647027, g: 0.4531836, b: 0.6698113, a: 1}
-  m_Intensity: 0.18
+  m_Intensity: 16.44
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -27170,9 +27170,9 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_BounceIntensity: 2.59
+  m_ColorTemperature: 14078
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -34577,10 +34577,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.414
       objectReference: {fileID: 0}
+    - target: {fileID: 4325863565000116975, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325863565000116975, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4570241863172877660, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.44
+      value: 40.037
       objectReference: {fileID: 0}
     - target: {fileID: 4570241863172877660, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
@@ -34590,7 +34600,7 @@ PrefabInstance:
     - target: {fileID: 4570241863172877660, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.2
+      value: -39.342
       objectReference: {fileID: 0}
     - target: {fileID: 4570241863172877660, guid: 5e4d68b4d11ff47ae8d61e083fd2e859,
         type: 3}
