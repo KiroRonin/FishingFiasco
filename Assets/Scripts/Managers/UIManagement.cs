@@ -39,6 +39,7 @@ public class UIManagement : MonoBehaviour
     public GameObject fishingyesUI;
     public GameObject fishingnoUI;
     public GameObject crosshairfishUI;
+    public GameObject crosshairnrml;
     public FishingRod fishingrod;
    
 
@@ -72,11 +73,13 @@ public class UIManagement : MonoBehaviour
         if(fishingrod.isFishingAvailable == true )
         {
             crosshairfishUI.SetActive(true);
+            crosshairnrml.SetActive(false);
         }
 
         if (fishingrod.isFishingAvailable == false)
         {
             crosshairfishUI.SetActive(false);
+            crosshairnrml.SetActive(true);
         }
 
 
@@ -88,6 +91,7 @@ public class UIManagement : MonoBehaviour
         if(playerInput.inventory && pressedOnceInv == false){
             if (!inventoryActivated && !indexActivated && !pauseActivated){
                 PlayerDisable();
+                
 
                 InventoryMenu.SetActive(true);
                 inventoryActivated = true;
@@ -98,9 +102,11 @@ public class UIManagement : MonoBehaviour
                 Debug.Log("inventory open event");
             
                 PlayerEnable();
+                
 
                 InventoryMenu.SetActive(false);
                 inventoryActivated = false;
+
 
                 Debug.Log("inventory closed");
             }
@@ -108,6 +114,7 @@ public class UIManagement : MonoBehaviour
         }
         else if(playerInput.inventory == false){
             pressedOnceInv =false;
+            
         }
     }
     //INDEX MENU CODE
@@ -115,6 +122,7 @@ public class UIManagement : MonoBehaviour
         if(playerInput.index && pressedOnceInd == false){
             if (!indexActivated && !inventoryActivated && !pauseActivated){
                 PlayerDisable();
+                
 
                 FishIndex.SetActive(true);
                 indexActivated = true;
@@ -136,6 +144,7 @@ public class UIManagement : MonoBehaviour
         }
         else if(playerInput.index == false){
             pressedOnceInd =false;
+            
         }
     } 
 
@@ -144,6 +153,7 @@ public class UIManagement : MonoBehaviour
         if(playerInput.pause && pressedOncePause == false){
             if (!pauseActivated && !inventoryActivated && !indexActivated){
                 PlayerDisable();
+                
 
                 PauseMenu.SetActive(true);
                 pauseActivated = true;
@@ -164,6 +174,7 @@ public class UIManagement : MonoBehaviour
         }
         else if(playerInput.pause == false){
             pressedOncePause =false;
+            
         }
     } 
 
