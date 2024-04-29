@@ -19,11 +19,7 @@ public class TeachMinigame : MonoBehaviour
 
     public bool colliderEnter;
 
-    void Start()
-    {
-        
-    }
-
+    
     void FixedUpdate()
     {
         if (colliderEnter)
