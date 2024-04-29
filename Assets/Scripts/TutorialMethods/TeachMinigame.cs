@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,6 +9,7 @@ using UnityEngine.UIElements;
 public class TeachMinigame : MonoBehaviour
 {
     [SerializeField] private CharacterController Player;
+    [SerializeField] private FirstPersonController PlayerFPC;
     [SerializeField] private GameObject PlayerObject;
 
     public Transform target;
@@ -26,21 +28,28 @@ public class TeachMinigame : MonoBehaviour
         {
             rotateBilly();
             Player.enabled = false;
+            PlayerFPC.lockCam = true;
+            
+            
+
+            Destroy(tutorialCollider.gameObject);
 
         }
 
         if (colliderEnter == true && DiaManager.instance.canvasActivated == false)
         {
-            Player.enabled = true;
-
+            
+            colliderEnter = false;
+            
             PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
             print("current pos: " + PlayerObject.transform.position);
             PlayerObject.transform.position = fishTutorialPosition.transform.position;
             //PlayerObject.transform.position = new Vector3(-36.55f, -1.85f, 35.28f);
             print("player teleported from " + fishTutorialPosition.transform.position + "to " + PlayerObject.transform.position);
+            Player.enabled = true;
+            PlayerFPC.lockCam = false;
 
-            Destroy(tutorialCollider.gameObject);
-            colliderEnter = false;
+
 
         }
     }

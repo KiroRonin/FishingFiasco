@@ -85156,6 +85156,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4135013735270702863}
   TopClamp: 89
   BottomClamp: -89
+  lockCam: 0
 --- !u!114 &1978471637655604388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85514,7 +85515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8269468831185033107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishingRod_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -114,13 +114,16 @@ public class DiaManager : MonoBehaviour
     
     void chooseStoryChoice(){
         if(starterAssetsInputs.interact && interactPressed == false && canvasActivated == true && tradeActive == false){
-            if (story.canContinue == true){
+            if (story.canContinue == true)
+            {
                 StopAllCoroutines();
-                if (fillText == false){
+                if (fillText == false)
+                {
                     dialogueText.text = currentText;
                     fillText = true;
                 }
-                else{
+                else
+                {
                     scrollText(loadStoryChunk());
                     //dialogueText.text = loadStoryChunk();
                     print(story.canContinue);
@@ -129,18 +132,24 @@ public class DiaManager : MonoBehaviour
                 }
                 
             }
-            else if (story.canContinue == false){
+            else if (story.canContinue == false)
+            {
                 StopAllCoroutines();
-                if (fillText == false){
+
+                if (fillText == false)
+                {
                     dialogueText.text = currentText;
                     fillText = true;
                 }
-                else{
+                else
+                {
                     dialogueCanvas.SetActive(false);
                     print(story.canContinue);
                     player.enabled = true;
                     canvasActivated = false;
                     //StopAllCoroutines();
+
+
 
                     if (currentNPC.isTrade == true){
                         print("trade can activate!!");
