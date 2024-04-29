@@ -46,6 +46,7 @@ public class FishingMiniGame : MonoBehaviour
 
 
     public Animator FishAnimator;
+    public Animator FishingReel;
 
     
     
@@ -176,6 +177,7 @@ public class FishingMiniGame : MonoBehaviour
         timeprogress = 1f;
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
+        FishingReel.SetTrigger("minigameover");
 
         FishAnimator.SetTrigger("FishCaught");   
         
@@ -208,7 +210,8 @@ public class FishingMiniGame : MonoBehaviour
         failtime = 10f;
         hookprogress = 0;
         timeprogress = 1f;
-        
+        FishingReel.SetTrigger("minigameover");
+
 
     }
  
