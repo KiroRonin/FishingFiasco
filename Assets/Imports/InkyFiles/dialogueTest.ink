@@ -8,6 +8,15 @@ lets go.
 
 *[next]->end_KNOT
 
+===BOOK_TAVERN===
+start
+
+you open a book. it has pages
+
+I WANT TO BELIEVE
+
+*[next]->end_KNOT
+
 ===BillyBass===
 start
 
@@ -77,7 +86,7 @@ text
 
 *[next]->end_KNOT
 
-===DEEPISH1===
+===DEEPFISH1===
 start
 
 text
