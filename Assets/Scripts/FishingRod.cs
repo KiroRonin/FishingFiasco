@@ -150,6 +150,7 @@ public class FishingRod : MonoBehaviour
         isCasting = true;
         yield return new WaitForSeconds(4f);
         isCasting = false;
+
     }
 
     private IEnumerator CastRod(Vector3 targetPosition)

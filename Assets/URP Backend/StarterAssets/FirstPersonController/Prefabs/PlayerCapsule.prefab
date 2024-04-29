@@ -1090,7 +1090,7 @@ Transform:
   m_GameObject: {fileID: 686582565355625168}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2479333, y: -0.037169293, z: -0.050482776, w: 0.96674657}
-  m_LocalPosition: {x: -0.0319, y: 2.8668, z: 0.5488}
+  m_LocalPosition: {x: -0.0062, y: 2.8619, z: 0.5475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   fishcaughtanimator: {fileID: 1590790662137321153}
   wonminigame: 0
   OnFishingDock: 0
-  downrange: 0
+  downrange: 1.2
 --- !u!1 &884107640400950147
 GameObject:
   m_ObjectHideFlags: 0
@@ -40460,10 +40460,10 @@ MonoBehaviour:
   TPivot: {fileID: 6370110983910072842}
   BPivot: {fileID: 4070033680501792847}
   Fish: {fileID: 7629949584262084363}
-  timerMultiplier: 1
+  timerMultiplier: 5
   smoothmotion: 1
   Hook: {fileID: 4922204139747452430}
-  hooksize: 0.1
+  hooksize: 0.12
   hookpower: 0.5
   hookpullpower: 0.01
   hookGravitypower: 0.005
@@ -85109,6 +85109,7 @@ MonoBehaviour:
   fishingyesUI: {fileID: 6616184317355893148}
   fishingnoUI: {fileID: 2873988571965661897}
   crosshairfishUI: {fileID: 0}
+  crosshairnrml: {fileID: 0}
   fishingrod: {fileID: 0}
   Player: {fileID: 8616685848737228382}
   Camera: {fileID: 0}

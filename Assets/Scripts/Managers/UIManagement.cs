@@ -39,6 +39,7 @@ public class UIManagement : MonoBehaviour
     public GameObject fishingyesUI;
     public GameObject fishingnoUI;
     public GameObject crosshairfishUI;
+    public GameObject crosshairnrml;
     public FishingRod fishingrod;
    
 
@@ -72,11 +73,13 @@ public class UIManagement : MonoBehaviour
         if(fishingrod.isFishingAvailable == true )
         {
             crosshairfishUI.SetActive(true);
+            crosshairnrml.SetActive(false);
         }
 
         if (fishingrod.isFishingAvailable == false)
         {
             crosshairfishUI.SetActive(false);
+            crosshairnrml.SetActive(true);
         }
 
 
