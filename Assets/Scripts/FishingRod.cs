@@ -158,7 +158,7 @@ public class FishingRod : MonoBehaviour
     private IEnumerator CastRod(Vector3 targetPosition)
     {
         isCasted = true;
-        playerUI.PlayerDisable();
+        playerFPC.enabled = false;
         animator.SetTrigger("Cast");
         FOVanimator.SetTrigger("FOVCast");
         reelAnimator.SetTrigger("Reeling");

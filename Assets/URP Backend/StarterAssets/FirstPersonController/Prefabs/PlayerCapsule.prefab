@@ -40687,6 +40687,7 @@ MonoBehaviour:
   failtime: 10
   inventoryCount: 0
   FishAnimator: {fileID: 4117368121763360231}
+  FishingReel: {fileID: 8030801240853152771}
 --- !u!1 &4751078846144037184
 GameObject:
   m_ObjectHideFlags: 0
