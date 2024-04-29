@@ -36,6 +36,7 @@ public class DiaManager : MonoBehaviour
     public NPC currentNPC;
     public string currentKnot;
     public bool fillText;
+    public GameObject fillUI;
 
     public SellManager sellManager;
 
@@ -62,6 +63,15 @@ public class DiaManager : MonoBehaviour
         canvasState();
         chooseStoryChoice();
         tradeCanvasState();
+
+        if (fillText == true)
+        {
+            fillUI.SetActive(true);
+        }
+        else{
+            fillUI.SetActive(false);
+        }
+
     }
 
     void OnTriggerEnter(Collider collision)
