@@ -257,9 +257,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1806949326238068046}
-        m_TargetAssemblyTypeName: fishDataGather, Assembly-CSharp
-        m_MethodName: currentFish
+      - m_Target: {fileID: 2702213123216278720, guid: 60f35a7eedf8d4ef88c41c0cc70cd8ae,
+          type: 3}
+        m_TargetAssemblyTypeName: SellManager, Assembly-CSharp
+        m_MethodName: clickCurrentFish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,3 +285,4 @@ MonoBehaviour:
   sellManager: {fileID: 2702213123216278720, guid: 60f35a7eedf8d4ef88c41c0cc70cd8ae,
     type: 3}
   fish: {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
+  currentFishID: 0
