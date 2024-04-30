@@ -6,6 +6,8 @@ public class SellManager : MonoBehaviour
     public InventoryObject playerInventory;
     public InventoryObject npcInventory;
 
+    public GameObject inventoryBackground;
+
     public FishObject currentFish;
     public int currentFishID;
 
@@ -13,33 +15,59 @@ public class SellManager : MonoBehaviour
 
     public itemslot itemslot;
 
-    public int fishID;
 
     // Update is called once per frame
     void Update()
     {
         clickCurrentFish();
         //npcInventory = DiaManager.instance.currentNPC.npcInventory; 
-        Debug.Log("current fish id: "+ fishID);
-        print(currentFishID);
+        Debug.Log("current fish id: "+ currentFishID);
+        checkEmpty();
     }
 
     void tradeFish(){
         
-
     }
 
     public void clickCurrentFish()
     {
         //currentFishID = GetComponent<fishDataGather>().sendFishId();
         currentButton = EventSystem.current.currentSelectedGameObject;
-        print(currentButton);
 
         currentFish = currentButton.GetComponent<fishDataGather>().sendFishId();
-        print(currentFish);
 
         currentFishID = currentFish.Id;
-        print(currentFishID);
-        fishID = currentFishID;
+    }
+
+    void checkEmpty()
+    {
+        for (int i = 0; i < playerInventory.Container.Count; i++)
+        {
+            if (playerInventory.Container[i].amount == 0)
+            {
+                playerInventory.Container.RemoveAt(i);
+                var slot = inventoryBackground.transform.GetChild(i).gameObject;
+                var display = slot.transform.GetChild(0).gameObject;
+
+                Destroy(display);
+
+            }
+        }
+    }
+
+    public void trashFish()
+    {
+        print("trash clicked");
+        for (int i = 0; i < playerInventory.Container.Count; i++)
+        {
+            print(playerInventory.Container[i].fish);
+            print(currentFish);
+            if (playerInventory.Container[i].fish == currentFish)
+            {
+               print("current fish: "+currentFish);
+               print("inventory fish: "+playerInventory.Container[i].fish);
+               playerInventory.Container[i].amount = 0;
+            }
+        }
     }
 }
