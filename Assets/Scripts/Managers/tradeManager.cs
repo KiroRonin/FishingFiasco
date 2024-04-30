@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class tradeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public SellManager sellManager;
+
 
     // Update is called once per frame
     void Update()
     {
         
     }
+
+    
+
 }
