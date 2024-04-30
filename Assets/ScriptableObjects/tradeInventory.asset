@@ -16,4 +16,4 @@ MonoBehaviour:
   - fish: {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
     amount: 5
   - fish: {fileID: 11400000, guid: 89a8ef0d28a384166aaab2b6881fe6b4, type: 2}
-    amount: 0
+    amount: 3

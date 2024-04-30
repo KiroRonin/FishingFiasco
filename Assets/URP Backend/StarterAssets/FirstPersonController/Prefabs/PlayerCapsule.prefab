@@ -3502,6 +3502,7 @@ GameObject:
   - component: {fileID: 1021545573486022946}
   - component: {fileID: 6374512819314242610}
   - component: {fileID: 6212088367851975729}
+  - component: {fileID: 6865991753000033217}
   m_Layer: 5
   m_Name: giveFish
   m_TagString: Untagged
@@ -3579,11 +3580,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tradeInventory: {fileID: 11400000, guid: bc2d6f7a892204d888e16a333c985d09, type: 2}
-  numbSlots: 2
-  x_start: 0
-  y_start: 0
-  x_space: 250
-  y_space: 250
+  tradeInventoryDisplay: {fileID: 0}
+--- !u!114 &6865991753000033217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445674314615483643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 150, y: 150}
+  m_Spacing: {x: 20, y: 20}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &2509539226250035266
 GameObject:
   m_ObjectHideFlags: 0
