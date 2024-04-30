@@ -27,8 +27,8 @@ public class TeachMinigame : MonoBehaviour
     public float fadeSpeed = 5f;
 
     private void Start() {
-        var trans = fadeCanvas.GetComponent<UnityEngine.UI.Image>();
-        fadeColor = trans.color;
+       //var trans = fadeCanvas.GetComponent<UnityEngine.UI.Image>();
+        //fadeColor = trans.color;
     }
     
     void FixedUpdate()
@@ -49,7 +49,7 @@ public class TeachMinigame : MonoBehaviour
         {
             
             colliderEnter = false;
-            StartCoroutine(fadeBlack());
+            //StartCoroutine(fadeBlack());
             
             PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
             print("current pos: " + PlayerObject.transform.position);
@@ -92,6 +92,7 @@ public class TeachMinigame : MonoBehaviour
         PlayerObject.transform.rotation = rotation;
     }
 
+    /*
     public IEnumerator fadeBlack()
     {
         while (fadeColor.a != 255)
@@ -106,5 +107,7 @@ public class TeachMinigame : MonoBehaviour
 
         yield return null;
     }
+    */
+    
 
 }

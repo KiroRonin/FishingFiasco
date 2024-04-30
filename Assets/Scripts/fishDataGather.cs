@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class fishDataGather : MonoBehaviour
 {
-    [SerializeField] private FishObject fish;
-    [SerializeField] private itemslot slotId;
+    public FishObject fish;
 
     public FishObject sendFishId()
     {
