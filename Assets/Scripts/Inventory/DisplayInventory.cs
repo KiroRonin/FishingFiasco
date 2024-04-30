@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject inventory;
     public GameObject inventoryDisplay;
+    public GameObject trashButton;
+
+    public SellManager sellManager;
 
     Dictionary<InventorySlot, GameObject> fishDisplayed = new Dictionary<InventorySlot, GameObject>();
     
-    void Update()
-    {
+
+     void OnEnable() {
+        sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
         UpdateDisplay();
+        print(fishDisplayed.Count);
+        trashButton.GetComponent<Button>().onClick.AddListener(()=>sellManager.trashFish());
+    
     }
 
 
@@ -29,10 +37,13 @@ public class DisplayInventory : MonoBehaviour
 
             }
             else{
-                
+                print("creating inventory slot");
                 var display = Instantiate(inventory.Container[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
                 display.transform.SetParent(slot, true);
+
+                display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
+
                 slot.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
 
                 fishDisplayed.Add(inventory.Container[i], display);

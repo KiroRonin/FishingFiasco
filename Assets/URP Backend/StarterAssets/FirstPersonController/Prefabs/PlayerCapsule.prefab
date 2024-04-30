@@ -2443,6 +2443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 6527fbab2561947fba5400a941caa56f, type: 2}
   inventoryDisplay: {fileID: 1434830646935613539}
+  trashButton: {fileID: 6621920832099628071}
+  sellManager: {fileID: 0}
 --- !u!114 &3132155858991524417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,6 +3583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradeInventory: {fileID: 11400000, guid: bc2d6f7a892204d888e16a333c985d09, type: 2}
   tradeInventoryDisplay: {fileID: 0}
+  inventorySlotHolder: {fileID: 0}
 --- !u!114 &6865991753000033217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50739,6 +50742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 6527fbab2561947fba5400a941caa56f, type: 2}
   inventoryDisplay: {fileID: 8087022228963491886}
+  trashButton: {fileID: 0}
+  sellManager: {fileID: 0}
 --- !u!114 &4469929852075630337
 MonoBehaviour:
   m_ObjectHideFlags: 0

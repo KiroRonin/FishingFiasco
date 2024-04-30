@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,20 +11,12 @@ public class SellManager : MonoBehaviour
 
     public FishObject currentFish;
     public int currentFishID;
-
     public GameObject currentButton;
+
+    public DisplayInventory displayInventory;
 
     public itemslot itemslot;
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        clickCurrentFish();
-        //npcInventory = DiaManager.instance.currentNPC.npcInventory; 
-        Debug.Log("current fish id: "+ currentFishID);
-        checkEmpty();
-    }
 
     void tradeFish(){
         
@@ -31,43 +24,50 @@ public class SellManager : MonoBehaviour
 
     public void clickCurrentFish()
     {
-        //currentFishID = GetComponent<fishDataGather>().sendFishId();
         currentButton = EventSystem.current.currentSelectedGameObject;
-
         currentFish = currentButton.GetComponent<fishDataGather>().sendFishId();
-
         currentFishID = currentFish.Id;
+        print("clickfish id: "+currentFishID);
     }
 
-    void checkEmpty()
-    {
-        for (int i = 0; i < playerInventory.Container.Count; i++)
-        {
-            if (playerInventory.Container[i].amount == 0)
-            {
-                playerInventory.Container.RemoveAt(i);
-                var slot = inventoryBackground.transform.GetChild(i).gameObject;
-                var display = slot.transform.GetChild(0).gameObject;
-
-                Destroy(display);
-
-            }
-        }
-    }
 
     public void trashFish()
     {
         print("trash clicked");
-        for (int i = 0; i < playerInventory.Container.Count; i++)
+
+        Destroy(currentButton);
+
+        if (currentButton.GetComponent<fishDataGather>().fish.Id == currentFishID)
         {
-            print(playerInventory.Container[i].fish);
-            print(this.currentFish);
-            if (playerInventory.Container[i].fish == this.currentFish)
+            print("clicked");
+
+            for (int i = 0; i < playerInventory.Container.Count; i++)
             {
-               print("current fish: "+currentFish);
-               print("inventory fish: "+playerInventory.Container[i].fish);
-               playerInventory.Container[i].amount = 0;
+                if (playerInventory.Container[i].fish.Id == currentFishID)
+                {
+                    print(currentFish);
+                    playerInventory.Container[i].amount = 0;
+                    checkEmpty(i);
+                    displayInventory.UpdateDisplay();
+                }
             }
+            
+        }
+        
+    }
+
+     void checkEmpty(int i)
+    {
+        print(playerInventory.Container[i].fish);
+        print(playerInventory.Container[i].amount);
+
+        if (playerInventory.Container[i].amount == 0)
+        {
+            playerInventory.Container.RemoveAt(i);
+            var slot = inventoryBackground.transform.GetChild(i).gameObject;
+            var display = slot.transform.GetChild(0).gameObject;
+            print("destroying slot "+i);
+            Destroy(display);
         }
     }
 }
