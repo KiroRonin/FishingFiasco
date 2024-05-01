@@ -24,6 +24,11 @@ public class DisplayInventory : MonoBehaviour
     
     }
 
+    void OnDisable() 
+    {
+        clearInvDisplay();
+    }
+
 
     public void UpdateDisplay(){
 
@@ -44,7 +49,7 @@ public class DisplayInventory : MonoBehaviour
 
                 display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
-                slot.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                display.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
 
                 fishDisplayed.Add(inventory.Container[i], display);
 
@@ -57,5 +62,22 @@ public class DisplayInventory : MonoBehaviour
             
         }
     }
+
+    public void clearInvDisplay()
+    {
+         for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            var changeSlot = inventoryDisplay.transform.GetChild(i).gameObject;
+            var display = changeSlot.transform.GetChild(0).gameObject;
+            Destroy(display);
+            fishDisplayed.Clear();
+        }
+    }
+
+    public void clearDictionary()
+    {
+        fishDisplayed.Clear();
+    }
+
 
 }

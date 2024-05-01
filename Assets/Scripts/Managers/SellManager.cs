@@ -9,6 +9,7 @@ public class SellManager : MonoBehaviour
     public TradeInventoryObject npcInventory;
 
     public GameObject inventoryBackground;
+    public GameObject tradeInventoryBackground;
 
     public GameObject currentButton;
 
@@ -26,12 +27,14 @@ public class SellManager : MonoBehaviour
 
     public itemslot itemslot;
 
+    public GameObject slot;
+    public GameObject menu;
 
 
     public void clickCurrentFish()
     {
         checkFish();
-        if (DiaManager.instance.tradeActive == true){
+        if (DiaManager.instance.tradeActive == true && menu.GetComponent<DisplayTradeInventory>() != null){
             tradeFish();
         }
         
@@ -41,10 +44,10 @@ public class SellManager : MonoBehaviour
     void checkFish()
     {
         currentButton = EventSystem.current.currentSelectedGameObject;
-        var buttonFish = currentButton.GetComponent<fishDataGather>().sendFishId();
+        var buttonFish = currentButton.GetComponent<fishDataGather>().sendFish();
 
-        var slot = currentButton.transform.parent.gameObject;
-        var menu = slot.transform.parent.gameObject;
+        slot = currentButton.transform.parent.gameObject;
+        menu = slot.transform.parent.gameObject;
 
         //CHECKS TRADE INVENTORY
         if (menu.GetComponent<DisplayTradeInventory>() != null)
@@ -81,27 +84,27 @@ public class SellManager : MonoBehaviour
 
     void tradeFish()
     {
-        var slot = currentButton.transform.parent.gameObject;
-        var menu = slot.transform.parent.gameObject;
-
-        print("checking trade");
-
-        if (menu.GetComponent<DisplayTradeInventory>() != null)
-        {
             print("clicked on trade fish");
             if (currentFishID == currentTradeFishID)
             {
-                var difference = currentTradeFishAmount - currentFishAmount;
+                var empty = currentTradeFishMax - currentTradeFishAmount;
+                var leftover = empty - currentFishAmount;
                 
                 npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
                 playerInventory.AddFish(currentFish, -currentFishAmount);
 
-                
+                clearTradeInventory();
+                displayTradeInventory.clearTradeDisplay();
+                for (int i = 0; i < playerInventory.Container.Count; i++)
+                {
+                    checkEmpty(i);
+                }
+
                 displayTradeInventory.UpdateDisplay();
                 displayInventory.UpdateDisplay();
                 print("trade success");
             }
-        }
+        
     }
 
     public void trashFish()
@@ -117,6 +120,7 @@ public class SellManager : MonoBehaviour
                 {
                     print(currentFish);
                     playerInventory.Container[i].amount = 0;
+                    displayInventory.clearInvDisplay();
                     checkEmpty(i);
                     displayInventory.UpdateDisplay();
                 }
@@ -134,10 +138,33 @@ public class SellManager : MonoBehaviour
         if (playerInventory.Container[i].amount == 0)
         {
             playerInventory.Container.RemoveAt(i);
+            
+        }
+    }
+
+    /*
+    void clearInventory()
+    {
+        for (int i = 0; i < playerInventory.Container.Count; i++)
+        {
             var slot = inventoryBackground.transform.GetChild(i).gameObject;
             var display = slot.transform.GetChild(0).gameObject;
             print("destroying slot "+i);
             Destroy(display);
+            displayInventory.clearDictionary();
+        }
+    }
+    */
+
+    void clearTradeInventory()
+    {
+        for (int i = 0; i < playerInventory.Container.Count; i++)
+        {
+            var slot = tradeInventoryBackground.transform.GetChild(i).gameObject;
+            var display = slot.transform.GetChild(0).gameObject;
+            print("destroying slot "+i);
+            Destroy(display);
+            displayInventory.clearDictionary();
         }
     }
 }
