@@ -6,7 +6,7 @@ public class fishDataGather : MonoBehaviour
 {
     public FishObject fish;
 
-    public FishObject sendFish()
+    public FishObject sendFishId()
     {
         return fish;
     }
