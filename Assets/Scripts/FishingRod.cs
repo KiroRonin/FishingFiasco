@@ -96,48 +96,60 @@ public class FishingRod : MonoBehaviour
         rope = GameObject.Find("Rope(Clone)");
         bait = GameObject.Find("Bait(Clone)");
 
-        if (OnFishingDock == true)
-        {
-            
-            playerUI.fishingyesUI.SetActive(true);
-            playerUI.fishingnoUI.SetActive(false);
-            if (isEquipped && playerFPC.Grounded)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (!playerUI.inventoryActivated && !playerUI.indexActivated && !playerUI.pauseActivated)
+        {
+            if (OnFishingDock == true)
             {
-                if (hit.collider.CompareTag("Fishing Area"))
+
+                playerUI.fishingyesUI.SetActive(true);
+                playerUI.fishingnoUI.SetActive(false);
+                if (isEquipped && playerFPC.Grounded)
                 {
-                    isFishingAvailable = true;
-                    if (Input.GetMouseButtonDown(0) && !isCasted && !isPulling && !isCasting)
+                    Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                     {
-                        CastLine(hit.point);
+                        if (hit.collider.CompareTag("Fishing Area"))
+                        {
+                            isFishingAvailable = true;
+                            if (Input.GetMouseButtonDown(0) && !isCasted && !isPulling && !isCasting && isFishingAvailable)
+                            {
+                                CastLine(hit.point);
+                            }
+                        }
+
+                        else
+                        {
+                            isFishingAvailable = false;
+
+                        }
+                    }
+                    else
+                    {
+                        isFishingAvailable = false;
+
                     }
                 }
-
-                else
-                {
-                    isFishingAvailable = false;
-                    
-                }
             }
-            else
+            if (OnFishingDock == false)
             {
+                playerUI.fishingyesUI.SetActive(false);
+                playerUI.fishingnoUI.SetActive(true);
                 isFishingAvailable = false;
-                
             }
         }
+
+        if (playerUI.inventoryActivated && playerUI.indexActivated && playerUI.pauseActivated)
+        {
+            OnFishingDock = false;
         }
 
-        if (OnFishingDock == false) {
-            playerUI.fishingyesUI.SetActive(false);
-            playerUI.fishingnoUI.SetActive(true);
-            isFishingAvailable = false;
-        }
 
-        
+
+
+
 
     }
 
@@ -179,13 +191,14 @@ public class FishingRod : MonoBehaviour
             baitInstance.transform.position = Vector3.Lerp(start_of_rod.position, targetPosition, t);
             elapsedTime += Time.deltaTime;
             yield return null;
+            playerFPC.lockCam = true;
         }
         while (isCasting)
         {
             lineRenderer.SetPosition(0, start_of_rod.position);
             lineRenderer.SetPosition(1, targetPosition);
             baitInstance.transform.position = targetPosition;
-
+            playerFPC.lockCam = true;
             yield return null;
             
         }

@@ -19,9 +19,11 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private StarterAssetsInputs playerInput;
     [SerializeField] private Camera mainCamera;
 
-    private bool inventoryActivated;
+    public bool inventoryActivated;
     public bool indexActivated;
-    private bool pauseActivated;
+    public bool pauseActivated;
+    
+    
 
     public bool starterActive;
     public bool coralActive;
@@ -100,12 +102,12 @@ public class UIManagement : MonoBehaviour
     //INVENTORY MENU CODE
     private void OnInventory(){
         if(playerInput.inventory && pressedOnceInv == false){
+            
             if (!inventoryActivated && !indexActivated && !pauseActivated){
                 PlayerDisable();
-                
-
                 InventoryMenu.SetActive(true);
                 inventoryActivated = true;
+                
 
             }    
             else if(inventoryActivated){
@@ -113,10 +115,11 @@ public class UIManagement : MonoBehaviour
                 Debug.Log("inventory open event");
             
                 PlayerEnable();
+
+                inventoryActivated = false;
+                InventoryMenu.SetActive(false);
                 
 
-                InventoryMenu.SetActive(false);
-                inventoryActivated = false;
 
 
                 Debug.Log("inventory closed");
@@ -126,6 +129,8 @@ public class UIManagement : MonoBehaviour
         else if(playerInput.inventory == false){
             pressedOnceInv =false;
             
+
+
         }
     }
     //INDEX MENU CODE
@@ -156,6 +161,7 @@ public class UIManagement : MonoBehaviour
         else if(playerInput.index == false){
             pressedOnceInd =false;
             
+
         }
     } 
 

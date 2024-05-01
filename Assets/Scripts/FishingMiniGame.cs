@@ -189,6 +189,7 @@ public class FishingMiniGame : MonoBehaviour
         GameManager.Instance.SaveData();
         print(FishStats.Instance.currentFishAmount);
         fishingrod.playerFPC.enabled = true;
+        fishingrod.playerFPC.lockCam = false;
 
         
 
@@ -213,6 +214,7 @@ public class FishingMiniGame : MonoBehaviour
         timeprogress = 1f;
         FishingReel.SetTrigger("minigameover");
         fishingrod.playerFPC.enabled = true;
+        fishingrod.playerFPC.lockCam = false;
 
 
     }

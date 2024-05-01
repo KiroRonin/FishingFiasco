@@ -85674,7 +85674,9 @@ MonoBehaviour:
   PauseMenu: {fileID: 3656872484718160816}
   playerInput: {fileID: 5420857361349278248}
   mainCamera: {fileID: 0}
+  inventoryActivated: 0
   indexActivated: 0
+  pauseActivated: 0
   starterActive: 1
   coralActive: 0
   caveActive: 0
