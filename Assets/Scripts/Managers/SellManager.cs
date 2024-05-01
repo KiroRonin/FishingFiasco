@@ -1,11 +1,12 @@
 using System.ComponentModel;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class SellManager : MonoBehaviour
 {
     public InventoryObject playerInventory;
-    public InventoryObject npcInventory;
+    public TradeInventoryObject npcInventory;
 
     public GameObject inventoryBackground;
 
@@ -13,21 +14,19 @@ public class SellManager : MonoBehaviour
     public int currentFishID;
     public GameObject currentButton;
 
+    public FishObject currentTradeFish;
+    public int currentTradeFishID;
+
     public DisplayInventory displayInventory;
 
     public itemslot itemslot;
 
 
-    void tradeFish(){
-        
-    }
+    
 
     public void clickCurrentFish()
     {
-        currentButton = EventSystem.current.currentSelectedGameObject;
-        currentFish = currentButton.GetComponent<fishDataGather>().sendFishId();
-        currentFishID = currentFish.Id;
-        print("clickfish id: "+currentFishID);
+        checkFish();
     }
 
 
@@ -35,11 +34,10 @@ public class SellManager : MonoBehaviour
     {
         print("trash clicked");
 
-        Destroy(currentButton);
-
         if (currentButton.GetComponent<fishDataGather>().fish.Id == currentFishID)
         {
             print("clicked");
+            Destroy(currentButton);
 
             for (int i = 0; i < playerInventory.Container.Count; i++)
             {
@@ -55,6 +53,29 @@ public class SellManager : MonoBehaviour
         }
         
     }
+
+    void checkFish()
+    {
+        currentButton = EventSystem.current.currentSelectedGameObject;
+        var buttonFish = currentButton.GetComponent<fishDataGather>().sendFishId();
+
+        var slot = currentButton.transform.parent.gameObject;
+        var menu = slot.transform.parent.gameObject;
+
+        if (menu.GetComponent<DisplayTradeInventory>() != null)
+        {
+            print("trade UI");
+            currentTradeFish = buttonFish;
+            currentTradeFishID = buttonFish.Id;
+        }
+        else if (menu.GetComponent<DisplayInventory>() != null)
+        {
+            print("inventory UI");
+            currentFish = buttonFish;
+            currentFishID = buttonFish.Id;
+        }
+    }
+
 
      void checkEmpty(int i)
     {

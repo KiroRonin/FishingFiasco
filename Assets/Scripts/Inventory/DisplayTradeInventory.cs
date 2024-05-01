@@ -4,55 +4,69 @@ using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayTradeInventory : MonoBehaviour
 {
-    public InventoryObject tradeInventory;
+    public TradeInventoryObject tradeInventory;
     public GameObject tradeInventoryDisplay;
+
+    public SellManager sellManager;
 
     public GameObject inventorySlotHolder;
 
-    /*
-    public int numbSlots;
-
-    public int x_start;
-    public int y_start;
-
-    public int x_space;
-    public int y_space;
-    */
-
-    Dictionary<InventorySlot, GameObject> fishDisplay = new Dictionary<InventorySlot, GameObject>();
+    Dictionary<TradeInventorySlot, GameObject> fishDisplay = new Dictionary<TradeInventorySlot, GameObject>();
     
-    void Update()
+    void OnEnable()
     {
+        sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
         UpdateDisplay();
     }
 
-    public void UpdateDisplay(){
+    void OnDisable() 
+    {
+        clearTradeDisplay();
+    }
 
-        for (int i = 0; i < tradeInventory.Container.Count; i++)
+    public void UpdateDisplay(){
+        for (int i = 0; i < tradeInventory.tradeContainer.Count; i++)
         {
+            var container = Instantiate(inventorySlotHolder, transform.position, Quaternion.identity, transform);
+            
+            container.transform.SetParent(tradeInventoryDisplay.transform, true);
+            print(container);
+
             var slot = tradeInventoryDisplay.transform.GetChild(i);
 
-
-
-            if(fishDisplay.ContainsKey(tradeInventory.Container[i])){
-
-                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.Container[i].amount.ToString("n0");
+            if(fishDisplay.ContainsKey(tradeInventory.tradeContainer[i])){
+                print("key thing " + tradeInventory.tradeContainer[i]);
+                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
 
             }
             else
             {
-                var display = Instantiate(tradeInventory.Container[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
+                var display = Instantiate(tradeInventory.tradeContainer[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
                 display.transform.SetParent(slot, true);
+                display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
-                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.Container[i].amount.ToString("n0");
+                display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
-                fishDisplay.Add(tradeInventory.Container[i], display);
+                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
+
+                fishDisplay.Add(tradeInventory.tradeContainer[i], display);
                 
             }
+        }
+    }
+
+    public void clearTradeDisplay()
+    {
+        for (int i = 0; i < tradeInventory.tradeContainer.Count; i++)
+        {
+            var changeSlot = tradeInventoryDisplay.transform.GetChild(i).gameObject;
+            Destroy(changeSlot);
+            fishDisplay.Clear();
         }
     }
 
