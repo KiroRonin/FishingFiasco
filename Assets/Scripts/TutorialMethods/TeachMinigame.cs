@@ -1,4 +1,5 @@
 using StarterAssets;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -42,7 +43,7 @@ public class TeachMinigame : MonoBehaviour
             
             
 
-            Destroy(tutorialCollider.gameObject);
+           
             
             GameManager.Instance.wasdstarterkeys.SetActive(false);
 
@@ -50,24 +51,31 @@ public class TeachMinigame : MonoBehaviour
 
         if (colliderEnter == true && DiaManager.instance.canvasActivated == false)
         {
-            
-            colliderEnter = false;
-            GameManager.Instance.Fadebl.SetTrigger("FADEBL");
-            //StartCoroutine(fadeBlack());
 
-            PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
-            print("current pos: " + PlayerObject.transform.position);
-            PlayerObject.transform.position = fishTutorialPosition.transform.position;
-            //PlayerObject.transform.position = new Vector3(-36.55f, -1.85f, 35.28f);
-            print("player teleported from " + fishTutorialPosition.transform.position + "to " + PlayerObject.transform.position);
-            Player.enabled = true;
-            PlayerFPC.lockCam = false;
+            StartCoroutine(Teleport());
 
 
 
         }
     }
 
+    IEnumerator Teleport()
+    {
+        
+        GameManager.Instance.Fadebl.SetTrigger("FADEBL");
+        yield return new WaitForSeconds(2.5f);
+        colliderEnter = false;
+        //StartCoroutine(fadeBlack());
+
+        PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
+        print("current pos: " + PlayerObject.transform.position);
+        PlayerObject.transform.position = fishTutorialPosition.transform.position;
+        //PlayerObject.transform.position = new Vector3(-36.55f, -1.85f, 35.28f);
+        print("player teleported from " + fishTutorialPosition.transform.position + "to " + PlayerObject.transform.position);
+        Destroy(tutorialCollider.gameObject);
+        Player.enabled = true;
+        PlayerFPC.lockCam = false;
+    }
 
     public void startTutorial()
     {
