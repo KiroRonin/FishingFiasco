@@ -3458,13 +3458,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1345942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1345942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1345942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 102.79794
       objectReference: {fileID: 0}
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.85
+      value: 4.445
       objectReference: {fileID: 0}
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
@@ -3514,8 +3529,14 @@ PrefabInstance:
     - target: {fileID: 4684926179102274591, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: m_Name
-      value: NPC 1
+      value: Blobfish
       objectReference: {fileID: 0}
+    - target: {fileID: 4837023640373176936, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f66214575395a4b318029d596dc75274,
+        type: 3}
     - target: {fileID: 5029094683464446047, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: player
@@ -41863,13 +41884,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12933743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12933743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12933743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 93.03
       objectReference: {fileID: 0}
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.484
+      value: 2.901
       objectReference: {fileID: 0}
     - target: {fileID: 2530196207831644374, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
@@ -41919,8 +41955,14 @@ PrefabInstance:
     - target: {fileID: 4684926179102274591, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: m_Name
-      value: NPC 1 (1)
+      value: BanditFish
       objectReference: {fileID: 0}
+    - target: {fileID: 4837023640373176936, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6f691edbc7364372b0eb5c79d0c7daf,
+        type: 3}
     - target: {fileID: 5029094683464446047, guid: f3c2a9bd9f1c0499e90e5b2f5e5af654,
         type: 3}
       propertyPath: player

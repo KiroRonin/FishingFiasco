@@ -68,7 +68,7 @@ stinger rayed
 
 *[next]->end_KNOT
 
-===CAVEFISH1===
+===Blobfish===
 start
 
 text
@@ -77,7 +77,7 @@ text
 
 *[next]->end_KNOT
 
-===CAVEFISH2===
+===BanditFish===
 start
 
 text
@@ -86,7 +86,7 @@ text
 
 *[next]->end_KNOT
 
-===DEEPFISH1===
+===smallDude===
 start
 
 text
@@ -95,7 +95,7 @@ text
 
 *[next]->end_KNOT
 
-===DEEPFISH2===
+===CrazyBeth===
 start
 
 text
