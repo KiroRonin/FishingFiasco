@@ -4,11 +4,14 @@ using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayTradeInventory : MonoBehaviour
 {
     public TradeInventoryObject tradeInventory;
     public GameObject tradeInventoryDisplay;
+
+    public SellManager sellManager;
 
     public GameObject inventorySlotHolder;
 
@@ -16,6 +19,7 @@ public class DisplayTradeInventory : MonoBehaviour
     
     void OnEnable()
     {
+        sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
         UpdateDisplay();
     }
 
@@ -45,6 +49,8 @@ public class DisplayTradeInventory : MonoBehaviour
 
                 display.transform.SetParent(slot, true);
                 display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
+                display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
                 slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
 

@@ -31,7 +31,6 @@ public class DiaManager : MonoBehaviour
     public bool interactPressed;
     public bool canvasActivated;
     public bool diaActivated;
-    //private bool dialogueContinue = true;
 
     public NPC currentNPC;
     public string currentKnot;
@@ -85,16 +84,13 @@ public class DiaManager : MonoBehaviour
             tradeSprite.GetComponent<Image>().sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
             story.ChoosePathString(currentKnot);
             currentText = loadStoryChunk();
-            //dialogueText.text = loadStoryChunk();
 
             npcName = collision.gameObject.name;
-            print(npcName);
 
             sellManager.npcInventory = currentNPC.npcInventory;
             displayTradeInv.tradeInventory = currentNPC.npcInventory;
 
             playerInRange = true;
-            print(playerInRange);
             interactUI.SetActive(true);
             diaActivated = true;
             
@@ -106,7 +102,6 @@ public class DiaManager : MonoBehaviour
         if (collision.gameObject.GetComponent<NPC>() != null)
         {
             playerInRange = false;
-            print(playerInRange);
             interactUI.SetActive(false);
             
             diaActivated= false;
@@ -127,8 +122,6 @@ public class DiaManager : MonoBehaviour
                 else
                 {
                     scrollText(loadStoryChunk());
-                    //dialogueText.text = loadStoryChunk();
-                    print(story.canContinue);
                     player.enabled = false;
                     fillText = false;
                 }
@@ -146,15 +139,10 @@ public class DiaManager : MonoBehaviour
                 else
                 {
                     dialogueCanvas.SetActive(false);
-                    print(story.canContinue);
                     player.enabled = true;
                     canvasActivated = false;
-                    //StopAllCoroutines();
-
-
 
                     if (currentNPC.isTrade == true){
-                        print("trade can activate!!");
                         tradeActive = true;
                         tradeCanvas.SetActive(true);
                         playerDisable();
@@ -186,7 +174,6 @@ public class DiaManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(scrollSpeed);
     
         }
-        print("loop done?");
         fillText = true;
         yield return null;
     }
@@ -198,8 +185,6 @@ public class DiaManager : MonoBehaviour
         
         if(story.canContinue){
             text = story.Continue();
-            //dialogueContinue = true;
-            Debug.Log("can continue story");
         }
 
         return text;
@@ -210,7 +195,6 @@ public class DiaManager : MonoBehaviour
 
     void canvasState(){
         if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false && tradeActive == false){
-            print(playerInRange);
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
             interactUI.SetActive(false);
@@ -223,7 +207,6 @@ public class DiaManager : MonoBehaviour
             tradeActive = false;
             tradeCanvas.SetActive(false);
             playerEnable();
-            print("exit trade screen");
             interactPressed = true;
             interactUI.SetActive(true);
         }
