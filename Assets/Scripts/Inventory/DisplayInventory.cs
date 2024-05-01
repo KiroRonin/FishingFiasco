@@ -44,7 +44,7 @@ public class DisplayInventory : MonoBehaviour
 
                 display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
-                slot.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                display.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
 
                 fishDisplayed.Add(inventory.Container[i], display);
 
@@ -57,5 +57,11 @@ public class DisplayInventory : MonoBehaviour
             
         }
     }
+
+    public void clearDictionary()
+    {
+        fishDisplayed.Clear();
+    }
+
 
 }
