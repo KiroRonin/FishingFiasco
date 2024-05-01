@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class SellManager : MonoBehaviour
 {
     public InventoryObject playerInventory;
-    public InventoryObject npcInventory;
+    public TradeInventoryObject npcInventory;
 
     public GameObject inventoryBackground;
 
@@ -35,11 +35,10 @@ public class SellManager : MonoBehaviour
     {
         print("trash clicked");
 
-        Destroy(currentButton);
-
         if (currentButton.GetComponent<fishDataGather>().fish.Id == currentFishID)
         {
             print("clicked");
+            Destroy(currentButton);
 
             for (int i = 0; i < playerInventory.Container.Count; i++)
             {

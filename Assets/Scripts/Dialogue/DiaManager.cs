@@ -39,6 +39,7 @@ public class DiaManager : MonoBehaviour
     public GameObject fillUI;
 
     public SellManager sellManager;
+    public DisplayTradeInventory displayTradeInv;
 
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
@@ -89,7 +90,8 @@ public class DiaManager : MonoBehaviour
             npcName = collision.gameObject.name;
             print(npcName);
 
-            //sellManager.npcInventory = currentNPC.npcInventory;
+            sellManager.npcInventory = currentNPC.npcInventory;
+            displayTradeInv.tradeInventory = currentNPC.npcInventory;
 
             playerInRange = true;
             print(playerInRange);
@@ -153,8 +155,8 @@ public class DiaManager : MonoBehaviour
 
                     if (currentNPC.isTrade == true){
                         print("trade can activate!!");
-                        tradeCanvas.SetActive(true);
                         tradeActive = true;
+                        tradeCanvas.SetActive(true);
                         playerDisable();
                         StopAllCoroutines();
                     }

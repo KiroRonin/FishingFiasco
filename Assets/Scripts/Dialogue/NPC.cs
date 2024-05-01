@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour
     private string k;
     public bool isTrade;
 
-    public InventoryObject npcInventory;
+    public TradeInventoryObject npcInventory;
     void Start()
     {
         n = gameObject.name;
