@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Croaker
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.15
+  failtime: 10
+  timerMultiplier: 4
   Id: 1
   fishName: Croaker
   probability: 40

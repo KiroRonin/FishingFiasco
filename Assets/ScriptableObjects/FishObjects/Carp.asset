@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Carp
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.1
+  failtime: 10
+  timerMultiplier: 5
   Id: 0
   fishName: Sea Carp
   probability: 45

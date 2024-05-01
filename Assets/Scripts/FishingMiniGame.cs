@@ -15,7 +15,7 @@ public class FishingMiniGame : MonoBehaviour
     float fishdestination;
     float fishTimer;
 
-    [SerializeField] float timerMultiplier = 1f;
+    [SerializeField] float timerMultiplier;
 
     float fishspeed;
     [SerializeField] float smoothmotion = 1f;
@@ -29,7 +29,7 @@ public class FishingMiniGame : MonoBehaviour
     float hookPullVelocity;
     [SerializeField] float hookpullpower = 0.01f;
     [SerializeField] float hookGravitypower = 0.005f;
-    [SerializeField] float hookprogressloss = 0.1f;
+    [SerializeField] float hookprogressloss;
 
     [SerializeField] Transform progressbarcontainer;
     [SerializeField] Transform timerbarcontainer;
@@ -40,8 +40,9 @@ public class FishingMiniGame : MonoBehaviour
     
     public InventoryObject inventory;
     
+    
 
-    [SerializeField] float failtime = 10f;
+    [SerializeField] float failtime;
     public int inventoryCount;
 
 
@@ -65,15 +66,21 @@ public class FishingMiniGame : MonoBehaviour
 
     private void Start()
     {
-        failtime = 10f;
+        failtime = FishingSystem.Instance.fish.failtime;
+        hookprogressloss = FishingSystem.Instance.fish.hookprogressloss;
+        timerMultiplier = FishingSystem.Instance.fish.timerMultiplier;
+
+
     }
 
 
     void Update()
     {
+
         fish();
         hook();
         progresscheck();
+
     }
 
     void fish()

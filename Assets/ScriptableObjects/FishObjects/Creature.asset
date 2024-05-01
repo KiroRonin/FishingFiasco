@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Creature
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.6
+  failtime: 5
+  timerMultiplier: 2
   Id: 10
   fishName: Creature
-  probability: 0
+  probability: 15
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: 8d58a2257a1524857ad4faf5b3ec31cb,
     type: 3}

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Angelfish
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.175
+  failtime: 8.5
+  timerMultiplier: 4
   Id: 5
   fishName: Angelfish
-  probability: 0
+  probability: 40
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: a4b81f4c556c64d0f8e72fd700155b8d,
     type: 3}

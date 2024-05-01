@@ -76,11 +76,14 @@ public class GameManager : MonoBehaviour
         maincamanim.enabled = false;
         PlayerFPC.lockCam = false;
         PlayerFPC.enabled = true;
-        
+
+        yield return new WaitForSeconds(1f);
         wasdstarterkeys.SetActive(true);
 
 
-        
+
+
+
     }
 
     public void SaveData()

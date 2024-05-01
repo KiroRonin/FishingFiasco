@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Blindfish
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.25
+  failtime: 8.5
+  timerMultiplier: 4.5
   Id: 6
   fishName: Blindfish
   probability: 45

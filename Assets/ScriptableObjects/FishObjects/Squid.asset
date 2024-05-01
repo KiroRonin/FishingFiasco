@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: Squid
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.32
+  failtime: 7
+  timerMultiplier: 3
   Id: 11
   fishName: Squid
-  probability: 15
+  probability: 40
   fishDescription: 
   prefabDisplay: {fileID: 5595847497003245000, guid: 137b5880fe4444057ad16de698fbf6c6,
     type: 3}

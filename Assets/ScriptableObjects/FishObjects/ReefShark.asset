@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787f2ba222e749368a3a4d763e44d76, type: 3}
   m_Name: ReefShark
   m_EditorClassIdentifier: 
+  hookprogressloss: 0.3
+  failtime: 8
+  timerMultiplier: 3.7
   Id: 5
   fishName: Reef Shark
   probability: 15
