@@ -49,7 +49,7 @@ public class DisplayInventory : MonoBehaviour
                 fishDisplayed.Add(inventory.Container[i], display);
 
                 if (DiaManager.instance.tradeActive == true){
-                    //print("trade inventory active");
+                    print("trade inventory active");
                     display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 }
     
