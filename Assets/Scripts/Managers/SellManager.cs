@@ -9,6 +9,7 @@ public class SellManager : MonoBehaviour
     public TradeInventoryObject npcInventory;
 
     public GameObject inventoryBackground;
+    public GameObject tradeInventoryBackground;
 
     public GameObject currentButton;
 
@@ -87,11 +88,18 @@ public class SellManager : MonoBehaviour
             if (currentFishID == currentTradeFishID)
             {
                 var empty = currentTradeFishMax - currentTradeFishAmount;
+                var leftover = empty - currentFishAmount;
                 
                 npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
                 playerInventory.AddFish(currentFish, -currentFishAmount);
 
-                
+                clearTradeInventory();
+                displayTradeInventory.clearTradeDisplay();
+                for (int i = 0; i < playerInventory.Container.Count; i++)
+                {
+                    checkEmpty(i);
+                }
+
                 displayTradeInventory.UpdateDisplay();
                 displayInventory.UpdateDisplay();
                 print("trade success");
@@ -112,7 +120,7 @@ public class SellManager : MonoBehaviour
                 {
                     print(currentFish);
                     playerInventory.Container[i].amount = 0;
-                    clearInventory();
+                    displayInventory.clearInvDisplay();
                     checkEmpty(i);
                     displayInventory.UpdateDisplay();
                 }
@@ -134,11 +142,25 @@ public class SellManager : MonoBehaviour
         }
     }
 
+    /*
     void clearInventory()
     {
         for (int i = 0; i < playerInventory.Container.Count; i++)
         {
             var slot = inventoryBackground.transform.GetChild(i).gameObject;
+            var display = slot.transform.GetChild(0).gameObject;
+            print("destroying slot "+i);
+            Destroy(display);
+            displayInventory.clearDictionary();
+        }
+    }
+    */
+
+    void clearTradeInventory()
+    {
+        for (int i = 0; i < playerInventory.Container.Count; i++)
+        {
+            var slot = tradeInventoryBackground.transform.GetChild(i).gameObject;
             var display = slot.transform.GetChild(0).gameObject;
             print("destroying slot "+i);
             Destroy(display);

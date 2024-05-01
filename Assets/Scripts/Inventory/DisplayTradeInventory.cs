@@ -34,14 +34,13 @@ public class DisplayTradeInventory : MonoBehaviour
             var container = Instantiate(inventorySlotHolder, transform.position, Quaternion.identity, transform);
             
             container.transform.SetParent(tradeInventoryDisplay.transform, true);
-            print(container);
+            print("container: "+container);
 
             var slot = tradeInventoryDisplay.transform.GetChild(i);
 
             if(fishDisplay.ContainsKey(tradeInventory.tradeContainer[i])){
                 print("key thing " + tradeInventory.tradeContainer[i]);
                 slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
-
             }
             else
             {
@@ -66,6 +65,7 @@ public class DisplayTradeInventory : MonoBehaviour
         {
             var changeSlot = tradeInventoryDisplay.transform.GetChild(i).gameObject;
             Destroy(changeSlot);
+            print(changeSlot);
             fishDisplay.Clear();
         }
     }

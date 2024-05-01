@@ -24,6 +24,11 @@ public class DisplayInventory : MonoBehaviour
     
     }
 
+    void OnDisable() 
+    {
+        clearInvDisplay();
+    }
+
 
     public void UpdateDisplay(){
 
@@ -55,6 +60,17 @@ public class DisplayInventory : MonoBehaviour
     
             }
             
+        }
+    }
+
+    public void clearInvDisplay()
+    {
+         for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            var changeSlot = inventoryDisplay.transform.GetChild(i).gameObject;
+            var display = changeSlot.transform.GetChild(0).gameObject;
+            Destroy(display);
+            fishDisplayed.Clear();
         }
     }
 
