@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 using StarterAssets;
+using System;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +14,12 @@ public class GameManager : MonoBehaviour
     public UIManagement PLayerUI;
     public FirstPersonController PlayerFPC;
     public GameObject FADEBL;
+    public GameObject wasdstarterkeys;
 
     public Animator maincamanim;
     public Animator UIAnim;
+    public Animator FishRodAnim;
+    public Animator FOVslide;
     public void Awake()
     {
         if(Instance == null)
@@ -35,11 +40,35 @@ public class GameManager : MonoBehaviour
         scenename = SceneManager.GetActiveScene().name;
         if(scenename == "Tavern")
         {
-            FADEBL.SetActive(true); 
-            PlayerFPC.lockCam = true;
-            maincamanim.SetTrigger("TutStart");
-            UIAnim.SetTrigger("ZoomInTut");
+            wasdstarterkeys.SetActive(false);
+
+            StartCoroutine(Tutorial());
         }
+    }
+
+    IEnumerator Tutorial()
+    {
+        maincamanim.enabled = true;
+        FADEBL.SetActive(true);
+        PlayerFPC.lockCam = true;
+        maincamanim.SetTrigger("TutStart");
+        FishRodAnim.SetTrigger("NewTavernScene");
+        UIAnim.SetTrigger("NewTavern");
+        FOVslide.SetTrigger("NewTavern");
+
+
+
+
+        yield return new WaitForSeconds(10);
+        print("tutdisabled");
+        maincamanim.enabled = false;
+        PlayerFPC.lockCam = false;
+        FishRodAnim.SetTrigger("FishRodStart");
+        UIAnim.SetTrigger("ZoomInTut");
+        wasdstarterkeys.SetActive(true);
+
+
+        FOVslide.SetTrigger("ZoomBack");
     }
 
     public void SaveData()
