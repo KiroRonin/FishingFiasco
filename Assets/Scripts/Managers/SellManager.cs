@@ -10,25 +10,99 @@ public class SellManager : MonoBehaviour
 
     public GameObject inventoryBackground;
 
-    public FishObject currentFish;
-    public int currentFishID;
     public GameObject currentButton;
 
-    public FishObject currentTradeFish;
-    public int currentTradeFishID;
+    public FishObject currentFish;
+    public int currentFishID;
+    public int currentFishAmount;
 
+    public FishObject currentTradeFish;
+    public int currentTradeFishAmount;
+    public int currentTradeFishMax;
+    public int currentTradeFishID;
+    
     public DisplayInventory displayInventory;
+    public DisplayTradeInventory displayTradeInventory;
 
     public itemslot itemslot;
 
 
-    
 
     public void clickCurrentFish()
     {
         checkFish();
+        if (DiaManager.instance.tradeActive == true){
+            tradeFish();
+        }
+        
     }
 
+
+    void checkFish()
+    {
+        currentButton = EventSystem.current.currentSelectedGameObject;
+        var buttonFish = currentButton.GetComponent<fishDataGather>().sendFishId();
+
+        var slot = currentButton.transform.parent.gameObject;
+        var menu = slot.transform.parent.gameObject;
+
+        //CHECKS TRADE INVENTORY
+        if (menu.GetComponent<DisplayTradeInventory>() != null)
+        {
+            currentTradeFish = buttonFish;
+            currentTradeFishID = buttonFish.Id;
+            for (int i = 0; i < npcInventory.tradeContainer.Count; i++)
+            {
+                if (npcInventory.tradeContainer[i].fish.Id == currentTradeFishID)
+                {
+                    print("same id");
+                    currentTradeFishAmount = npcInventory.tradeContainer[i].currentAmount;
+                    currentTradeFishMax = npcInventory.tradeContainer[i].fullAmount;
+                    print("current #: "+currentTradeFishAmount);
+                    print("max: "+currentTradeFishMax);
+                }
+         
+            }
+        }
+        //CHECKS PLAYER INVENTORY
+        else if (menu.GetComponent<DisplayInventory>() != null)
+        {
+            currentFish = buttonFish;
+            currentFishID = buttonFish.Id;
+            for (int i = 0; i < playerInventory.Container.Count; i++)
+            {
+                if (playerInventory.Container[i].fish.Id == currentFishID)
+                {
+                    currentFishAmount = playerInventory.Container[i].amount;
+                }
+            }
+        }
+    }
+
+    void tradeFish()
+    {
+        var slot = currentButton.transform.parent.gameObject;
+        var menu = slot.transform.parent.gameObject;
+
+        print("checking trade");
+
+        if (menu.GetComponent<DisplayTradeInventory>() != null)
+        {
+            print("clicked on trade fish");
+            if (currentFishID == currentTradeFishID)
+            {
+                var difference = currentTradeFishAmount - currentFishAmount;
+                
+                npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
+                playerInventory.AddFish(currentFish, -currentFishAmount);
+
+                
+                displayTradeInventory.UpdateDisplay();
+                displayInventory.UpdateDisplay();
+                print("trade success");
+            }
+        }
+    }
 
     public void trashFish()
     {
@@ -36,9 +110,7 @@ public class SellManager : MonoBehaviour
 
         if (currentButton.GetComponent<fishDataGather>().fish.Id == currentFishID)
         {
-            print("clicked");
             Destroy(currentButton);
-
             for (int i = 0; i < playerInventory.Container.Count; i++)
             {
                 if (playerInventory.Container[i].fish.Id == currentFishID)
@@ -53,37 +125,6 @@ public class SellManager : MonoBehaviour
         }
         
     }
-
-    void checkFish()
-    {
-        currentButton = EventSystem.current.currentSelectedGameObject;
-        var buttonFish = currentButton.GetComponent<fishDataGather>().sendFishId();
-
-        var slot = currentButton.transform.parent.gameObject;
-        var menu = slot.transform.parent.gameObject;
-
-        if (menu.GetComponent<DisplayTradeInventory>() != null)
-        {
-            print("trade UI");
-            currentTradeFish = buttonFish;
-            currentTradeFishID = buttonFish.Id;
-        }
-        else if (menu.GetComponent<DisplayInventory>() != null)
-        {
-            print("inventory UI");
-            currentFish = buttonFish;
-            currentFishID = buttonFish.Id;
-        }
-    }
-
-    void tradeFish()
-    {
-        if (currentFishID == currentTradeFishID)
-        {
-            print("can trade!!");
-        }
-    }
-
 
     void checkEmpty(int i)
     {
