@@ -10,6 +10,7 @@ public class TitleManager : MonoBehaviour
     private Vector3 initialPosition = new Vector3(0f, 1f, -10f);
     public Animator camanim;
     public Animator FadeBl;
+    public Animator cine;
     
     private Vector3 finalPosition = new Vector3(0f, 20f, 300f);
     public GameObject FADEBLACK;
@@ -28,7 +29,7 @@ public class TitleManager : MonoBehaviour
         targetObject.position = initialPosition;
         
         FadeBl.SetTrigger("FADEBL");
-        
+        cine.SetTrigger("Cine");
         StartCoroutine(LerpObject());
         StartCoroutine(ChangeScene());
 

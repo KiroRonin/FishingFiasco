@@ -1,12 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-
+using UnityEngine.SceneManagement;
+using StarterAssets;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    private string scenename;
+    
+    public UIManagement PLayerUI;
+    public FirstPersonController PlayerFPC;
+    public GameObject FADEBL;
 
+    public Animator maincamanim;
+    public Animator UIAnim;
     public void Awake()
     {
         if(Instance == null)
@@ -24,6 +32,14 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         print(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
+        scenename = SceneManager.GetActiveScene().name;
+        if(scenename == "Tavern")
+        {
+            FADEBL.SetActive(true); 
+            PlayerFPC.lockCam = true;
+            maincamanim.SetTrigger("TutStart");
+            UIAnim.SetTrigger("ZoomInTut");
+        }
     }
 
     public void SaveData()
