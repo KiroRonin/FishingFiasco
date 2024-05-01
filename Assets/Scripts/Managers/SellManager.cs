@@ -90,11 +90,19 @@ public class SellManager : MonoBehaviour
                 var empty = currentTradeFishMax - currentTradeFishAmount;
                 var leftover = empty - currentFishAmount;
                 
-                npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
-                playerInventory.AddFish(currentFish, -currentFishAmount);
+                if (leftover <1)
+                {
+                    npcInventory.AddFish(currentTradeFish, empty, 0);
+                }
+                else
+                {
+                    npcInventory.AddFish(currentTradeFish, -currentFishAmount, 0);
+                }
+                playerInventory.AddFish(currentFish, -empty);
 
                 clearTradeInventory();
                 displayTradeInventory.clearTradeDisplay();
+                
                 for (int i = 0; i < playerInventory.Container.Count; i++)
                 {
                     checkEmpty(i);
@@ -135,7 +143,7 @@ public class SellManager : MonoBehaviour
         print(playerInventory.Container[i].fish);
         print(playerInventory.Container[i].amount);
 
-        if (playerInventory.Container[i].amount == 0)
+        if (playerInventory.Container[i].amount <= 0)
         {
             playerInventory.Container.RemoveAt(i);
             
