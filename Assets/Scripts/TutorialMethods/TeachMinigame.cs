@@ -11,6 +11,7 @@ public class TeachMinigame : MonoBehaviour
     [SerializeField] private CharacterController Player;
     [SerializeField] private FirstPersonController PlayerFPC;
     [SerializeField] private GameObject PlayerObject;
+    
 
     public Transform target;
     public float rotationSpeed;
@@ -42,6 +43,8 @@ public class TeachMinigame : MonoBehaviour
             
 
             Destroy(tutorialCollider.gameObject);
+            
+            GameManager.Instance.wasdstarterkeys.SetActive(false);
 
         }
 
@@ -49,8 +52,9 @@ public class TeachMinigame : MonoBehaviour
         {
             
             colliderEnter = false;
+            GameManager.Instance.Fadebl.SetTrigger("FADEBL");
             //StartCoroutine(fadeBlack());
-            
+
             PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
             print("current pos: " + PlayerObject.transform.position);
             PlayerObject.transform.position = fishTutorialPosition.transform.position;

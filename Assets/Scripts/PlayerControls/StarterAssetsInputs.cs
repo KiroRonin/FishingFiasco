@@ -1,6 +1,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.Scripting.APIUpdating;
 #endif
 
 namespace StarterAssets
@@ -17,6 +18,7 @@ namespace StarterAssets
 		public bool inventory;
 		public bool index;
 		public bool pause;
+		
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -29,6 +31,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+			
 		}
 
 		public void OnLook(InputValue value)
@@ -76,7 +79,8 @@ namespace StarterAssets
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+            
+        } 
 
 		public void LookInput(Vector2 newLookDirection)
 		{

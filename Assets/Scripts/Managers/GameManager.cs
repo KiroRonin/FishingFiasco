@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
     public FirstPersonController PlayerFPC;
     public GameObject FADEBL;
     public GameObject wasdstarterkeys;
+    public StarterAssetsInputs playermov;
 
     public Animator maincamanim;
     public Animator UIAnim;
     public Animator FishRodAnim;
     public Animator FOVslide;
+    public Animator Fadebl;
     public void Awake()
     {
         if(Instance == null)
@@ -43,6 +45,10 @@ public class GameManager : MonoBehaviour
             wasdstarterkeys.SetActive(false);
 
             StartCoroutine(Tutorial());
+
+            
+
+            
         }
     }
 
@@ -51,6 +57,7 @@ public class GameManager : MonoBehaviour
         maincamanim.enabled = true;
         FADEBL.SetActive(true);
         PlayerFPC.lockCam = true;
+        PlayerFPC.enabled = false;
         maincamanim.SetTrigger("TutStart");
         FishRodAnim.SetTrigger("NewTavernScene");
         UIAnim.SetTrigger("NewTavern");
@@ -61,14 +68,19 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(10);
         print("tutdisabled");
+        FishRodAnim.SetTrigger("FishRodStart");
+        FOVslide.SetTrigger("ZoomBack");
+        UIAnim.SetTrigger("ZoomInTut");
+
+        yield return new WaitForSeconds(2);
         maincamanim.enabled = false;
         PlayerFPC.lockCam = false;
-        FishRodAnim.SetTrigger("FishRodStart");
-        UIAnim.SetTrigger("ZoomInTut");
+        PlayerFPC.enabled = true;
+        
         wasdstarterkeys.SetActive(true);
 
 
-        FOVslide.SetTrigger("ZoomBack");
+        
     }
 
     public void SaveData()
