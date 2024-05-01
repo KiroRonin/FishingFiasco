@@ -76,8 +76,16 @@ public class SellManager : MonoBehaviour
         }
     }
 
+    void tradeFish()
+    {
+        if (currentFishID == currentTradeFishID)
+        {
+            print("can trade!!");
+        }
+    }
 
-     void checkEmpty(int i)
+
+    void checkEmpty(int i)
     {
         print(playerInventory.Container[i].fish);
         print(playerInventory.Container[i].amount);
