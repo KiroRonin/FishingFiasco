@@ -27,6 +27,7 @@ public class TeachMinigame : MonoBehaviour
     public float fadeAlpha;
     public Color fadeColor;
     public float fadeSpeed = 5f;
+    public GameObject instruction;
 
     private void Start() {
        //var trans = fadeCanvas.GetComponent<UnityEngine.UI.Image>();
@@ -47,7 +48,7 @@ public class TeachMinigame : MonoBehaviour
 
         if (colliderEnter == true && DiaManager.instance.canvasActivated == false)
         {
-
+            instruction.SetActive(true);
             colliderEnter = false;
             PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
             print("current pos: " + PlayerObject.transform.position);

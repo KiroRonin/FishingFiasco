@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using StarterAssets;
 using System;
 using System.Collections;
+using System.Reflection;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
     public Animator FishRodAnim;
     public Animator FOVslide;
     public Animator Fadebl;
+
+    public bool introOver;
+    public bool introOccur = true;
     public void Awake()
     {
         if(Instance == null)
@@ -52,8 +56,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //private void Update()
+    //{
+    //    if(introOccur && !DiaManager.instance.canvasActivated)
+    //    {
+    //        print("intro true");
+    //        introOver = true;
+    //    }
+    //}
+
     IEnumerator Tutorial()
     {
+        introOver = false;
         maincamanim.enabled = true;
         FADEBL.SetActive(true);
         PlayerFPC.lockCam = true;
@@ -62,29 +76,30 @@ public class GameManager : MonoBehaviour
         FishRodAnim.SetTrigger("NewTavernScene");
         UIAnim.SetTrigger("NewTavern");
         FOVslide.SetTrigger("NewTavern");
-
-
-
-
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5f);
+        introOver = false;
+        introOccur = false;
         print("tutdisabled");
         FishRodAnim.SetTrigger("FishRodStart");
         FOVslide.SetTrigger("ZoomBack");
         UIAnim.SetTrigger("ZoomInTut");
+        DiaManager.instance.canvasActivated = true;
+        DiaManager.instance.dialogueCanvas.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
+
         maincamanim.enabled = false;
         PlayerFPC.lockCam = false;
         PlayerFPC.enabled = true;
 
         yield return new WaitForSeconds(1f);
         wasdstarterkeys.SetActive(true);
-
-
-
-
+        
 
     }
+
+
+
 
     public void SaveData()
     {
