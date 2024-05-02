@@ -15,12 +15,14 @@ public class DisplayTradeInventory : MonoBehaviour
 
     public GameObject inventorySlotHolder;
 
+    public bool isCreatedSlots;
+
     Dictionary<TradeInventorySlot, GameObject> fishDisplay = new Dictionary<TradeInventorySlot, GameObject>();
     
     void OnEnable()
     {
         sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
-        UpdateDisplay();
+        CreateDisplay();
     }
 
     void OnDisable() 
@@ -28,14 +30,42 @@ public class DisplayTradeInventory : MonoBehaviour
         clearTradeDisplay();
     }
 
+    public void CreateDisplay()
+    {
+         for (int i = 0; i < tradeInventory.tradeContainer.Count; i++)
+        {
+            
+            
+                var container = Instantiate(inventorySlotHolder, transform.position, Quaternion.identity, transform);
+                container.transform.SetParent(tradeInventoryDisplay.transform, true);
+            
+            
+            var slot = tradeInventoryDisplay.transform.GetChild(i);
+
+            if(fishDisplay.ContainsKey(tradeInventory.tradeContainer[i])){
+                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
+            }
+            else
+            {
+                var display = Instantiate(tradeInventory.tradeContainer[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
+
+                display.transform.SetParent(slot, true);
+                display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
+                display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
+
+                slot.GetComponentInChildren<TextMeshProUGUI>().text = tradeInventory.tradeContainer[i].currentAmount.ToString("n0") +"/"+tradeInventory.tradeContainer[i].fullAmount.ToString("n0");
+
+                fishDisplay.Add(tradeInventory.tradeContainer[i], display);
+                
+            }
+        }
+    }
+
     public void UpdateDisplay(){
+
         for (int i = 0; i < tradeInventory.tradeContainer.Count; i++)
         {
-            var container = Instantiate(inventorySlotHolder, transform.position, Quaternion.identity, transform);
-            
-            container.transform.SetParent(tradeInventoryDisplay.transform, true);
-            print("container: "+container);
-
             var slot = tradeInventoryDisplay.transform.GetChild(i);
 
             if(fishDisplay.ContainsKey(tradeInventory.tradeContainer[i])){
@@ -67,6 +97,7 @@ public class DisplayTradeInventory : MonoBehaviour
             Destroy(changeSlot);
             print(changeSlot);
             fishDisplay.Clear();
+            print("trading npc cleared");
         }
     }
 
