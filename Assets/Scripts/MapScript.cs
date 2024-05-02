@@ -30,6 +30,9 @@ public class MapScript : MonoBehaviour
                 }
                 else
                 {
+                    StartCoroutine(animateSceneChange());
+                    GameManager.Instance.resetInventory();
+                    FishStats.Instance.currentFishAmount = 0;
                     //code here to bring up a canvas that says you ahvent finished all quests
                 }
             }
@@ -41,15 +44,16 @@ public class MapScript : MonoBehaviour
     {
         //if ( GameManager.Instance.scenename == "Tavern")
         //{
-        //    GameManager.Instance.Fadebl.SetTrigger("FADEBL");
+        //    
         //}
         //else
         //{
         //    FishingSystem.Instance.Fadebl.SetTrigger("FADEBL");
         //}
-        //yield return new WaitForSeconds(2.5f);
+        GameManager.Instance.Fadebl.SetTrigger("FADEBL");
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(nextScene);
-        yield return new WaitForEndOfFrame();
+        //yield return new WaitForEndOfFrame();
     }
 
 
