@@ -48,12 +48,8 @@ public class FishingRod : MonoBehaviour
 
     public float downrange;
 
+    public AudioSource castingIn;
     
-
-
-
-
-
 
     private void Start()
     {
@@ -119,6 +115,7 @@ public class FishingRod : MonoBehaviour
                             if (Input.GetMouseButtonDown(0) && !isCasted && !isPulling && !isCasting && isFishingAvailable)
                             {
                                 CastLine(hit.point);
+                                StartCoroutine(playCast());
                             }
                         }
 
@@ -161,6 +158,11 @@ public class FishingRod : MonoBehaviour
 
 
 
+    }
+    IEnumerator playCast()
+    {
+        yield return new WaitForSeconds(0.5f);
+        castingIn.Play();
     }
 
     private void CastLine(Vector3 targetPosition)
