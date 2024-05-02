@@ -27,6 +27,7 @@ public class FishingRod : MonoBehaviour
     public GameObject rope;
     public GameObject bait;
     public UIManagement playerUI;
+    public FishingMiniGame fishingMiniGame;
 
     public GameObject playercollidor;
 
@@ -97,13 +98,14 @@ public class FishingRod : MonoBehaviour
         bait = GameObject.Find("Bait(Clone)");
 
 
-        if (!playerUI.inventoryActivated && !playerUI.indexActivated && !playerUI.pauseActivated)
+        if (!playerUI.inventoryActivated && !playerUI.indexActivated && !playerUI.pauseActivated && FishStats.Instance.currentFishAmount < 10)
         {
             if (OnFishingDock == true)
             {
 
                 playerUI.fishingyesUI.SetActive(true);
                 playerUI.fishingnoUI.SetActive(false);
+
                 if (isEquipped && playerFPC.Grounded)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -140,8 +142,16 @@ public class FishingRod : MonoBehaviour
                 isFishingAvailable = false;
             }
         }
+        
+        else if (FishStats.Instance.currentFishAmount == 10)
+        {
+            OnFishingDock = false;
+            playerUI.fishingyesUI.SetActive(false);
+            playerUI.fishingnoUI.SetActive(true);
+            isFishingAvailable = false;
+        }
 
-        if (playerUI.inventoryActivated && playerUI.indexActivated && playerUI.pauseActivated)
+        if (playerUI.inventoryActivated && playerUI.indexActivated && playerUI.pauseActivated )
         {
             OnFishingDock = false;
         }

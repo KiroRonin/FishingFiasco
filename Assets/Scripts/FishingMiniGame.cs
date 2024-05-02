@@ -185,15 +185,18 @@ public class FishingMiniGame : MonoBehaviour
         Destroy(fishingrod.rope);
         Destroy(fishingrod.bait);
         FishingReel.SetTrigger("minigameover");
-
         FishAnimator.SetTrigger("FishCaught");   
         
+        //inventoryCount++;
+        
         inventory.AddFish(FishingSystem.Instance.fish, 1);
-
-        inventoryCount++;
         FishStats.Instance.increaseFishValue(FishingSystem.Instance.Id);
-        FishStats.Instance.currentFishAmount = inventoryCount;
+        //FishStats.Instance.currentFishAmount = inventoryCount;
+        FishStats.Instance.currentFishAmount++;
         GameManager.Instance.SaveData();
+        
+
+        
         print(FishStats.Instance.currentFishAmount);
         fishingrod.playerFPC.enabled = true;
         fishingrod.playerFPC.lockCam = false;
