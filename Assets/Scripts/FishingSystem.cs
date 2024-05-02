@@ -23,8 +23,7 @@ public class FishingSystem : MonoBehaviour
 
     
     public GameObject FishingMinigame;
-    public GameObject FADEBL;
-    public Animator Fadebl;
+
 
     public bool IsBiting;
 
@@ -51,13 +50,7 @@ public class FishingSystem : MonoBehaviour
     {
         scenename = SceneManager.GetActiveScene().name;
 
-        if(scenename != "Tavern")
-        {
-            FADEBL = GameObject.Find("FADEBLACK").GetComponent<GameObject>();
-            FADEBL.SetActive(true);
-            Fadebl = GameObject.Find("FADEBLACK").GetComponentInChildren<Animator>();
-        }
-        
+
     }
     public void StartFishing(WaterSource watersource)
     {

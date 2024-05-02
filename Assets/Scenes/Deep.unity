@@ -54940,6 +54940,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1268291137314099066, guid: 57b3402d551b9418d8639125b03dc0cb,
         type: 3}
+      propertyPath: FADEBL
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268291137314099066, guid: 57b3402d551b9418d8639125b03dc0cb,
+        type: 3}
+      propertyPath: Fadebl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268291137314099066, guid: 57b3402d551b9418d8639125b03dc0cb,
+        type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 11400000, guid: 6527fbab2561947fba5400a941caa56f,
