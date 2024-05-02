@@ -90,23 +90,5 @@ public class TeachMinigame : MonoBehaviour
 
         PlayerObject.transform.rotation = rotation;
     }
-
-    /*
-    public IEnumerator fadeBlack()
-    {
-        while (fadeColor.a != 255)
-        {
-            fadeAlpha ++;
-            fadeColor.a = fadeAlpha;
-            fadeCanvas.GetComponent<UnityEngine.UI.Image>().color = fadeColor;
-            print(fadeColor.a);
-
-            yield return new WaitForSecondsRealtime(fadeSpeed);
-        }
-
-        yield return null;
-    }
-    */
     
-
 }
