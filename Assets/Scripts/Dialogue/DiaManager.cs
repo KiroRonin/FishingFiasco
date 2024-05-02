@@ -42,6 +42,7 @@ public class DiaManager : MonoBehaviour
 
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+    public FirstPersonController playerFPC;
     public static DiaManager instance;
  
 
@@ -140,6 +141,7 @@ public class DiaManager : MonoBehaviour
                 else
                 {
                     dialogueCanvas.SetActive(false);
+                    playerFPC.lockCam = false;
                     player.enabled = true;
                     canvasActivated = false;
 
@@ -197,8 +199,10 @@ public class DiaManager : MonoBehaviour
     void canvasState(){
         if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false && tradeActive == false){
             canvasActivated = true;
+            playerFPC.lockCam = true;
             dialogueCanvas.SetActive(true);
             interactUI.SetActive(false);
+            playerDisable();
         }
     }
 

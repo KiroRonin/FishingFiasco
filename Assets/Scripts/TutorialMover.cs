@@ -10,7 +10,8 @@ public class TutorialMover : MonoBehaviour
     public Camera mainCamera;
     public Camera alternateCamera;
     private int currentIndex = 0;
-    public GameObject playercapsule;
+    public GameObject Player;
+    public GameObject UI;
 
     void Start()
     {
@@ -21,7 +22,8 @@ public class TutorialMover : MonoBehaviour
             // Activate alternate camera and deactivate main camera at start
             mainCamera.gameObject.SetActive(false);
             alternateCamera.gameObject.SetActive(true);
-            playercapsule.gameObject.SetActive(false);
+            Player.SetActive(false);
+            UI.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
@@ -56,7 +58,8 @@ public class TutorialMover : MonoBehaviour
         // Deactivate alternate camera and reactivate main camera
         mainCamera.gameObject.SetActive(true);
         alternateCamera.gameObject.SetActive(false);
-        playercapsule.gameObject.SetActive(true);
+        Player.SetActive(true);
+        UI.SetActive(true);
         // Deactivate the tutorial object
         gameObject.SetActive(false);
         Cursor.visible = false;
