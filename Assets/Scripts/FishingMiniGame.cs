@@ -50,7 +50,7 @@ public class FishingMiniGame : MonoBehaviour
     public Animator FishingReel;
 
     
-    
+    public AudioSource catchingFish;
 
 
 
@@ -201,7 +201,7 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.playerFPC.enabled = true;
         fishingrod.playerFPC.lockCam = false;
 
-        
+        catchingFish.Play();
 
 
     }
