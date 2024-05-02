@@ -30,6 +30,8 @@ public class SellManager : MonoBehaviour
     public GameObject slot;
     public GameObject menu;
 
+    public int currentBucket;
+
 
     public void clickCurrentFish()
     {
@@ -99,6 +101,7 @@ public class SellManager : MonoBehaviour
                     npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
                 }
                 playerInventory.AddFish(currentFish, -empty);
+                FishStats.Instance.currentFishAmount -= currentFishAmount-empty;
 
                 displayInventory.clearInvDisplayTrade();
                 
@@ -127,6 +130,7 @@ public class SellManager : MonoBehaviour
                 if (playerInventory.Container[i].fish.Id == currentFishID)
                 {
                     print(currentFish);
+                    FishStats.Instance.currentFishAmount -= playerInventory.Container[i].amount;
                     playerInventory.Container[i].amount = 0;
                     displayInventory.clearInvDisplay();
                     checkEmpty(i);
