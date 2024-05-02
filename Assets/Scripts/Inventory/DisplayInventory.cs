@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -15,19 +16,33 @@ public class DisplayInventory : MonoBehaviour
     public SellManager sellManager;
 
     Dictionary<InventorySlot, GameObject> fishDisplayed = new Dictionary<InventorySlot, GameObject>();
-    
 
      void OnEnable() {
         sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
-        UpdateDisplay();
-        UpdateDisplayTrade();
+        if (this.gameObject.name == "InventoryBackground")
+        {
+            CreateDisplay();
+            Debug.Log("player inventoy");
+            UpdateDisplay();
+        }
+        else if (this.gameObject.name == "playerInventory")
+        {
+            UpdateDisplayTrade();
+            Debug.Log("trading player inv");
+        }
         print(fishDisplayed.Count);
         trashButton.GetComponent<Button>().onClick.AddListener(()=>sellManager.trashFish());
     }
 
     void OnDisable() 
     {
-        clearInvDisplayTrade();
+        if (this.gameObject.name == "InventoryBackground")
+        {
+            clearInvDisplay();
+        }
+        else if (this.gameObject.name == "playerInventory"){
+            clearInvDisplayTrade();
+        }
     }
 
     public void CreateDisplay()
