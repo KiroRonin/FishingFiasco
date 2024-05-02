@@ -87,7 +87,16 @@ public class GameManager : MonoBehaviour
         FishRodAnim.SetTrigger("FishRodStart");
         FOVslide.SetTrigger("ZoomBack");
         UIAnim.SetTrigger("ZoomInTut");
+
+        var tutorial = "BillyIntroduction";
+        var knot = DiaManager.instance.currentKnot;
+        knot = tutorial;
+        
         DiaManager.instance.canvasActivated = true;
+
+        DiaManager.instance.story.ChoosePathString(knot);
+        DiaManager.instance.currentText = DiaManager.instance.loadStoryChunk();
+        DiaManager.instance.dialogueText.text = DiaManager.instance.currentText;
         DiaManager.instance.dialogueCanvas.SetActive(true);
 
         yield return new WaitForSeconds(2f);
