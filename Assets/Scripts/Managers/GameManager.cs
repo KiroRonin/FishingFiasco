@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject FADEBL;
     public GameObject wasdstarterkeys;
     public StarterAssetsInputs playermov;
+    public CharacterController playerchar;
 
     public Animator maincamanim;
     public Animator UIAnim;
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
         maincamanim.enabled = false;
         PlayerFPC.lockCam = false;
         PlayerFPC.enabled = true;
+        playerchar.enabled = true;
 
         yield return new WaitForSeconds(1f);
         wasdstarterkeys.SetActive(true);

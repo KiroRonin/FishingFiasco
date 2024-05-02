@@ -150,6 +150,7 @@ public class SellManager : MonoBehaviour
         if (playerInventory.Container[i].amount <= 0)
         {
             playerInventory.Container.RemoveAt(i);
+            FishStats.Instance.currentFishAmount = 0;
         }
     }
 

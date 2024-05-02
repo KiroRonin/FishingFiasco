@@ -218,7 +218,7 @@ public class FishingRod : MonoBehaviour
             FishingSystem.Instance.StartFishing(WaterSource.Tavern);
         }
 
-        if (sceneName == "CoralReef")
+        if (sceneName == "Coral")
         {
             FishingSystem.Instance.StartFishing(WaterSource.Coral);
         }
