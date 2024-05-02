@@ -100,7 +100,7 @@ public class SellManager : MonoBehaviour
                 }
                 playerInventory.AddFish(currentFish, -empty);
 
-                clearTradeInventory();
+                displayInventory.clearInvDisplayTrade();
                 displayTradeInventory.clearTradeDisplay();
                 
                 for (int i = 0; i < playerInventory.Container.Count; i++)
@@ -140,39 +140,10 @@ public class SellManager : MonoBehaviour
 
     void checkEmpty(int i)
     {
-        print(playerInventory.Container[i].fish);
-        print(playerInventory.Container[i].amount);
-
         if (playerInventory.Container[i].amount <= 0)
         {
             playerInventory.Container.RemoveAt(i);
-            
         }
     }
 
-    /*
-    void clearInventory()
-    {
-        for (int i = 0; i < playerInventory.Container.Count; i++)
-        {
-            var slot = inventoryBackground.transform.GetChild(i).gameObject;
-            var display = slot.transform.GetChild(0).gameObject;
-            print("destroying slot "+i);
-            Destroy(display);
-            displayInventory.clearDictionary();
-        }
-    }
-    */
-
-    void clearTradeInventory()
-    {
-        for (int i = 0; i < playerInventory.Container.Count; i++)
-        {
-            var slot = tradeInventoryBackground.transform.GetChild(i).gameObject;
-            var display = slot.transform.GetChild(0).gameObject;
-            print("destroying slot "+i);
-            Destroy(display);
-            displayInventory.clearDictionary();
-        }
-    }
 }

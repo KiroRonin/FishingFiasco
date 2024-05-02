@@ -9,6 +9,7 @@ public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject inventory;
     public GameObject inventoryDisplay;
+    public GameObject inventoryDisplayTrade;
     public GameObject trashButton;
 
     public SellManager sellManager;
@@ -67,17 +68,22 @@ public class DisplayInventory : MonoBehaviour
     {
          for (int i = 0; i < inventory.Container.Count; i++)
         {
-            var changeSlot = inventoryDisplay.transform.GetChild(i).gameObject;
-            var display = changeSlot.transform.GetChild(0).gameObject;
+            var slot = inventoryDisplay.transform.GetChild(i).gameObject;
+            var display = slot.transform.GetChild(0).gameObject;
             Destroy(display);
             fishDisplayed.Clear();
         }
     }
 
-    public void clearDictionary()
+    public void clearInvDisplayTrade()
     {
-        fishDisplayed.Clear();
+         for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            var slot = inventoryDisplayTrade.transform.GetChild(i).gameObject;
+            var display = slot.transform.GetChild(0).gameObject;
+            Destroy(display);
+            fishDisplayed.Clear();
+        }
     }
-
 
 }
