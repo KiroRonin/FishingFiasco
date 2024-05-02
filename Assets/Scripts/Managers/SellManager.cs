@@ -96,12 +96,11 @@ public class SellManager : MonoBehaviour
                 }
                 else
                 {
-                    npcInventory.AddFish(currentTradeFish, -currentFishAmount, 0);
+                    npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
                 }
                 playerInventory.AddFish(currentFish, -empty);
 
                 displayInventory.clearInvDisplayTrade();
-                displayTradeInventory.clearTradeDisplay();
                 
                 for (int i = 0; i < playerInventory.Container.Count; i++)
                 {
@@ -109,7 +108,7 @@ public class SellManager : MonoBehaviour
                 }
 
                 displayTradeInventory.UpdateDisplay();
-                displayInventory.UpdateDisplay();
+                displayInventory.UpdateDisplayTrade();
                 print("trade success");
             }
         
