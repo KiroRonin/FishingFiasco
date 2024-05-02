@@ -46,3 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: 6527fbab2561947fba5400a941caa56f, type: 2}
   npcInventory: {fileID: 0}
+  inventoryBackground: {fileID: 0}
+  tradeInventoryBackground: {fileID: 0}
+  currentButton: {fileID: 0}
+  currentFish: {fileID: 0}
+  currentFishID: 0
+  currentFishAmount: 0
+  currentTradeFish: {fileID: 0}
+  currentTradeFishAmount: 0
+  currentTradeFishMax: 0
+  currentTradeFishID: 0
+  displayInventory: {fileID: 0}
+  displayTradeInventory: {fileID: 0}
+  itemslot: {fileID: 0}
+  slot: {fileID: 0}
+  menu: {fileID: 0}
