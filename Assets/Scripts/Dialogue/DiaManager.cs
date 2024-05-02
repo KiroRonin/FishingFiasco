@@ -53,6 +53,7 @@ public class DiaManager : MonoBehaviour
             Destroy(this);
         }
         story = new Story(inkJSON.text);
+        sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
 
 
     }

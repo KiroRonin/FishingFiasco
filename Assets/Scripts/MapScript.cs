@@ -22,6 +22,7 @@ public class MapScript : MonoBehaviour
                 print("player hit interact on boat");
                 if (tradeCompletionCheck.Instance.allTradeDone == true){
                     StartCoroutine(animateSceneChange());
+                    GameManager.Instance.resetInventory();
                 }
                 else
                 {
