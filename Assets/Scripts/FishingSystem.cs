@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum WaterSource
 {
@@ -22,6 +23,8 @@ public class FishingSystem : MonoBehaviour
 
     
     public GameObject FishingMinigame;
+    public GameObject FADEBL;
+    public Animator Fadebl;
 
     public bool IsBiting;
 
@@ -29,6 +32,7 @@ public class FishingSystem : MonoBehaviour
     public FishObject fish;
     public FishingRod fishingRod;
 
+    private string scenename;
     
 
     private void Awake()
@@ -43,6 +47,18 @@ public class FishingSystem : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        scenename = SceneManager.GetActiveScene().name;
+
+        if(scenename != "Tavern")
+        {
+            FADEBL = GameObject.Find("FADEBLACK").GetComponent<GameObject>();
+            FADEBL.SetActive(true);
+            Fadebl = GameObject.Find("FADEBLACK").GetComponentInChildren<Animator>();
+        }
+        
+    }
     public void StartFishing(WaterSource watersource)
     {
         StartCoroutine(FishingCoroutine(watersource));

@@ -18,6 +18,7 @@ public class MapScript : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player")
         {
+
             if (playerInput.interact)
             {
                 print("player hit interact on boat");
@@ -38,9 +39,17 @@ public class MapScript : MonoBehaviour
 
     IEnumerator animateSceneChange()
     {
-        GameManager.Instance.Fadebl.SetTrigger("FADEBL");
-        yield return new WaitForSeconds(2.5f);
+        //if ( GameManager.Instance.scenename == "Tavern")
+        //{
+        //    GameManager.Instance.Fadebl.SetTrigger("FADEBL");
+        //}
+        //else
+        //{
+        //    FishingSystem.Instance.Fadebl.SetTrigger("FADEBL");
+        //}
+        //yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(nextScene);
+        yield return new WaitForEndOfFrame();
     }
 
 

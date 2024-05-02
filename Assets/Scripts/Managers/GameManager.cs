@@ -10,7 +10,7 @@ using System.Reflection;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private string scenename;
+    public string scenename;
     
     public UIManagement PLayerUI;
     public FirstPersonController PlayerFPC;
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public InventoryObject playerInventory;
     public DisplayInventory displayInventory;
+    
 
     public void Awake()
     {
@@ -42,21 +43,30 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+
     }
 
     void Start()
     {
+        
         LoadData();
         resetInventory();
         displayInventory.clearInvDisplay();
         print(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
         scenename = SceneManager.GetActiveScene().name;
 
+
         if(scenename == "Tavern")
         {
             wasdstarterkeys.SetActive(false);
 
             StartCoroutine(Tutorial());
+        }
+
+        if (scenename == "Coral" || scenename == "Cave" || scenename == "Deep")
+        {
+           FADEBL.SetActive(true);
         }
     }
 
