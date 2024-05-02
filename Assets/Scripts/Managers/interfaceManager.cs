@@ -24,7 +24,7 @@ public class interfaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inventoryUI.GetComponentInChildren<TextMeshProUGUI>().text = FishStats.Instance.currentFishAmount + "/" +FishStats.Instance.maxInventory;
+        inventoryUI.GetComponentInChildren<TextMeshProUGUI>().text = FishStats.Instance.currentFishAmount + "/10";
         invDisplay();
     }
 
