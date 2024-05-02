@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradeContainer:
   - fish: {fileID: 11400000, guid: e3f4d9e4b92064d9491bf7c290bc6737, type: 2}
-    currentAmount: 5
+    currentAmount: 0
     fullAmount: 5
   - fish: {fileID: 11400000, guid: ef5340a25db3b4555a06623dbf11a5bd, type: 2}
-    currentAmount: 1
+    currentAmount: 0
     fullAmount: 5
