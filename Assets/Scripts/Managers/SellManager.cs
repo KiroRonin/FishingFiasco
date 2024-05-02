@@ -110,6 +110,7 @@ public class SellManager : MonoBehaviour
                 displayTradeInventory.UpdateDisplay();
                 displayInventory.UpdateDisplayTrade();
                 print("trade success");
+                checkTradeFinished();
             }
         
     }
@@ -143,6 +144,26 @@ public class SellManager : MonoBehaviour
         {
             playerInventory.Container.RemoveAt(i);
         }
+    }
+
+    void checkTradeFinished()
+    {
+        var openSlot = 0;
+        var finishedSlot = 0;
+
+        for (int i = 0; i < npcInventory.tradeContainer.Count; i++)
+        {
+            if (npcInventory.tradeContainer[i].currentAmount == npcInventory.tradeContainer[i].fullAmount)
+            {
+                finishedSlot++;
+            }
+            openSlot++;
+        }
+        if (finishedSlot == openSlot)
+        {
+            DiaManager.instance.currentNPC.isComplete = true;
+        }
+        
     }
 
 }

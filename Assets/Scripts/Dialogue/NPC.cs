@@ -7,6 +7,7 @@ public class NPC : MonoBehaviour
     private string n;
     private string k;
     public bool isTrade;
+    public bool isComplete;
 
     public TradeInventoryObject npcInventory;
     void Start()
