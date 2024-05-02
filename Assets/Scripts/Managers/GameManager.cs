@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
 
     public bool introOver;
     public bool introOccur = true;
+
+    public InventoryObject playerInventory;
+    public DisplayInventory displayInventory;
+
     public void Awake()
     {
         if(Instance == null)
@@ -42,17 +46,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadData();
+        resetInventory();
+        displayInventory.clearInvDisplay();
         print(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
         scenename = SceneManager.GetActiveScene().name;
+
         if(scenename == "Tavern")
         {
             wasdstarterkeys.SetActive(false);
 
             StartCoroutine(Tutorial());
-
-            
-
-            
         }
     }
 
@@ -126,5 +129,11 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Data Loaded");
         Debug.Log(json);
     }
+
+    public void resetInventory()
+    {
+            playerInventory.Container.Clear();
+    }
 }
+
 

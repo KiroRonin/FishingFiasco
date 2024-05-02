@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class tradeCompletionCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static tradeCompletionCheck Instance { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    public List<NPC> npcList;
+
+    public bool allTradeDone;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
+    public void checkCompletion()
+    {
+        var totalNPC = npcList.Count;
+        var completeNPC = 0;
+        for (int i = 0; i < npcList.Count; i++)
+        {
+            if (npcList[i].GetComponent<NPC>().isComplete == true)
+            {
+                completeNPC++;
+            }
+        }
+        if (completeNPC == totalNPC)
+        {
+            allTradeDone = true;
+        }
     }
 }

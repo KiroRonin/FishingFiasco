@@ -100,7 +100,9 @@ public class SellManager : MonoBehaviour
                 {
                     npcInventory.AddFish(currentTradeFish, currentFishAmount, 0);
                 }
+                
                 playerInventory.AddFish(currentFish, -empty);
+                
                 FishStats.Instance.currentFishAmount -= currentFishAmount-empty;
 
                 displayInventory.clearInvDisplayTrade();
@@ -114,6 +116,7 @@ public class SellManager : MonoBehaviour
                 displayInventory.UpdateDisplayTrade();
                 print("trade success");
                 checkTradeFinished();
+                tradeCompletionCheck.Instance.checkCompletion();
             }
         
     }
