@@ -152,7 +152,13 @@ public class DiaManager : MonoBehaviour
                         StopAllCoroutines();
                     }
                 }
+                
+            }
 
+            if(canvasActivated == false)
+            {
+                player.enabled = true;
+                playerFPC.lockCam = false;
             }
 
             interactPressed = true;

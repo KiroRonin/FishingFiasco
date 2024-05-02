@@ -10,6 +10,7 @@ public class MapScript : MonoBehaviour
     public GameObject mapUI;
     [SerializeField] private StarterAssetsInputs playerInput;
     [SerializeField] private CharacterController Player;
+    public SellManager SellManager;
 
 
     public string nextScene;
@@ -23,6 +24,8 @@ public class MapScript : MonoBehaviour
                 if (tradeCompletionCheck.Instance.allTradeDone == true){
                     StartCoroutine(animateSceneChange());
                     GameManager.Instance.resetInventory();
+                    FishStats.Instance.currentFishAmount = 0;
+
                 }
                 else
                 {
