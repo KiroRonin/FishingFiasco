@@ -522,6 +522,16 @@ PrefabInstance:
       objectReference: {fileID: 1738493327178968690}
     - target: {fileID: 1461789119830824172, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: fishCatch
+      value: 
+      objectReference: {fileID: 8300000, guid: b7a2ffae3748d424c8ca4074c0e75a37, type: 3}
+    - target: {fileID: 1461789119830824172, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: fishCaught
+      value: 
+      objectReference: {fileID: 8300000, guid: 8999e8499ca0d4e28b22cac749b0f623, type: 3}
+    - target: {fileID: 1461789119830824172, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: catchingFish
       value: 
       objectReference: {fileID: 5616559549512929344}
@@ -1206,9 +1216,20 @@ PrefabInstance:
       objectReference: {fileID: 905083754175776228}
     - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 9072957639915519008}
+    - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: FOVanimator
       value: 
       objectReference: {fileID: 1738493327178968690}
+    - target: {fileID: 7133626699561386414, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: fishBackImage
+      value: 
+      objectReference: {fileID: 6816492999394823334, guid: 35f49de4a3d4447339f4c852e583dcd7,
+        type: 3}
     - target: {fileID: 7219444747431157830, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Layer
@@ -1783,13 +1804,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4be5636e5ccb449cbad70654ea68f54, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.38
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 139
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1876,6 +1897,12 @@ Camera:
 --- !u!4 &8286226166815585204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5448251495054912700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9072957639915519008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3924197927432065180, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
     type: 3}
   m_PrefabInstance: {fileID: 5448251495054912700}
   m_PrefabAsset: {fileID: 0}

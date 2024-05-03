@@ -50,28 +50,24 @@ public class FishingMiniGame : MonoBehaviour
     public Animator FishingReel;
 
     
-    public AudioSource FishCaught;
-    
-
-
-
-    //private void OnEnable()
-    //{
-    //    playerinputs.enabled = true;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    playerinputs.enabled = false;   
-    //}
+    public AudioSource source;
+    public AudioClip reelCast;
+    public AudioClip fishCatch;
+    public AudioClip fishCaught;
     
     private void Start()
     {
         failtime = FishingSystem.Instance.fish.failtime;
         hookprogressloss = FishingSystem.Instance.fish.hookprogressloss;
         timerMultiplier = FishingSystem.Instance.fish.timerMultiplier;
-        FishCaught.enabled = false;
+        
 
+    }
+
+    void OnEnable()
+    {
+        source = this.gameObject.GetComponent<AudioSource>();
+        source.PlayOneShot(fishCatch, 0.7f);
     }
 
 
@@ -172,7 +168,8 @@ public class FishingMiniGame : MonoBehaviour
 
     public void Win()
     {
-        FishCaught.enabled = true; FishCaught.Play();
+        source.PlayOneShot(fishCaught, 0.7f);
+
         fishingrod.isCasted = false;
         fishingrod.wonminigame = true;
         Debug.Log("YOU CAUGHT A " + FishingSystem.Instance.fish.fishName);

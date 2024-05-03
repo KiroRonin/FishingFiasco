@@ -1,6 +1,6 @@
 
 ===BillyIntroduction===
-Hello! <i>[Press 'e' to go through dialogue.]
+Hello!   <i>[Press 'e' to go through dialogue.]
 
 So you want to be the best fisher in the Seven Seas, don't you? I know that look on your face.
 
@@ -24,7 +24,7 @@ Try it yourself!
 *[next]->end_KNOT
 
 ===BillyFirstReeling===
-Look! A fish is rugging on the rope! use the RMB to get it!
+Look! A fish is on the line! Use the RMB to reel it in!
 
 *[next]->end_KNOT
 
@@ -40,29 +40,28 @@ I WANT TO BELIEVE
 ===BillyBass===
 <i>Cleans up the desk.
 
-{Hey. Make your way outside in order to |blah over. i am done talking now.->end_KNOT}
-
-you have to prove yourself and stuff so you can make it to the awesome swagsome fishing competition.
-
-Go out there and fish! or whatever
+Make your way outside to start your fishing journey!
 
 *[next]->end_KNOT
 
 ===Oarfish===
 <i>Trying to cook up a storm.
 
-{I need help with cooking and finding ingredients and stuff. I've been cooking up a storm back here.|Please help and get some crawfish for me... :c->end_KNOT}
+{I've been trying to get this dish right, but.. I just really need some lobster!| Would you get me some lobster?->end_KNOT}
 
-Please go and get me some crawfish! I really need it for this killer dish.
+I've been trying to catch one for so long, but I think they're really rare. I would only need two.
+
 
 *[next]->end_KNOT
 
 ===Pufferfish===
 <i>Ruffling through barrels.
 
-{oh! hey, you're the fresh catch billy talked about. making your way up the angler ladder, are we?|hows the fishing going so far?->end_KNOT}
+{Oh!| How's the fishing going?->end_KNOT}
 
-think you're up to catch a couple fish for me? i need a couple species local to the area, and this seems like a good first step to the fishing competition.
+ Hey, you're that new fisher goin' around town. I've been needing some more fish for a while, so I've got just the thing for you.
+
+Think you're up to catch a couple? 
 
 *[next]->end_KNOT
 ===Mandarin===
@@ -72,32 +71,32 @@ think you're up to catch a couple fish for me? i need a couple species local to 
 
 Right. We, umm... yeah, ever since the storm, we've just been trying to build everything back up. Stinger has been working us real hard.
 
-They're right up on the plateau if you need to speak with them. They kinda scare me, but they're... nice.
+They're right up on the plateau if you need to speak with them. They kinda scare me, but they're... <i>nice.
 
-Anyway, if you could get them a fresh catch, that would really help us out.
+Anyway, if you could go talk to them, that would really help us out.
 
 *[next]->end_KNOT
 
 
 ===Stingray===
-<i>Looks At you wierd.
+<i>They look at you odd.
 
-Sting?
+{You're not from the building crew. Why are you here? We've been through enough trouble as is with the storm.|So? Got anything for me?}
 
-i am stingray i am stingray
+New fisher trying to make it to the top, hmm?
 
-stinger rayed
+Awesome. I've got just the job for you. Find me a couple of the fish here.
 
 *[next]->end_KNOT
 
 ===Blobfish===
 <i>just very sad. 
 
-{ohhhh, hiii ;( |pretty please go talk to him he's really scary :((->end_KNOT}
+{ohhhh,,,|pretty please go talk to him he's really scary :((->end_KNOT}
 
 i have nothing nowwwwww :(
 
-the meanie over there took my entire homeeee, could you ask that he give it back to meeeee :( 
+the meanie over there took my entire home... could you ask that he give it back to meeeee :( 
 
 pleaaaassseee :((
 
@@ -106,22 +105,24 @@ pleaaaassseee :((
 ===BanditFish===
 <i>Twirls his french moustache.
 
-{Ohohohohoho Monsieur, what might you be doing in these parts of the cave?|Fetch me a few fish, won't you? Oohohohoho->end_KNOT}
+{Ohohohohoho!|Fetch me a few fish, won't you? Oohohohoho->end_KNOT}
 
-Ohohohoohoooh, believe me, I am here just looking for the fishiest of fishies that lurk in these caves so I can make a totally not weird delicacy.
+ Monsieur, what might you be doing in these parts of the cave?
 
-I would be willing to go out of this place if you help me get those pesky <i>poisson.<i>
+Ohohohoohoooh, believe me, I am here just looking for the fishiest of fishies that lurk in these caves.
+
+Behind me, across this bridge, is an entryway to the deeper parts. But alas! I need the fish here, so before going, you will do that for me. Ohoohoh.
 
 *[next]->end_KNOT
 
 ===smallDude===
-<i>Calls you over.
+<i>He casts a glance behind him.
 
-{Yoooo, like, dude, that lady back there is tooooootally cray.|Insane, bruh... insane...->end_KNOT}
+{That lady behind me... she's driving me nuts..|She's insane, dude... insane...->end_KNOT}
 
-I saw her watching ona those TOP TEN FISH IN THE DEEP video... *Literal chillzzzz dudzzz*
+I saw her watching one of those TOP TEN FISH THEY DON'T TELL YOU ABOUT videos... 
 
-Trust bro, she's totes got a few screws loose.
+She's got a few screws loose.
 
 *[next]->end_KNOT
 
@@ -130,16 +131,15 @@ Trust bro, she's totes got a few screws loose.
 
 {THE ONE FROM THE VIDEO I SAW IT IN ALL ITS WHISKERED GLORY|I NEED IT I NEED IT I NEED IT I NEED IT->end_KNOT}
 
-THE DOTS CONNECT THE STRINGS ATTACH ONE FISH TWO FISH THREE FISH FOUR I HAVE FIVE FISH IN MY STORE.
+THE DOTS CONNECT THE STRINGS ATTACH. ONE FISH TWO FISH THREE FISH FOUR. YOU MUST GO FISH AT THE SHORE.
 
-SIX FISH SEVEN FISH EIGHT FISH NINE I KNOW THE MOMENT I SEE IT WILL BE JUST DIVINE.
+SIX FISH SEVEN FISH EIGHT FISH NINE. WHAT I SEE WILL BE DIVINE.
 
 <i>She starts mumbling and you cannot understand her.
 
 *[next]->end_KNOT
 
 ===end_KNOT===
-
 ->END
     
 
