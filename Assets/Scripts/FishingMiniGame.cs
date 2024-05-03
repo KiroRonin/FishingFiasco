@@ -50,7 +50,8 @@ public class FishingMiniGame : MonoBehaviour
     public Animator FishingReel;
 
     
-    public AudioSource catchingFish;
+    public AudioSource FishCaught;
+    
 
 
 
@@ -63,13 +64,13 @@ public class FishingMiniGame : MonoBehaviour
     //{
     //    playerinputs.enabled = false;   
     //}
-
+    
     private void Start()
     {
         failtime = FishingSystem.Instance.fish.failtime;
         hookprogressloss = FishingSystem.Instance.fish.hookprogressloss;
         timerMultiplier = FishingSystem.Instance.fish.timerMultiplier;
-
+        FishCaught.enabled = false;
 
     }
 
@@ -171,7 +172,7 @@ public class FishingMiniGame : MonoBehaviour
 
     public void Win()
     {
-        
+        FishCaught.enabled = true; FishCaught.Play();
         fishingrod.isCasted = false;
         fishingrod.wonminigame = true;
         Debug.Log("YOU CAUGHT A " + FishingSystem.Instance.fish.fishName);
@@ -201,7 +202,7 @@ public class FishingMiniGame : MonoBehaviour
         fishingrod.playerFPC.enabled = true;
         fishingrod.playerFPC.lockCam = false;
 
-        catchingFish.Play();
+        
 
 
     }

@@ -32,7 +32,10 @@ public class FishingSystem : MonoBehaviour
     public FishingRod fishingRod;
 
     private string scenename;
-    
+
+    public bool fishcaught;
+
+
 
     private void Awake()
     {
@@ -55,11 +58,17 @@ public class FishingSystem : MonoBehaviour
     public void StartFishing(WaterSource watersource)
     {
         StartCoroutine(FishingCoroutine(watersource));
+        fishcaught = true;
     }
 
     IEnumerator FishingCoroutine(WaterSource watersource)
     {
+        //while (!TeachMinigame.Instance.reelingTutEnd)
+        //{
+        //    yield return null;
+        //}
         yield return new WaitForEndOfFrame();
+        
 
 
         fish = CalculateBite(watersource);

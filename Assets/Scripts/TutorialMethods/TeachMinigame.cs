@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 
 public class TeachMinigame : MonoBehaviour
 {
+    public static TeachMinigame Instance { get; set; }
     [SerializeField] private CharacterController Player;
     [SerializeField] private FirstPersonController PlayerFPC;
     [SerializeField] private GameObject PlayerObject;
@@ -39,11 +40,25 @@ public class TeachMinigame : MonoBehaviour
 
     public bool colliderEnter;
 
+    public bool reelingTutEnd = false;
+
     //public GameObject fadeCanvas;
     //public float fadeAlpha;
     //public Color fadeColor;
     //public float fadeSpeed = 5f;
     public GameObject instruction;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start() {
         //var trans = fadeCanvas.GetComponent<UnityEngine.UI.Image>();
@@ -116,16 +131,48 @@ public class TeachMinigame : MonoBehaviour
         {
             instruction.SetActive(true);
             colliderEnter = false;
+            StartCoroutine(FishingTutorial());
             PlayerObject.transform.rotation = fishTutorialPosition.transform.rotation;
             print("current pos: " + PlayerObject.transform.position);
             PlayerObject.transform.position = fishTutorialPosition.transform.position;
             //PlayerObject.transform.position = new Vector3(-36.55f, -1.85f, 35.28f);
             print("player teleported from " + fishTutorialPosition.transform.position + "to " + PlayerObject.transform.position);
 
-            StartCoroutine(FishingTutorial());
-
         }
+
+        //NEEDS FIXING
+        //bool firstfishcaught = false;
+        //if (FishingSystem.Instance.fishcaught && !firstfishcaught)
+        //{
+        //    firstfishcaught = true;
+        //    StartCoroutine(ReelingTut());
+        //}
     }
+
+    //IEnumerator ReelingTut()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    var tutorial = "BillyFirstReeling";
+    //    var knot = DiaManager.instance.currentKnot;
+    //    knot = tutorial;
+    //    DiaManager.instance.canvasActivated = true;
+    //    DiaManager.instance.story.ChoosePathString(knot);
+    //    DiaManager.instance.currentText = DiaManager.instance.loadStoryChunk();
+    //    DiaManager.instance.dialogueText.text = DiaManager.instance.currentText;
+    //    DiaManager.instance.dialogueCanvas.SetActive(true);
+        
+    //    while (DiaManager.instance.canvasActivated)
+    //    {
+    //        yield return null;
+    //    }
+    //    yield return new WaitForEndOfFrame();
+    //    print("REELING TUT ENDED");
+        
+    //    reelingTutEnd = true;
+    //    Player.enabled = true;
+    //    PlayerFPC.lockCam = false;
+    //    StopAllCoroutines();
+    //}
 
     IEnumerator FishingTutorial()
     {
@@ -146,6 +193,9 @@ public class TeachMinigame : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Player.enabled = true;
         PlayerFPC.lockCam = false;
+
+
+
     }
 
     public void startTutorial()

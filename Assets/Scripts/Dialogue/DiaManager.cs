@@ -57,7 +57,7 @@ public class DiaManager : MonoBehaviour
         }
         story = new Story(inkJSON.text);
         sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
-        
+
 
 
     }
@@ -81,7 +81,7 @@ public class DiaManager : MonoBehaviour
 
     }
 
-    
+
 
     void OnTriggerEnter(Collider collision)
     {
@@ -215,12 +215,12 @@ public class DiaManager : MonoBehaviour
     {
         if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false && tradeActive == false)
         {
-            
+
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
-            
+
             interactUI.SetActive(false);
-            
+
         }
 
 
@@ -242,12 +242,12 @@ public class DiaManager : MonoBehaviour
 
     private void Playercontrol()
     {
-        if(canvasActivated == true)
+        if (canvasActivated == true || tradeActive)
         {
             PlayerFPC.lockCam = true;
             player.enabled = false;
         }
-        else if (canvasActivated == false)
+        else if (canvasActivated == false || !tradeActive)
         {
             PlayerFPC.lockCam = false;
             player.enabled = true;
