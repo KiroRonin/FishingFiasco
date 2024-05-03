@@ -68,6 +68,7 @@ public class TeachMinigame : MonoBehaviour
         {
             wasdstarterkeys.SetActive(false);
             StartCoroutine(Tutorial());
+            UnityEngine.Cursor.visible = false;
         }
     }
 
