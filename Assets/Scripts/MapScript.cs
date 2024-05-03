@@ -11,6 +11,7 @@ public class MapScript : MonoBehaviour
     [SerializeField] private StarterAssetsInputs playerInput;
     [SerializeField] private CharacterController Player;
     public SellManager SellManager;
+    public Animator fadebl;
 
 
     public string nextScene;
@@ -50,7 +51,7 @@ public class MapScript : MonoBehaviour
         //{
         //    FishingSystem.Instance.Fadebl.SetTrigger("FADEBL");
         //}
-        GameManager.Instance.Fadebl.SetTrigger("FADEBL");
+        fadebl.SetTrigger("FADEBL");
         yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(nextScene);
         //yield return new WaitForEndOfFrame();

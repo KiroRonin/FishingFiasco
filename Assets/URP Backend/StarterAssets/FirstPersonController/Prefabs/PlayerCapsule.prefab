@@ -1411,6 +1411,7 @@ MonoBehaviour:
   wonminigame: 0
   OnFishingDock: 0
   downrange: 1.2
+  castingIn: {fileID: 0}
 --- !u!1 &884107640400950147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,7 +3142,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2932402634609718864
 MonoBehaviour:
@@ -3270,7 +3271,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -37868,38 +37869,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &3158320752893216381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2487504569741500364}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2487504569741500364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3158320752893216381}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.00000008940697, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7404777917079286237}
-  m_Father: {fileID: 6880098674567573199}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3186142798202669842
 GameObject:
   m_ObjectHideFlags: 0
@@ -38338,7 +38307,7 @@ RectTransform:
   - {fileID: 1981269354110457952}
   - {fileID: 8356281228307617097}
   - {fileID: 8449291814704057618}
-  m_Father: {fileID: 2487504569741500364}
+  m_Father: {fileID: 6880098674567573199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -38490,7 +38459,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &6074866496654441452
 MonoBehaviour:
@@ -39837,7 +39806,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &2818298636370427710
 MonoBehaviour:
@@ -39911,6 +39880,7 @@ MonoBehaviour:
   inventoryCount: 0
   FishAnimator: {fileID: 4117368121763360231}
   FishingReel: {fileID: 8030801240853152771}
+  catchingFish: {fileID: 0}
 --- !u!1 &4751078846144037184
 GameObject:
   m_ObjectHideFlags: 0
@@ -84055,6 +84025,7 @@ MonoBehaviour:
   displayTradeInv: {fileID: 6212088367851975729}
   player: {fileID: 8616685848737228382}
   starterAssetsInputs: {fileID: 5420857361349278248}
+  PlayerFPC: {fileID: 8616685848737228371}
 --- !u!114 &5315813455640701813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84275,7 +84246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2487504569741500364}
+  - {fileID: 7404777917079286237}
   - {fileID: 691506524076857303}
   - {fileID: 8599589268408161469}
   - {fileID: 1491986670742729567}
@@ -84347,7 +84318,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6226378472334199769
 MonoBehaviour:

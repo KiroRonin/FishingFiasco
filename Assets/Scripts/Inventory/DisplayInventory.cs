@@ -11,7 +11,7 @@ public class DisplayInventory : MonoBehaviour
     public InventoryObject inventory;
     public GameObject inventoryDisplay;
     public GameObject inventoryDisplayTrade;
-    public GameObject trashButton;
+    //public GameObject trashButton;
 
     public SellManager sellManager;
 
@@ -31,7 +31,7 @@ public class DisplayInventory : MonoBehaviour
             Debug.Log("trading player inv");
         }
         print(fishDisplayed.Count);
-        trashButton.GetComponent<Button>().onClick.AddListener(()=>sellManager.trashFish());
+        //trashButton.GetComponent<Button>().onClick.AddListener(()=>sellManager.trashFish());
     }
 
     void OnDisable() 

@@ -17,6 +17,13 @@ Follow me.
 
 *[next]->end_KNOT
 
+===BillyFirstFishing===
+Try it yourself!
+
+Try it!
+
+*[next]->end_KNOT
+
 ===BOOK_TAVERN===
 start
 
