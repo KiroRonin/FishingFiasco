@@ -23,6 +23,7 @@ public class DisplayTradeInventory : MonoBehaviour
     {
         sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
         CreateDisplay();
+        tradeInventoryDisplay = this.gameObject;
     }
 
     void OnDisable() 
@@ -77,6 +78,7 @@ public class DisplayTradeInventory : MonoBehaviour
                 var display = Instantiate(tradeInventory.tradeContainer[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
                 display.transform.SetParent(slot, true);
+
                 display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
                 display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());

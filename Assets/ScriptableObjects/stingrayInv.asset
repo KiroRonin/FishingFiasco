@@ -21,4 +21,4 @@ MonoBehaviour:
     fullAmount: 3
   - fish: {fileID: 11400000, guid: d85d06615e98b46c58868189fcff2f0b, type: 2}
     currentAmount: 0
-    fullAmount: 2
+    fullAmount: 1

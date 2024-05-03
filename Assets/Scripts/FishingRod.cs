@@ -6,6 +6,7 @@ using TMPro;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class FishingRod : MonoBehaviour
 {
     public FirstPersonController playerFPC;
@@ -41,6 +42,9 @@ public class FishingRod : MonoBehaviour
     public GameObject fishcaughtanimator;
 
     private GameObject FishCaught;
+    public GameObject fishBack;
+    public GameObject fishBackImage;
+    public GameObject crosshair;
 
     public bool wonminigame = false;
 
@@ -49,6 +53,7 @@ public class FishingRod : MonoBehaviour
     public float downrange;
 
     public AudioSource castingIn;
+    
     
 
     private void Start()
@@ -264,10 +269,12 @@ public class FishingRod : MonoBehaviour
 
     public void Winfish()
     {
-        fishcaughtobject = FishingSystem.Instance.fish.modelprefab  ;
+        fishcaughtobject = FishingSystem.Instance.fish.modelprefab;
         FishCaught = Instantiate(fishcaughtobject, new Vector3(0, 0, 1), Quaternion.identity);
         FishCaught.AddComponent<FishRotation>();
+        //fishBack = Instantiate(fishBackImage, new Vector3(0, 0, 1.5f), Quaternion.identity);
         Debug.Log("fishcaught instantiated");
+        crosshair.GetComponent<UnityEngine.UI.Image>().enabled = false;
         StartCoroutine(KillFishInstance());
        
 
@@ -276,8 +283,13 @@ public class FishingRod : MonoBehaviour
     IEnumerator KillFishInstance()
     {
         FishCaught.transform.SetParent(fishcaughtanimator.transform, false);
-        yield return new WaitForSeconds(3f);
+        //fishBack.transform.SetParent(fishcaughtanimator.transform, false);
+        yield return new WaitForSeconds(2.2f);
+        crosshair.GetComponent<UnityEngine.UI.Image>().enabled = true;
+        yield return new WaitForSeconds(0.8f);
         Destroy(FishCaught);
+        //Destroy(fishBack);
+        
     }
 
 

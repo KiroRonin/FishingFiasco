@@ -15,10 +15,10 @@ MonoBehaviour:
   tradeContainer:
   - fish: {fileID: 11400000, guid: 187406d9264874e9fb8cf5cce98c1069, type: 2}
     currentAmount: 0
-    fullAmount: 5
+    fullAmount: 3
   - fish: {fileID: 11400000, guid: 5daeb966b06a84b8d8f076a51af37fbd, type: 2}
     currentAmount: 0
-    fullAmount: 5
+    fullAmount: 2
   - fish: {fileID: 11400000, guid: b4597172594634b029a26af65438ea82, type: 2}
     currentAmount: 0
-    fullAmount: 5
+    fullAmount: 3
