@@ -17,6 +17,17 @@ Follow me.
 
 *[next]->end_KNOT
 
+===BillyFirstFishing===
+
+Try it yourself!
+
+*[next]->end_KNOT
+
+===BillyFirstReeling===
+Look! A fish is rugging on the rope! use the RMB to get it!
+
+*[next]->end_KNOT
+
 ===BOOK_TAVERN===
 start
 

@@ -103,7 +103,7 @@ public class UIManagement : MonoBehaviour
     private void OnInventory(){
         if(playerInput.inventory && pressedOnceInv == false){
             
-            if (!inventoryActivated && !indexActivated && !pauseActivated){
+            if (!inventoryActivated && !indexActivated && !pauseActivated && !DiaManager.instance.canvasActivated && !DiaManager.instance.tradeActive){
                 PlayerDisable();
                 InventoryMenu.SetActive(true);
                 inventoryActivated = true;
@@ -136,7 +136,8 @@ public class UIManagement : MonoBehaviour
     //INDEX MENU CODE
     private void OnIndex(){
         if(playerInput.index && pressedOnceInd == false){
-            if (!indexActivated && !inventoryActivated && !pauseActivated){
+            if (!indexActivated && !inventoryActivated && !pauseActivated && !DiaManager.instance.canvasActivated && !DiaManager.instance.tradeActive)
+            {
                 PlayerDisable();
                 
 
@@ -168,7 +169,7 @@ public class UIManagement : MonoBehaviour
     //PAUSE MENU CODE
     private void OnPause(){
         if(playerInput.pause && pressedOncePause == false){
-            if (!pauseActivated && !inventoryActivated && !indexActivated){
+            if (!pauseActivated){
                 PlayerDisable();
                 
 

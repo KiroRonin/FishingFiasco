@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
@@ -42,6 +43,7 @@ public class DiaManager : MonoBehaviour
 
     [SerializeField] private CharacterController player;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+    [SerializeField] private FirstPersonController PlayerFPC;
     public static DiaManager instance;
 
 
@@ -57,6 +59,7 @@ public class DiaManager : MonoBehaviour
         sellManager = GameObject.Find("SellManager").GetComponent<SellManager>();
 
 
+
     }
 
 
@@ -65,6 +68,7 @@ public class DiaManager : MonoBehaviour
         canvasState();
         chooseStoryChoice();
         tradeCanvasState();
+        Playercontrol();
 
         if (fillText == true)
         {
@@ -76,6 +80,8 @@ public class DiaManager : MonoBehaviour
         }
 
     }
+
+
 
     void OnTriggerEnter(Collider collision)
     {
@@ -209,10 +215,16 @@ public class DiaManager : MonoBehaviour
     {
         if (starterAssetsInputs.interact && playerInRange == true && canvasActivated == false && interactPressed == false && tradeActive == false)
         {
+
             canvasActivated = true;
             dialogueCanvas.SetActive(true);
+
             interactUI.SetActive(false);
+
         }
+
+
+
     }
 
     void tradeCanvasState()
@@ -225,6 +237,20 @@ public class DiaManager : MonoBehaviour
             playerEnable();
             interactPressed = true;
             interactUI.SetActive(true);
+        }
+    }
+
+    private void Playercontrol()
+    {
+        if (canvasActivated == true || tradeActive)
+        {
+            PlayerFPC.lockCam = true;
+            player.enabled = false;
+        }
+        else if (canvasActivated == false || !tradeActive)
+        {
+            PlayerFPC.lockCam = false;
+            player.enabled = true;
         }
     }
 

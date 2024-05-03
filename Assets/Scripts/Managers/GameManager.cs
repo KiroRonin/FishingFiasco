@@ -12,21 +12,21 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public string scenename;
     
-    public UIManagement PLayerUI;
-    public FirstPersonController PlayerFPC;
-    public GameObject FADEBL;
+    //public UIManagement PLayerUI;
+    //public FirstPersonController PlayerFPC;
+    //public GameObject FADEBL;
     public GameObject wasdstarterkeys;
-    public StarterAssetsInputs playermov;
-    public CharacterController playerchar;
+    //public StarterAssetsInputs playermov;
+    //public CharacterController playerchar;
 
-    public Animator maincamanim;
-    public Animator UIAnim;
-    public Animator FishRodAnim;
-    public Animator FOVslide;
-    public Animator Fadebl;
+    //public Animator maincamanim;
+    //public Animator UIAnim;
+    //public Animator FishRodAnim;
+    //public Animator FOVslide;
+    //public Animator Fadebl;
 
-    public bool introOver;
-    public bool introOccur = true;
+    //public bool introOver;
+    //public bool introOccur = true;
 
     public InventoryObject playerInventory;
     public DisplayInventory displayInventory;
@@ -47,26 +47,32 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        //displayInventory = GameObject.Find("InventoryBackground").GetComponent<DisplayInventory>();
+    }
     void Start()
     {
         
+        
         LoadData();
         resetInventory();
-        displayInventory.clearInvDisplay();
+        //displayInventory.clearInvDisplay();
+        FishStats.Instance.currentFishAmount = 0;
         print(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
-        scenename = SceneManager.GetActiveScene().name;
+        //scenename = SceneManager.GetActiveScene().name;
 
 
         if(scenename == "Tavern")
         {
             wasdstarterkeys.SetActive(false);
 
-            StartCoroutine(Tutorial());
-        }
+        //    StartCoroutine(Tutorial());
+        //}
 
-        if (scenename == "Coral" || scenename == "Cave" || scenename == "Deep")
-        {
-           FADEBL.SetActive(true);
+        //if (scenename == "Coral" || scenename == "Cave" || scenename == "Deep")
+        //{
+        //   FADEBL.SetActive(true);
         }
     }
 
@@ -79,48 +85,48 @@ public class GameManager : MonoBehaviour
     //    }
     //}
 
-    IEnumerator Tutorial()
-    {
-        introOver = false;
-        maincamanim.enabled = true;
-        FADEBL.SetActive(true);
-        PlayerFPC.lockCam = true;
-        PlayerFPC.enabled = false;
-        maincamanim.SetTrigger("TutStart");
-        FishRodAnim.SetTrigger("NewTavernScene");
-        UIAnim.SetTrigger("NewTavern");
-        FOVslide.SetTrigger("NewTavern");
-        yield return new WaitForSeconds(5f);
-        introOver = false;
-        introOccur = false;
-        print("tutdisabled");
-        FishRodAnim.SetTrigger("FishRodStart");
-        FOVslide.SetTrigger("ZoomBack");
-        UIAnim.SetTrigger("ZoomInTut");
+    //IEnumerator Tutorial()
+    //{
+    //    introOver = false;
+    //    maincamanim.enabled = true;
+    //    FADEBL.SetActive(true);
+    //    PlayerFPC.lockCam = true;
+    //    PlayerFPC.enabled = false;
+    //    maincamanim.SetTrigger("TutStart");
+    //    FishRodAnim.SetTrigger("NewTavernScene");
+    //    UIAnim.SetTrigger("NewTavern");
+    //    FOVslide.SetTrigger("NewTavern");
+    //    yield return new WaitForSeconds(5f);
+    //    introOver = false;
+    //    introOccur = false;
+    //    print("tutdisabled");
+    //    FishRodAnim.SetTrigger("FishRodStart");
+    //    FOVslide.SetTrigger("ZoomBack");
+    //    UIAnim.SetTrigger("ZoomInTut");
 
-        var tutorial = "BillyIntroduction";
-        var knot = DiaManager.instance.currentKnot;
-        knot = tutorial;
+    //    var tutorial = "BillyIntroduction";
+    //    var knot = DiaManager.instance.currentKnot;
+    //    knot = tutorial;
         
-        DiaManager.instance.canvasActivated = true;
+    //    DiaManager.instance.canvasActivated = true;
 
-        DiaManager.instance.story.ChoosePathString(knot);
-        DiaManager.instance.currentText = DiaManager.instance.loadStoryChunk();
-        DiaManager.instance.dialogueText.text = DiaManager.instance.currentText;
-        DiaManager.instance.dialogueCanvas.SetActive(true);
+    //    DiaManager.instance.story.ChoosePathString(knot);
+    //    DiaManager.instance.currentText = DiaManager.instance.loadStoryChunk();
+    //    DiaManager.instance.dialogueText.text = DiaManager.instance.currentText;
+    //    DiaManager.instance.dialogueCanvas.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+    //    yield return new WaitForSeconds(2f);
 
-        maincamanim.enabled = false;
-        PlayerFPC.lockCam = false;
-        PlayerFPC.enabled = true;
-        playerchar.enabled = true;
+    //    maincamanim.enabled = false;
+    //    PlayerFPC.lockCam = false;
+    //    PlayerFPC.enabled = true;
+    //    playerchar.enabled = true;
 
-        yield return new WaitForSeconds(1f);
-        wasdstarterkeys.SetActive(true);
+    //    yield return new WaitForSeconds(1f);
+    //    wasdstarterkeys.SetActive(true);
         
 
-    }
+    //}
 
 
 
