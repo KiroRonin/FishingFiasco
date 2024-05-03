@@ -105,20 +105,21 @@ public class SellManager : MonoBehaviour
                 
                 FishStats.Instance.currentFishAmount -= currentFishAmount-empty;
 
-                displayInventory.clearInvDisplayTrade();
+                if (empty != 0){
+                    displayInventory.clearInvDisplayTrade();
                 
-                for (int i = 0; i < playerInventory.Container.Count; i++)
-                {
-                    checkEmpty(i);
-                }
+                    for (int i = 0; i < playerInventory.Container.Count; i++)
+                    {
+                        checkEmpty(i);
+                    }
 
-                displayTradeInventory.UpdateDisplay();
-                displayInventory.UpdateDisplayTrade();
-                print("trade success");
-                checkTradeFinished();
-                tradeCompletionCheck.Instance.checkCompletion();
+                    displayTradeInventory.UpdateDisplay();
+                    displayInventory.UpdateDisplayTrade();
+                    print("trade success");
+                    checkTradeFinished();
+                    tradeCompletionCheck.Instance.checkCompletion();
+                    }
             }
-        
     }
 
     public void trashFish()

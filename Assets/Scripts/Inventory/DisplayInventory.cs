@@ -55,6 +55,7 @@ public class DisplayInventory : MonoBehaviour
             var display = Instantiate(inventory.Container[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
             display.transform.SetParent(slot, true);
+            //display.transform.position = Vector3.zero;
 
             display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
@@ -62,10 +63,12 @@ public class DisplayInventory : MonoBehaviour
 
             fishDisplayed.Add(inventory.Container[i], display);
 
+            /*
             if (DiaManager.instance.tradeActive == true){
                 print("trade inventory active");
                 display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             }
+            */
     
         }
     }
@@ -87,6 +90,7 @@ public class DisplayInventory : MonoBehaviour
                 var display = Instantiate(inventory.Container[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
                 display.transform.SetParent(slot, true);
+                //display.transform.position = Vector3.zero;
 
                 display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 
@@ -94,10 +98,12 @@ public class DisplayInventory : MonoBehaviour
 
                 fishDisplayed.Add(inventory.Container[i], display);
 
+                /*
                 if (DiaManager.instance.tradeActive == true){
                     print("trade inventory active");
                     display.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 }
+                */
     
             }
             
@@ -120,6 +126,7 @@ public class DisplayInventory : MonoBehaviour
                 var display = Instantiate(inventory.Container[i].fish.prefabDisplay, slot.transform.position, Quaternion.identity, transform);
 
                 display.transform.SetParent(slot, true);
+                //display.transform.position = Vector3.zero;
 
                 display.GetComponent<Button>().onClick.AddListener(()=>sellManager.clickCurrentFish());
 

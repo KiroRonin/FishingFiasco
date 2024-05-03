@@ -20,7 +20,7 @@ Follow me.
 ===BOOK_TAVERN===
 start
 
-you open a book. it has pages
+You open a book on the different 
 
 I WANT TO BELIEVE
 
@@ -82,7 +82,7 @@ stinger rayed
 ===Blobfish===
 <i>just very sad. 
 
-{ohhhh, hiii :(|pretty please go talk to him he's really scary :((->end_KNOT}
+{ohhhh, hiii ;( |pretty please go talk to him he's really scary :((->end_KNOT}
 
 i have nothing nowwwwww :(
 
